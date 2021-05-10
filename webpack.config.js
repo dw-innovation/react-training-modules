@@ -4,7 +4,7 @@
   module.exports = {
     entry: {
        index: './src/index.ts',
-       examples: './src/examples.ts',
+       examples: './src/examples.tsx',
     },
     devtool: 'inline-source-map',
     resolve: {
@@ -15,8 +15,7 @@
         { test: /\.ts$/, loader: "ts-loader" },
         { test: /\.tsx?$/,
           use: 'ts-loader',
-          exclude: /node_modules/,
-        },
+          exclude: /node_modules/, },
       ]
     },
     plugins: [
