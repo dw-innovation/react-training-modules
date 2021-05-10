@@ -1,0 +1,31 @@
+{
+    // "compilerOptions": {
+    //     "target": "es6",
+    //     "noImplicitAny": true,
+    //     "removeComments": true,
+    //     "preserveConstEnums": true,
+    //     "esModuleInterop": true,
+    //     "moduleResolution": "node",
+    //     "outDir": "./lib",
+    //     "sourceMap": true
+    // },
+    "compilerOptions": {
+        "outDir": "./_dist/",
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "module": "es6",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "moduleResolution": "node",
+    },
+    "paths": ["./src/index.ts"],
+    "include": [
+        "./src/**/*",
+        "repl.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ]
+}

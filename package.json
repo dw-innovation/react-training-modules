@@ -2,9 +2,10 @@
   "name": "dw-training-modules",
   "version": "1.0.0",
   "description": "Hello, world",
-  "main": "index.js",
+  "main": "_dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack serve --config webpack.config.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/DW-ReCo/react-training-modules/issues"
   },
-  "homepage": "https://github.com/DW-ReCo/react-training-modules#readme"
+  "homepage": "https://github.com/DW-ReCo/react-training-modules#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "ts-loader": "^9.1.2",
+    "typescript": "^4.2.4",
+    "webpack": "^5.36.2",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  }
 }
