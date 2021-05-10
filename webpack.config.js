@@ -26,6 +26,7 @@
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       port: 9002,
+      hot: true,
     },
     output: {
       filename: '[name].bundle.js',

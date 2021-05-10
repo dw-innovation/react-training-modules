@@ -3,7 +3,42 @@ import React from 'react';
 // https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories
 import * as ReactDOM from 'react-dom';
 
-const thing = (<div>helooo</div>)
+import FindInImage from './components/find-in-image';
+
+const styles = {
+  wrapper: {
+    backgroundColor: 'blue',
+  },
+  examples: {
+    backgroundColor: 'white',
+    margin: '0 auto',
+    maxWidth: '30rem',
+  }
+}
+
+// @ts-ignore
+const Wrapper = ({ children }) => (
+  <div style={styles.wrapper}>
+    {children}
+  </div>
+)
+
+// @ts-ignore
+const Content = ({ children }) => (
+  <div style={styles.examples}>
+    {children}
+  </div>
+)
+
+const thing = (
+  <Wrapper>
+    <Content>
+      <h1>Training Module Examples</h1>
+      <FindInImage />
+    </Content>
+  </Wrapper>
+)
+
 
 const mount = () => {
   const element = document.createElement('div');
@@ -14,3 +49,12 @@ const mount = () => {
 }
 
 mount();
+
+// @ts-ignore
+ if (module.hot) {
+// @ts-ignore
+   module.hot.accept('./examples.tsx', function() {
+     console.log('Accepting the updated printMe module!');
+     mount();
+   })
+ }
