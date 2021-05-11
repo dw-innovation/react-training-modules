@@ -1,4 +1,5 @@
 import React from 'react';
+import * as images from "../../resources/images/index"
 
 type Props = {
   award?: (points: number, msg?: string) => void;
@@ -8,12 +9,20 @@ type Props = {
 }
 
 const Component
+// the function signature/types:
 : (p: Props) => React.ReactElement
+// the function itself
 = ({ award = () => {},
      penalize = () => {},
      finish = () => {},
      fail = () => {} }) => {
-      return (<div />);
+       const rectangles = [];
+       const image = images.goerlitzer;
+       return (
+         <div>
+           <img src={image} />
+         </div>
+       );
 }
 
 export default Component;
