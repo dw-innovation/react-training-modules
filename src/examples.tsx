@@ -7,7 +7,7 @@ import FindInImage from './components/find-in-image';
 
 const styles = {
   wrapper: {
-    backgroundColor: 'blue',
+    backgroundColor: 'lightgrey',
   },
   examples: {
     backgroundColor: 'white',

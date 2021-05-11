@@ -14,7 +14,7 @@
         // at all
         "outDir": "./_dist/",
         // dissallow var: any
-        "noImplicitAny": true,
+        // "noImplicitAny": true,
         // include the ts->js source map
         "sourceMap": true,
         // this is needed for react default imports to work:
