@@ -29,7 +29,6 @@ const svgProps = {
   xmlnsXlink: "http://www.w3.org/1999/xlink",
 }
 
-
 const Shapes = ({ successClick, shapes }) =>
   shapes.map(s =>
     <a href="#" onClick={successClick}>
@@ -50,8 +49,6 @@ const ClickImage = ({ image, shapes, successClick, failedClick }) => (
     <Shapes successClick={successClick} shapes={shapes} />
   </svg>
   )
-
-
 
 const Component
 // the function signature/types:
