@@ -3,7 +3,7 @@ import React from 'react';
 // https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories
 import * as ReactDOM from 'react-dom';
 
-import FindInImage from './components/find-in-image';
+import GoerlitzerExample from './components/find-in-image/example-goerli';
 
 const styles = {
   wrapper: {
@@ -34,7 +34,7 @@ const thing = (
   <Wrapper>
     <Content>
       <h1>Training Module Examples</h1>
-      <FindInImage />
+      <GoerlitzerExample />
     </Content>
   </Wrapper>
 )
