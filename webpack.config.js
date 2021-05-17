@@ -4,7 +4,7 @@
   module.exports = {
     entry: {
        index: './src/index.ts',
-       examples: './src/examples.tsx',
+       digger: './src/digger-modules/index.tsx',
     },
     devtool: 'inline-source-map',
     resolve: {
@@ -16,6 +16,20 @@
         { test: /\.tsx?$/,
           use: 'ts-loader',
           exclude: /node_modules/, },
+        /*
+         * the following config options base64 encode all included images, and
+         *   put them inline into the generated html.
+         *     why? because: I want the generated js to be as easily included anywhere as possible,
+         *       as a single file bundle, so you don't have to worry about where to host the images
+         */
+        { test: /\.(png|jpg|gif)$/i,
+          use: [
+            { loader: 'url-loader',
+              options: {
+                // the limit, for some reason, is 'true' when the file is allowed
+                // to be any size.  'false' will default to file-loader after a certain
+                // filesize, instead of base64 encoding
+                limit: true, }, }, ], },
       ]
     },
     plugins: [
