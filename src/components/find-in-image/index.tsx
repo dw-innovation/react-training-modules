@@ -1,8 +1,9 @@
 import React from 'react';
-import { isEqual, pipe, size } from 'lodash/fp';
+import { isEqual, pipe, size, take } from 'lodash/fp';
 import * as types from './types';
 import {Data, Shape, Coords} from './types';
 import {k} from './types';
+import { styles } from './styles';
 import * as componentTypes from '../../types';
 import { ClickImage } from './svg-components';
 
@@ -46,16 +47,28 @@ const Component
            setShapes(newShapes) // update the state
          }
 
-       const addMessage = msg => setMessages([...messages, msg])
-       const Message = m => <li>{m}</li>;
-       const Messages = <ul>{messages.map(Message)}</ul>;
+       const addMessage = msg => setMessages([msg, ...messages])
+
+       const Message = m => <li style={styles.message}>{m}</li>;
+       const FirstMessage = m => <li style={{...styles.message, ...styles.firstMessage}}>{m}</li>;
+
+       const Messages = () => {
+         const [head, ...tail] = messages;
+         // ... CSSProperties does not like "absolute" for some reason
+         // @ts-ignore
+         return <ul style={styles.messages}>
+                  {FirstMessage(head)}
+                  {take(10, tail.map(Message))}
+                </ul>
+         }
 
        const foundCount = size(types.onlyVisible(shapes));
        const totalCount = size(shapes);
 
        const clickFound =
          (s: Shape, c: Coords) =>
-           found(s)
+           { found(s);
+             addMessage(s.description); }
 
        const clickFailed =
          (c: Coords) =>
@@ -72,7 +85,7 @@ const Component
              shapes={shapes}
              successClick={clickFound}
              failedClick={clickFailed} />
-           {Messages}
+           {Messages()}
          </div>
        );
      }

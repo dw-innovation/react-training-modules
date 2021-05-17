@@ -13,6 +13,9 @@ import image from './resources/images/20-hints-goerli.jpg'
 //  - and then transform/translate them to the X/Y position you should see at the top of
 //   - the figma right hand column
 const data: types.Data = {
+  meta: {
+    description: "here is a description of the game!!!"
+  },
   image: {
     src: image,
     height: 1898,

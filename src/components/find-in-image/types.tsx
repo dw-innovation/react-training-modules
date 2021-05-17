@@ -17,7 +17,11 @@ export type ImageData = {
   width: number;
 }
 
-export type Data = { image: ImageData; shapes: Shape[]; }
+export type MetaData = {
+  description?: string;
+}
+
+export type Data = { meta: MetaData; image: ImageData; shapes: Shape[]; }
 
 export type Coords = { x: number; y: number }
 
