@@ -1,8 +1,8 @@
 import React from 'react';
-import { isEqual, pipe, size } from 'lodash/fp'
-import * as types from './types'
-import * as componentTypes from '../../types'
-import { ClickImage } from './svg-components'
+import { isEqual, pipe, size } from 'lodash/fp';
+import * as types from './types';
+import * as componentTypes from '../../types';
+import { ClickImage } from './svg-components';
 
 /*
  *   This component implements the api of the parent component, as
@@ -23,6 +23,7 @@ const Component
      data, }) => {
        //
        const [messages, setMessages] = React.useState(["welcome to the game"])
+       const [failedAttemts, setFailed] = React.useState(0)
 
        const [shapes, setShapes] = React.useState(data.shapes)
        //       shape equality is by the uniqueness of it's description and shape
@@ -47,7 +48,7 @@ const Component
        const Message = m => <li>{m}</li>;
        const Messages = <ul>{messages.map(Message)}</ul>;
 
-       const foundCount = size(types.onlyVisible(shapes));
+       const foundCount = size(shapes.filter(s => !!s.visible));
        const totalCount = size(shapes);
 
        const clickFound =
@@ -56,12 +57,14 @@ const Component
 
        const clickFailed =
          (c: types.Coords) =>
-           addMessage('failed a click!')
+           { addMessage('failed a click!');
+             setFailed(failedAttemts + 1); }
 
        return (
          <div>
            <h3>Find in Image excersize</h3>
            <h5>found: {foundCount}/{totalCount}</h5>
+           <h5>failed: {failedAttemts}</h5>
            <ClickImage
              image={data.image}
              shapes={shapes}
@@ -70,6 +73,6 @@ const Component
            {Messages}
          </div>
        );
-}
+     }
 
 export default Component;

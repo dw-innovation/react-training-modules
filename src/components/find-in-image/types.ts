@@ -7,21 +7,27 @@
  */
 export type Shape = {
   description: string;
-  shape: React.ReactElement;
   visible?: boolean; // not true is falsy
-};
+  shape: React.ReactElement;
+}
 
 export type ImageData = {
   src: string;
   height: number;
   width: number;
-};
+}
 
-export type Data = { image: ImageData; shapes: Shape[]; };
+export type Data = { image: ImageData; shapes: Shape[]; }
 
-export type Coords = { x: number; y: number };
+export type Coords = { x: number; y: number }
 
+// There is a super weird bug by, when you import one of the followint functions
+// in another file, you get an error that the types are not exported any more,
+// when you try to compile the ts
+//
+// so, DO NOT IMPORT
 export const isVisible = (s: Shape): boolean => !!s.visible;
 export const isNotVisible = (s: Shape): boolean => !s.visible;
 export const onlyVisible = (ss: Shape[]): Shape[] => ss.filter(isVisible);
 export const notVisible = (ss: Shape[]): Shape[] => ss.filter(isNotVisible);
+
