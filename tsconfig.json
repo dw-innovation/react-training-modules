@@ -17,6 +17,9 @@
         // "noImplicitAny": true,
         // include the ts->js source map
         "sourceMap": true,
+    // "emitDeclarationOnly": false,
+    // "declaration": true,
+
         // this is needed for react default imports to work:
         "allowSyntheticDefaultImports": true,
         // needed for jsx compilation
@@ -24,6 +27,7 @@
         // "jsx": "react",
         // other functions:
         "module": "es6",
+        // "module": "CommonJS",
         "target": "es5",
         "allowJs": true,
         "moduleResolution": "node",

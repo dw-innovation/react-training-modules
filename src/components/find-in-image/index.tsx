@@ -1,6 +1,7 @@
 import React from 'react';
 import { isEqual, pipe, size } from 'lodash/fp';
-import * as types from './types';
+import {Data, Shape, Coords} from './types';
+import {k} from './types';
 import * as componentTypes from '../../types';
 import { ClickImage } from './svg-components';
 
@@ -10,7 +11,7 @@ import { ClickImage } from './svg-components';
  */
 type Props =
   componentTypes.TrainingComponent
-  & { data: types.Data; }
+  & { data: Data; }
 
 const Component
 // the function signature/types:
@@ -34,7 +35,7 @@ const Component
        // with visible: true
        // annoying that js doesn't have nicer ways to do this
        const found =
-         (s: types.Shape) => {
+         (s: Shape) => {
            const newShapes =
              shapes
                .map(s2 =>
@@ -52,13 +53,16 @@ const Component
        const totalCount = size(shapes);
 
        const clickFound =
-         (s: types.Shape, c: types.Coords) =>
+         (s: Shape, c: Coords) =>
            found(s)
 
        const clickFailed =
-         (c: types.Coords) =>
+         (c: Coords) =>
            { addMessage('failed a click!');
              setFailed(failedAttemts + 1); }
+
+       console.log(k);
+
 
        return (
          <div>

@@ -30,4 +30,4 @@ export const isVisible = (s: Shape): boolean => !!s.visible;
 export const isNotVisible = (s: Shape): boolean => !s.visible;
 export const onlyVisible = (ss: Shape[]): Shape[] => ss.filter(isVisible);
 export const notVisible = (ss: Shape[]): Shape[] => ss.filter(isNotVisible);
-
+export const k = "kjsdksadjdsakjadsdsakjads";
