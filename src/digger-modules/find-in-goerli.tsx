@@ -1,6 +1,7 @@
 import React from 'react'
 import FindInImage from '../components/find-in-image'
 
+// typescript doesnt "get with" my webpack bundling (base64 override), so we will ignore the import
 // @ts-ignore
 import image from './resources/images/20-hints-goerli.jpg'
 

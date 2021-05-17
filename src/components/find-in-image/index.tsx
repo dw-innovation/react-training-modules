@@ -1,91 +1,16 @@
 import React from 'react';
-// import * as images from "../../resources/images/index"
+import { isEqual, pipe } from 'lodash/fp'
+import * as types from './types'
+import * as componentTypes from '../../types'
+import { ClickImage } from './svg-components'
 
-type Shape = {
-  description: string;
-  visible?: boolean; // not true is falsy
-  shape: React.ReactElement;
-}
-
-type ImageData = {
-  src: string;
-  height: number;
-  width: number;
-}
-
-type Data = { image: ImageData; shapes: Shape[]; }
-
-type Props = {
-  award?: (points: number, msg?: string) => void;
-  penalize?: (points: number, msg?: string) => void;
-  finish?: (points: number, msg?: string) => void;
-  fail?: (points: number, msg?: string) => void;
-  data: Data;
-}
-
-const svgProps = { version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" }
-
-const Shapes = ({ successClick, shapes }) =>
-  shapes.map(s =>
-    <a href="#" onClick={successClick}>
-      <g className="hover_group" opacity=".5">
-        {s.shape}
-      </g>
-    </a>
-  )
-
-const ClickImage = ({ image, shapes, successClick, failedClick }) => {
-  //
-  const svgRef = React.useRef(null);
-  const [markers, setMarkers] = React.useState([]);
-
-  /* return the relative coordinates of where you clicked in the svg,
-            assuming it's size has been changed by the browser window */
-  const coords = evt => {
-    const svg = svgRef.current // sometimes undefined, sometimes not
-    const pt = svg?.createSVGPoint();  // Created once for document
-    pt.x = evt.clientX;
-    pt.y = evt.clientY;
-    // The cursor point, translated into svg coordinates
-    var cursorpt = pt.matrixTransform(svg.getScreenCTM().inverse());
-    console.log("(" + cursorpt.x + ", " + cursorpt.y + ")");
-    return {
-      x: cursorpt.x,
-      y: cursorpt.y,
-    }
-  }
-
-  const failed = evt => {
-    evt.preventDefault();
-    const { x, y } = coords(evt);
-    setMarkers([...markers, { x, y, color: "red" }]);
-    failedClick(); // bounce up to parent
-  }
-  const succeeded = evt => {
-    evt.preventDefault();
-    const { x, y } = coords(evt);
-    setMarkers([...markers, { x, y, color: "green" }]);
-    successClick(); // bounce up to parent
-  }
-
-  return (
-    <svg
-      viewBox={`0 0 ${image.width} ${image.height}`}
-      ref={svgRef}
-      preserveAspectRatio="xMinYMin meet"
-      {...svgProps}
-    >
-      <a href="#" onClick={failed}>
-        <image width={image.width} height={image.height} href={image.src} />
-      </a>
-      <Shapes successClick={succeeded} shapes={shapes} />
-      {markers.map(m =>
-        <rect x={m.x} y={m.y} width="10" height="10" fill={m.color} />
-      )}
-    </svg>
-  )
-}
-
+/*
+ *   This component implements the api of the parent component, as
+ *      well as requiring it's own data
+ */
+type Props =
+  componentTypes.TrainingComponent
+  & { data: types.Data; }
 
 const Component
 // the function signature/types:
@@ -97,23 +22,48 @@ const Component
      fail = () => {},
      data, }) => {
        //
-       const [messages, setMessages] = React.useState(["welcome to the game"]);
+       const [messages, setMessages] = React.useState(["welcome to the game"])
 
-       const addMessage = msg => setMessages([msg, ...messages]);
+       const [shapes, setShapes] = React.useState(data.shapes)
+       //       shape equality is by the uniqueness of it's description and shape
+       // note, _isEqual(shapes[0], shapes[0]) -> true
+       //       _isEqual(shapes[0], shapes[1]) -> false
 
+       // given a shape, update that shape in our state
+       // with visible: true
+       // annoying that js doesn't have nicer ways to do this
+       const found =
+         (s: types.Shape) => {
+           const newShapes =
+             shapes
+               .map(s2 =>
+                 (isEqual(s, s2)) // if it's equal to the one we want
+                   ? {...s2, visible: true, } // return with visible true
+                   : s2) // otherwide leave it alone
+           setShapes(newShapes) // update the state
+         }
+
+       const addMessage = msg => setMessages([...messages, msg])
        const Message = m => <li>{m}</li>
        const Messages = <ul>{messages.map(Message)}</ul>
 
+       const clickFound =
+         (s: types.Shape, c: types.Coords) =>
+           found(s)
+
+       const clickFailed =
+         (c: types.Coords) =>
+           addMessage('failed a click!')
 
        return (
          <div>
            <h3>Find in Image excersize</h3>
-           {Messages}
            <ClickImage
              image={data.image}
-             shapes={data.shapes}
-             successClick={() => addMessage('clicked a box')}
-             failedClick={() => addMessage('failed!')} />
+             shapes={shapes}
+             successClick={clickFound}
+             failedClick={clickFailed} />
+           {Messages}
          </div>
        );
 }
