@@ -1,5 +1,6 @@
 import React from 'react'
 import FindInImage from '../components/find-in-image'
+import * as types from '../components/find-in-image/types'
 
 // typescript doesnt "get with" my webpack bundling (base64 override), so we will ignore the import
 // @ts-ignore
@@ -8,7 +9,7 @@ import image from './resources/images/20-hints-goerli.jpg'
 // currently, the visual representation of this data lives at:
 // https://www.figma.com/file/4JO8CeRkvDWflXGdE5y6uh/KID%2FDIGGER-training-frameworks?node-id=117%3A4416
 // see svg > example-goerli
-const data = {
+const data: types.Data = {
   image: {
     src: image,
     height: 1898,

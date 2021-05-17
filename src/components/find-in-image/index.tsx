@@ -1,5 +1,5 @@
 import React from 'react';
-import { isEqual, pipe } from 'lodash/fp'
+import { isEqual, pipe, size } from 'lodash/fp'
 import * as types from './types'
 import * as componentTypes from '../../types'
 import { ClickImage } from './svg-components'
@@ -44,8 +44,11 @@ const Component
          }
 
        const addMessage = msg => setMessages([...messages, msg])
-       const Message = m => <li>{m}</li>
-       const Messages = <ul>{messages.map(Message)}</ul>
+       const Message = m => <li>{m}</li>;
+       const Messages = <ul>{messages.map(Message)}</ul>;
+
+       const foundCount = size(types.onlyVisible(shapes));
+       const totalCount = size(shapes);
 
        const clickFound =
          (s: types.Shape, c: types.Coords) =>
@@ -58,6 +61,7 @@ const Component
        return (
          <div>
            <h3>Find in Image excersize</h3>
+           <h5>found: {foundCount}/{totalCount}</h5>
            <ClickImage
              image={data.image}
              shapes={shapes}

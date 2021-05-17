@@ -7,16 +7,21 @@
  */
 export type Shape = {
   description: string;
-  visible?: boolean; // not true is falsy
   shape: React.ReactElement;
-}
+  visible?: boolean; // not true is falsy
+};
 
 export type ImageData = {
   src: string;
   height: number;
   width: number;
-}
+};
 
-export type Data = { image: ImageData; shapes: Shape[]; }
+export type Data = { image: ImageData; shapes: Shape[]; };
 
-export type Coords = { x: number; y: number }
+export type Coords = { x: number; y: number };
+
+export const isVisible = (s: Shape): boolean => !!s.visible;
+export const isNotVisible = (s: Shape): boolean => !s.visible;
+export const onlyVisible = (ss: Shape[]): Shape[] => ss.filter(isVisible);
+export const notVisible = (ss: Shape[]): Shape[] => ss.filter(isNotVisible);
