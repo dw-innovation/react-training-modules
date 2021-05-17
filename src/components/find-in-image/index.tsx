@@ -1,5 +1,6 @@
 import React from 'react';
 import { isEqual, pipe, size } from 'lodash/fp';
+import * as types from './types';
 import {Data, Shape, Coords} from './types';
 import {k} from './types';
 import * as componentTypes from '../../types';
@@ -49,7 +50,7 @@ const Component
        const Message = m => <li>{m}</li>;
        const Messages = <ul>{messages.map(Message)}</ul>;
 
-       const foundCount = size(shapes.filter(s => !!s.visible));
+       const foundCount = size(types.onlyVisible(shapes));
        const totalCount = size(shapes);
 
        const clickFound =
@@ -61,14 +62,11 @@ const Component
            { addMessage('failed a click!');
              setFailed(failedAttemts + 1); }
 
-       console.log(k);
-
-
        return (
          <div>
            <h3>Find in Image excersize</h3>
            <h5>found: {foundCount}/{totalCount}</h5>
-           <h5>failed: {failedAttemts}</h5>
+           <h5>wrong clicks: {failedAttemts}</h5>
            <ClickImage
              image={data.image}
              shapes={shapes}
