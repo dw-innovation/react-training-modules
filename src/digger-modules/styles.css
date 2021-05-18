@@ -1,0 +1,30 @@
+.wrapper {}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.content {
+    backgroundColor: 'white';
+    margin: '0 auto';
+    maxWidth: '40rem';
+  }
+
+.message {
+    color: red;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-name: fadeIn;
+    animation-timing-function: linear;
+}
+
+.messages {
+}
+
+
+.removeButton {}

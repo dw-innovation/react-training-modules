@@ -19,6 +19,7 @@ export type ImageData = {
 
 export type MetaData = {
   description?: string;
+  title?: string;
 }
 
 export type Data = { meta: MetaData; image: ImageData; shapes: Shape[]; }

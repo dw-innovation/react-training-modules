@@ -1,13 +1,7 @@
-import React from 'react';
+import React from 'react'
 import * as types from './types'
+import * as styles from './styles'
 
-const styles = {
-  shape: {
-    fill: 'transparent',
-    stroke: 'yellow',
-    strokeWidth: 5,
-  }
-}
 
 // pull the ugly svg props out for now so we don't have to look at them later
 const svgProps = { version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" }
@@ -32,7 +26,8 @@ export const ClickImage = ({ image,
   const [markers, setMarkers] = React.useState([]);
 
   /* return the relative coordinates of where you clicked in the svg,
-            assuming it's size has been changed by the browser window */
+            assuming it's size has been changed by the browser window
+            ...most of this is copied from stackOverflow somewhere */
   const coords =
     (evt): types.Coords => {
       const svg = svgRef.current // sometimes undefined, sometimes not
@@ -48,27 +43,30 @@ export const ClickImage = ({ image,
     }
 
   const failed =
-    evt => {
-      evt.preventDefault();
-      const c = coords(evt)
-      const { x, y } = c
-      setMarkers([...markers, { x, y, color: "red" }]);
-      if (failedClick) failedClick(c); // bounce up to parent
-    }
+    evt => { evt.preventDefault();
+             const c = coords(evt)
+             const { x, y } = c
+             setMarkers([...markers, { x, y, color: "red" }]);
+             // bounce back up to parent
+             if (failedClick) failedClick(c); }
+
   const succeeded =
     (s: types.Shape) =>
-      evt => {
-        evt.preventDefault();
-        const c = coords(evt);
-        const { x, y } = c;
-        setMarkers([...markers, { x, y, color: "green" }]);
-        if (successClick) successClick(s, c); // bounce up to parent
-      }
+      evt => { evt.preventDefault();
+               const c = coords(evt);
+               const { x, y } = c;
+               setMarkers([...markers, { x, y, color: "green" }]);
+               if (successClick) successClick(s, c); }
 
     const Shape =
       (s: types.Shape) =>
-        <a href="#" onClick={succeeded(s)}>
-          <g className="shape" style={styles.shape} opacity={s.visible ? "1" : ".2"}>
+        <a href="#"
+           className="trainingmodulesClickableLink"
+           onClick={succeeded(s)}
+           style={styles.trainingmodulesClickableLink}>
+          <g className="trainingmodulesClickableElements"
+             style={styles.trainingmodulesClickableElements}
+             opacity={s.visible ? "1" : ".2"}>
             {s.shape}
           </g>
         </a>
@@ -82,7 +80,9 @@ export const ClickImage = ({ image,
       preserveAspectRatio="xMinYMin meet"
       {...svgProps /* include the svg props from up above */}
     >
-      <a href="#" onClick={failed}>
+      <a href="#"
+         onClick={failed}
+         className="trainingmodulesClickableImageMap">
         <image width={image.width}
                height={image.height}
                href={image.src} />

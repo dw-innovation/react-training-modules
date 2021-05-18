@@ -12,10 +12,21 @@
     },
     module: {
       rules: [
+        // compile and use typescript files
         { test: /\.ts$/, loader: "ts-loader" },
+        // don't forget the tsx files
         { test: /\.tsx?$/,
           use: 'ts-loader',
           exclude: /node_modules/, },
+        // do some complicated css module things
+        { test: /\.css$/i,
+          exclude: /node_modules/,
+          use: [
+            'style-loader',
+            { loader: 'css-loader',
+              // using CSS modules, rename all of the included classes as followint:
+              options: { modules:
+                         { localIdentName: "[path][name]_[local]" }}}]},
         //
         //  the following config options base64 encode all included images, and
         //    put them inline into the generated html.
@@ -38,8 +49,13 @@
       }),
     ],
     devServer: {
+      // not sure what this does:
       contentBase: path.join(__dirname, 'public'),
-      port: 9002,
+      // the port the dev server is meant to run on:
+      port: 8002,
+      // make the dev server accessible over the local network
+      host: "0.0.0.0",
+      // give the dev server a flag that we will be reloading things:
       hot: true,
     },
     output: {

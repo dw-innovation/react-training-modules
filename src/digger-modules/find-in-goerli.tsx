@@ -14,7 +14,8 @@ import image from './resources/images/20-hints-goerli.jpg'
 //   - the figma right hand column
 const data: types.Data = {
   meta: {
-    description: "here is a description of the game!!!"
+    title: "20 Hints",
+    description: "Extract 20 pieces of information hinting to the specific location"
   },
   image: {
     src: image,
@@ -183,20 +184,7 @@ const data: types.Data = {
               transform="translate(73, 1070)"/>
     },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   ]
 }
 
-export default () => <FindInImage data={data} />;
+export default ({...props}) => <FindInImage data={data} {...props} />;

@@ -25,7 +25,6 @@ const Component
      fail = () => {},
      data, }) => {
        //
-       const [messages, setMessages] = React.useState(["welcome to the game"])
        const [failedAttemts, setFailed] = React.useState(0)
 
        const [shapes, setShapes] = React.useState(data.shapes)
@@ -47,45 +46,38 @@ const Component
            setShapes(newShapes) // update the state
          }
 
-       const addMessage = msg => setMessages([msg, ...messages])
-
-       const Message = m => <li style={styles.message}>{m}</li>;
-       const FirstMessage = m => <li style={{...styles.message, ...styles.firstMessage}}>{m}</li>;
-
-       const Messages = () => {
-         const [head, ...tail] = messages;
-         // ... CSSProperties does not like "absolute" for some reason
-         // @ts-ignore
-         return <ul style={styles.messages}>
-                  {FirstMessage(head)}
-                  {take(10, tail.map(Message))}
-                </ul>
-         }
-
        const foundCount = size(types.onlyVisible(shapes));
        const totalCount = size(shapes);
 
        const clickFound =
          (s: Shape, c: Coords) =>
            { found(s);
-             addMessage(s.description); }
+             award(10, { content: `found an object: ` + s.description }); }
 
        const clickFailed =
          (c: Coords) =>
-           { addMessage('failed a click!');
+           { penalize(10, { content: 'failed a click!' });
              setFailed(failedAttemts + 1); }
 
        return (
-         <div>
-           <h3>Find in Image excersize</h3>
-           <h5>found: {foundCount}/{totalCount}</h5>
-           <h5>wrong clicks: {failedAttemts}</h5>
+         <div className="trainingmodulesFindInImageModule">
+           <h3 className="trainingmodulesModuleTitle">
+             {data.meta?.title}
+           </h3>
+           <p className="trainingmodulesModuleDescription">
+             {data.meta?.description}
+           </p>
+           <div className="trainingmodulesFoundCount">
+             found: {foundCount}/{totalCount}
+           </div>
+           <div className="trainingmodulesMisclickCount">
+             wrong clicks: {failedAttemts}
+           </div>
            <ClickImage
              image={data.image}
              shapes={shapes}
              successClick={clickFound}
              failedClick={clickFailed} />
-           {Messages()}
          </div>
        );
      }

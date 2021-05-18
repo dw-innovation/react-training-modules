@@ -1,10 +1,16 @@
 import React from 'react';
 // import * as images from "../../resources/images/index"
 
-export const shape = {
-    fill: "rgba(251, 255, 44, 0.61)",
-    border: "1px solid #000000",
-  } as const;
+export const trainingmodulesClickableElements = {
+    fill: 'transparent',
+    stroke: 'yellow',
+    strokeWidth: 5,
+} as const;
+
+export const trainingmodulesClickableLink = {
+  outline: 0,
+} as const;
+
 
 // @ts-ignore ... CSSProperties does not like "absolute" for some reason
 export const messages: React.CSSProperties = {
@@ -27,8 +33,10 @@ export const firstMessage = {
   opacity: 1
 }
 
+
 export const styles = {
-  shape,
+  trainingmodulesClickableElements,
+  trainingmodulesClickableLink,
   messages,
   message,
   firstMessage,
