@@ -15,9 +15,8 @@ html, body {
 }
 
 .content {
-    backgroundColor: 'white';
-    margin: '0 auto';
-    maxWidth: '40rem';
+    margin: 0 auto;
+    max-width: 40rem;
   }
 
 .message {
