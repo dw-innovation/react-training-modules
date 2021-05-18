@@ -1,5 +1,10 @@
 .wrapper {}
 
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -16,14 +21,23 @@
   }
 
 .message {
-    color: red;
     animation-duration: 1s;
     animation-iteration-count: 1;
     animation-name: fadeIn;
     animation-timing-function: linear;
+    background-color: lightblue;
+    display: block;
+    margin: 1rem;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    border: 1px solid #ddd;
+    color: black;
 }
 
 .messages {
+position: fixed;
+    bottom: 0;
+    width: 90vw;
 }
 
 

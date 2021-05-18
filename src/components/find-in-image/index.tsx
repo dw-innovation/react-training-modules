@@ -52,11 +52,13 @@ const Component
        const clickFound =
          (s: Shape, c: Coords) =>
            { found(s);
-             award(10, { content: `found an object: ` + s.description }); }
+             const msg = componentTypes.createMessage(`found an object: ` + s.description);
+             award(10, msg); }
 
        const clickFailed =
          (c: Coords) =>
-           { penalize(10, { content: 'failed a click!' });
+           { const msg = componentTypes.createMessage(`failed a click`);
+             penalize(10, msg);
              setFailed(failedAttemts + 1); }
 
        return (

@@ -1,7 +1,14 @@
 export type Message = {
+  id: number;
   content: string;
   type?: "warning" | "info" | string;
 }
+
+export const createMessage =
+  (content: string, type?: string): Message =>
+    ({ content,
+       type,
+       id: Date.now(), })
 
 /*
  * the generalized component, of the minimum

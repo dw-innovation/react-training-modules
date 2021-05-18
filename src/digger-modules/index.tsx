@@ -30,8 +30,8 @@ const Messages
   = ({ messages, removeMessage }) => (
     <div className={styles.messages}>
       {messages.map(
-        (m, i) =>
-          <div key={m.content} className={styles.message}>
+        m =>
+          <div key={m.id} className={styles.message}>
             {m.content}
             <span onClick={() => removeMessage(m)}
                   className={styles.removeButton}>
@@ -44,13 +44,13 @@ const Messages
 
 const Modules = ({...props}) => {
   //
-  const [messages, setMessages] = React.useState<types.Message[]>([{content: "welcome to the module"}])
+  const [messages, setMessages] = React.useState<types.Message[]>([])
   /* remove the given message from the messages array */
   const removeMessage = (m: types.Message) => { const newMessages = remove(isEqual(m));
                                                 setMessages(newMessages) }
   /* add a message to the messages array */
   const addMessage = (m: types.Message) => { setMessages([m, ...messages]);
-                                             /* delay(5000, () => removeMessage(m)) */ }
+                                             delay(5000, () => removeMessage(m)) }
 
   const award = (_, msg) => addMessage(msg);
   const penalize = (_, msg) => addMessage(msg);
