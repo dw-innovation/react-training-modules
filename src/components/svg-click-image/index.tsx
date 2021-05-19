@@ -73,6 +73,13 @@ export const ClickImage = ({ image,
 
   const Shapes = shapes.map(Shape)
 
+  const Marker =
+    m => <rect x={m.x}
+               y={m.y}
+               width="10"
+               height="10"
+               fill={m?.color} />
+
   return (
     <svg
       viewBox={`0 0 ${image.width} ${image.height}`}
@@ -88,9 +95,7 @@ export const ClickImage = ({ image,
                href={image.src} />
       </a>
       {Shapes}
-      {markers.map(m =>
-        <rect x={m.x} y={m.y} width="10" height="10" fill={m?.color} />
-      )}
+      {markers.map(Marker)}
     </svg>
   )
 }
