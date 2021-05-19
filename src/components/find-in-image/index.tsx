@@ -1,11 +1,14 @@
 import React from 'react';
 import { isEqual, pipe, size, take } from 'lodash/fp';
 import * as types from './types';
-import {Data, Shape, Coords} from './types';
-import {k} from './types';
-import { styles } from './styles';
+import { Data } from './types';
+import { Shape, Coords, onlyVisible } from '../svg-click-image/types';
 import * as componentTypes from '../../types';
-import { ClickImage } from './svg-components';
+import { ClickImage } from '../svg-click-image';
+
+// css transform handled by webpack, ts shouldnt know about it
+// @ts-ignore
+import styles from './styles.css';
 
 /*
  *   This component implements the api of the parent component, as
@@ -46,7 +49,7 @@ const Component
            setShapes(newShapes) // update the state
          }
 
-       const foundCount = size(types.onlyVisible(shapes));
+       const foundCount = size(onlyVisible(shapes));
        const totalCount = size(shapes);
 
        const clickFound =
@@ -62,17 +65,17 @@ const Component
              setFailed(failedAttemts + 1); }
 
        return (
-         <div className="trainingmodulesFindInImageModule">
-           <h3 className="trainingmodulesModuleTitle">
+         <div className={styles.module}>
+           <h3 className={styles.title}>
              {data.meta?.title}
            </h3>
-           <p className="trainingmodulesModuleDescription">
+           <p className={styles.description}>
              {data.meta?.description}
            </p>
-           <div className="trainingmodulesFoundCount">
+           <div className={styles.count_found}>
              found: {foundCount}/{totalCount}
            </div>
-           <div className="trainingmodulesMisclickCount">
+           <div className={styles.count_failed}>
              wrong clicks: {failedAttemts}
            </div>
            <ClickImage

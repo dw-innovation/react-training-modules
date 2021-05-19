@@ -1,7 +1,9 @@
 import React from 'react'
 import * as types from './types'
-import * as styles from './styles'
 
+// css transform handled by webpack, ts shouldnt know about it
+// @ts-ignore
+import styles from './styles.css'
 
 // pull the ugly svg props out for now so we don't have to look at them later
 const svgProps = { version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" }
@@ -10,7 +12,7 @@ const svgProps = { version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXli
  *   This react component maps a bunch of svg shapes over an image, tracks the user's clicks, and does
  *      a success or a fail click for each one of the shapes
  */
-type Props = { image: types.ImageData;
+type Props = { image: types.Image;
                shapes: types.Shape[];
                successClick?: (s: types.Shape, c: types.Coords) => void;
                failedClick?: (c: types.Coords) => void; }
@@ -61,11 +63,9 @@ export const ClickImage = ({ image,
     const Shape =
       (s: types.Shape) =>
         <a href="#"
-           className="trainingmodulesClickableLink"
-           onClick={succeeded(s)}
-           style={styles.trainingmodulesClickableLink}>
-          <g className="trainingmodulesClickableElements"
-             style={styles.trainingmodulesClickableElements}
+           className={styles.link}
+           onClick={succeeded(s)}>
+          <g className={styles.shape}
              opacity={s.visible ? "1" : ".2"}>
             {s.shape}
           </g>
