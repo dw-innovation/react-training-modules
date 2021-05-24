@@ -16,6 +16,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
+      # from https://stackoverflow.com/questions/58033366/how-to-get-current-branch-within-github-actions
+      #   we can extrac the branch name this way.  for a PR, we want ${{ github.head_ref }}
+      #   but, for plain master, we will need this.  this can be accessed with:
+      #   ${{ steps.extract_branch.outputs.branch }}
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+
+
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -30,4 +40,4 @@ jobs:
     - run: npm run build
 
     - name: Deploy static site to S3 bucket
-      run: aws s3 sync ./_dist s3://digger-training-modules-app/${{ github.head_ref || github.ref.refs.heads }} --delete
+      run: aws s3 sync ./_dist s3://digger-training-modules-app/${{ github.head_ref || steps.extract_branch.outputs.branch }} --delete
