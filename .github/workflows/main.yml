@@ -16,14 +16,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-      # from https://stackoverflow.com/questions/58033366/how-to-get-current-branch-within-github-actions
-      # get the branch name from the repo
-      # usable like: ${{ steps.extract_branch.outputs.branch }}
-    - name: Extract branch name
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
-
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
