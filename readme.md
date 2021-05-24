@@ -38,8 +38,8 @@ see the file `.github/workflows/main.yml`
 
 this repository uses the AWS IAM user `github-build-deploy`, who's access keys are in this repositories `secrets` (in settings), and is configured to be allowed to deploy to our s3 bucket.
 
-Each branch name is deployed.  Master should be available here:
-http://digger-training-modules-app.s3-website.eu-central-1.amazonaws.com/master
+Each branch name is deployed.  Master should be available at the url root:
+http://digger-training-modules-app.s3-website.eu-central-1.amazonaws.com
 
 #### Pull requests:
 
