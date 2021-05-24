@@ -1,5 +1,3 @@
-Hello, world
-
 # React training modules
 
 
@@ -31,3 +29,14 @@ hot-reload is handled by webpack https://webpack.js.org/concepts/hot-module-repl
 
 TODO
  - You can use the CLI to modify the webpack-dev-server configuration with the following command: webpack serve --hot-only.
+
+
+## Deployments
+
+Deployments are handled automatically by Github actions, and deploy to an AWS server.  
+see the file `.github/workflows/main.yml`
+
+this repository uses the AWS IAM user `github-build-deploy`, who's access keys are in this repositories `secrets` (in settings), and is configured to be allowed to deploy to our s3 bucket.
+
+Each branch name is deployed.  Master should be available here:
+http://digger-training-modules-app.s3-website.eu-central-1.amazonaws.com/master/readme.md

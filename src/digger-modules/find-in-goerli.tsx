@@ -188,3 +188,4 @@ const data: types.Data = {
 }
 
 export default ({...props}) => <FindInImage data={data} {...props} />;
+
