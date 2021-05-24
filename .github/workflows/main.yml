@@ -59,9 +59,14 @@ jobs:
       # throw our built app on to s3
     - name: Deploy static site to S3 bucket
       # > in yaml means ignore line breaks
+      #         if we are a tag, use the tag name for
+      #         our directory name
+      #         otherwise, the branch name we want to merge in to maste
+      #         otherwise, the branch name we extracted earlier
       run: >
         aws s3 sync ./_dist
         s3://digger-training-modules-app/${{
+          # can i add a comment here
           steps.extract_tag_name.outputs.tag
           || github.head_ref
           || steps.extract_branch.outputs.branch
