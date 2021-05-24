@@ -1,11 +1,17 @@
-name: Build and deploy
+name: Build and Deploy CI/CD
+
+# decide when this script even runs:
 
 on:
   push:
+    # whenever someone pushes to main or master, build and deploy that
     branches: [ main, master ]
+    # whenever someone adds a new tag, build and deploy that as well
     tags:
       - "v*"
   pull_request:
+    # when someone opens a pull request targeting main or master
+    # , then build and deploy that
     branches: [ main, master ]
 
 jobs:
@@ -15,9 +21,11 @@ jobs:
 
     steps:
 
+      # check out this git repo
     - name: Checkout
       uses: actions/checkout@v1
 
+      # extract our branch name
       # from https://stackoverflow.com/questions/58033366/how-to-get-current-branch-within-github-actions
       #   we can extrac the branch name this way.  for a PR, we want ${{ github.head_ref }}
       #   but, for plain master, we will need this.  this can be accessed with:
@@ -27,8 +35,8 @@ jobs:
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
       id: extract_branch
 
-      # from https://stackoverflow.com/questions/58177786/get-the-current-pushed-tag-in-github-actions
       # get the tag name if it exists
+      # from https://stackoverflow.com/questions/58177786/get-the-current-pushed-tag-in-github-actions
     - name: Extract tag name
       id: extract_tag_name
       shell: bash
@@ -41,11 +49,13 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-central-1
 
+      # set up our build environment, and build our
+      # app
     - name: Use Node
       uses: actions/setup-node@v1
-
     - run: npm install
     - run: npm run build
 
+      # throw our built app on to s3
     - name: Deploy static site to S3 bucket
       run: aws s3 sync ./_dist s3://digger-training-modules-app/${{ steps.extract_tag_name.outputs.tag || github.head_ref || steps.extract_branch.outputs.branch }} --delete
