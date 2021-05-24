@@ -70,7 +70,7 @@ const Modules = ({...props}) => {
 const thing = (
   <Wrapper>
     <Content>
-      <h1>Digger Training Modules</h1>
+      <h1>Digger Training Modules - feature attempt</h1>
       <Modules />
     </Content>
   </Wrapper>
