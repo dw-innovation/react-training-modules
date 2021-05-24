@@ -1,5 +1,15 @@
 # React training modules
 
+
+The React training modules are intended to be a _reusable_ set of interactive activities, which can be
+bundled into various different training modules.
+
+In the `src` folder you should find the `components`, which include the reusable elements,
+as well as individual folders for examples.
+
+You should be able to develop on the training modules here, and include this project in other 
+projects that will need them, as an `npm`, or `git` package
+
 ## installing:
 
 ```bash

@@ -3,7 +3,7 @@ import React from 'react';
 // https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories
 import * as ReactDOM from 'react-dom';
 
-import GoerlitzerExample from './components/find-in-image/example-goerli';
+import GoerlitzerExample from './find-in-goerli';
 
 const styles = {
   wrapper: {
@@ -53,7 +53,7 @@ mount();
 // @ts-ignore
  if (module.hot) {
 // @ts-ignore
-   module.hot.accept('./examples.tsx', function() {
+   module.hot.accept('./index.tsx', function() {
      console.log('Accepting the updated printMe module!');
      mount();
    })
