@@ -45,3 +45,5 @@ http://digger-training-modules-app.s3-website.eu-central-1.amazonaws.com
 
 Opening a pull request automatically makes a Deploy of the pull request.  for example, branch `feature/test-pull-request`, will make a deploy at:
 http://digger-training-modules-app.s3-website.eu-central-1.amazonaws.com/feature/test-pull-request
+
+see billing at: https://github.com/organizations/DW-ReCo/settings/billing

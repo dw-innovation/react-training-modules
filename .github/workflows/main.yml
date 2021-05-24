@@ -30,4 +30,4 @@ jobs:
     - run: npm run build
 
     - name: Deploy static site to S3 bucket
-      run: aws s3 sync ./_dist s3://digger-training-modules-app/${{ github.head_ref }} --delete
+      run: aws s3 sync ./_dist s3://digger-training-modules-app/${{ github.head_ref || github.ref }} --delete
