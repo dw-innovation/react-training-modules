@@ -10,27 +10,10 @@ import GoerlitzerExample from './find-in-goerli';
 // @ts-ignore
 import styles from './styles.css';
 
-// this has to be imported like this, for some ts issue
-// https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories
-// @ts-ignore
-import * as ReactDOM from 'react-dom';
-
-import GoerlitzerExample from './find-in-goerli';
-
-const styles = {
-  wrapper: {
-    backgroundColor: 'lightgrey',
-  },
-  examples: {
-    backgroundColor: 'white',
-    margin: '0 auto',
-    maxWidth: '30rem',
-  }
-}
 
 // @ts-ignore
 const Wrapper = ({ children }) => (
-  <div style={styles.wrapper}>
+  <div className={styles.wrapper}>
     {children}
   </div>
 )
