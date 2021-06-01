@@ -22,6 +22,7 @@
 
 .stats {
     display: flex;
+    color: #999;
 }
 
 .stat_found {

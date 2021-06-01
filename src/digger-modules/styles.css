@@ -45,11 +45,11 @@ position: fixed;
 .progress {
   height: 1rem;
   width:100%;
-  background-color: grey;
+  border: 1px solid teal;
 }
 .progressInner {
   height: 1rem;
-  background-color: blue;
+  background-color: teal;
   transition: width .5s;
   transition-timing-function: ease-in;
 }
