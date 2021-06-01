@@ -10,13 +10,16 @@ export const createMessage =
        type,
        id: Date.now(), })
 
+export type LifeFunction = (points: number,
+                            msg?: Message,
+                            percent?: number) => void;
 /*
  * the generalized component, of the minimum
  *   api that each one of them should include
  */
 export type TrainingComponent = {
-  award?: (points: number, msg?: Message) => void;
-  penalize?: (points: number, msg?: Message) => void;
-  finish?: (points: number, msg?: Message) => void;
-  fail?: (points: number, msg?: Message) => void;
+  award?: LifeFunction;
+  penalize?: LifeFunction;
+  finish?: LifeFunction;
+  fail?: LifeFunction;
 }

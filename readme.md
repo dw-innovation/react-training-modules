@@ -55,3 +55,10 @@ tags also get deployed, make one with
 then `git push origin v0.0.2`
 
 
+### S3 Integration
+
+This build hosts both it's built code and it's resources on two of our s3 buckets:
+
+code on `digger-training-modules-app`
+
+and larger resources on `digger-training-modules-resources`

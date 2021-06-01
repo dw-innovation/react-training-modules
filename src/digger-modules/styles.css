@@ -41,3 +41,15 @@ position: fixed;
 
 
 .removeButton {}
+
+.progress {
+  height: 1rem;
+  width:100%;
+  background-color: grey;
+}
+.progressInner {
+  height: 1rem;
+  background-color: blue;
+  transition: width .5s;
+  transition-timing-function: ease-in;
+}

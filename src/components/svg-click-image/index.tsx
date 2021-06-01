@@ -6,7 +6,9 @@ import * as types from './types'
 import styles from './styles.css'
 
 // pull the ugly svg props out for now so we don't have to look at them later
-const svgProps = { version: "1.1", xmlns: "http://www.w3.org/2000/svg", xmlnsXlink: "http://www.w3.org/1999/xlink" }
+const svgProps = { version: "1.1",
+                   xmlns: "http://www.w3.org/2000/svg",
+                   xmlnsXlink: "http://www.w3.org/1999/xlink" }
 
 /*
  *   This react component maps a bunch of svg shapes over an image, tracks the user's clicks, and does

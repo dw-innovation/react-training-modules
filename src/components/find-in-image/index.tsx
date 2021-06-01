@@ -44,25 +44,32 @@ const Component
              shapes
                .map(s2 =>
                  (isEqual(s, s2)) // if it's equal to the one we want
-                   ? {...s2, visible: true, } // return with visible true
+                   ? { ...s2, visible: true, } // return with visible true
                    : s2) // otherwide leave it alone
-           setShapes(newShapes) // update the state
+           setShapes(newShapes); // update the state
+           return newShapes;
          }
 
        const foundCount = size(onlyVisible(shapes));
        const totalCount = size(shapes);
 
+       const getPercent = (ss) => {
+         const foundCount = size(onlyVisible(ss));
+         const totalCount = size(ss);
+         return foundCount/totalCount*100;
+       }
+
        const clickFound =
          (s: Shape, c: Coords) =>
-           { found(s);
+           { const newShapes = found(s);
              const msg = componentTypes.createMessage(`found an object: ` + s.description);
-             award(10, msg); }
+             award(10, msg, getPercent(newShapes)); }
 
        const clickFailed =
          (c: Coords) =>
            { const msg = componentTypes.createMessage(`failed a click`);
-             penalize(10, msg);
-             setFailed(failedAttemts + 1); }
+             penalize(10, msg, foundCount/totalCount*100);
+             setFailed(failedAttemts); }
 
        return (
          <div className={styles.module}>

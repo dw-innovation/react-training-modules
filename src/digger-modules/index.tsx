@@ -1,14 +1,23 @@
 import React from 'react';
-import { tail, delay, remove, isEqual } from 'lodash/fp';
+import { swap, Atom, deref, useAtom } from "@dbeining/react-atom";
+import { values, tail, delay, remove, isEqual, set, mean } from 'lodash/fp';
 // this has to be imported like this, for some ts issue
 // https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories
 import * as ReactDOM from 'react-dom';
 import * as types from '../types';
 
-import GoerlitzerExample from './find-in-goerli';
+import GoerlitzerExample from './activities/20-hints-1-goerli';
+import BikesExample from './activities/20-hints-2-bikes';
 
 // @ts-ignore
 import styles from './styles.css';
+
+const Progress = ({ percent }) =>
+  <div className={styles.progress}>
+    <div className={styles.progressInner} style={{width: `${percent}%`}}>
+
+    </div>
+  </div>
 
 
 // @ts-ignore
@@ -42,8 +51,23 @@ const Messages
     </div>
   );
 
+const defaultModus = [ { title: "Art of Perception",
+                         modules: [ { title: "Bubble Count",
+                                      activities: []},
+                                    { title: "20 Hints",
+                                      activities: [ { title: "Easy",
+                                                      component: GoerlitzerExample },
+                                                    { title: "Medium",
+                                                      component: BikesExample }]}]}]
+
+const defaultState = { modules: defaultModus }
+
+const appState = Atom.of(defaultState);
+
 const Modules = ({...props}) => {
   //
+  const { modules } = useAtom(appState);
+
   const [messages, setMessages] = React.useState<types.Message[]>([])
   /* remove the given message from the messages array */
   const removeMessage = (m: types.Message) => { const newMessages = remove(isEqual(m));
@@ -52,20 +76,70 @@ const Modules = ({...props}) => {
   const addMessage = (m: types.Message) => { setMessages([m, ...messages]);
                                              delay(5000, () => removeMessage(m)) }
 
-  const award = (_, msg) => addMessage(msg);
-  const penalize = (_, msg) => addMessage(msg);
+  const award =
+    (dotPath) =>
+      (_, message, percent) => { addMessage(message);
+                                 if (percent) swap(appState, set(dotPath + '.percent', percent))}
+
+  const penalize =
+    (dotPath) =>
+      (_, message, percent) => { addMessage(message);
+                                 if (percent) swap(appState, set(dotPath + '.percent', percent))}
+
+  console.log(deref(appState))
 
   return (
     <div className="diggerModules">
       <Messages messages={messages}
-                removeMessage={removeMessage} />
-      <h2>The Art of Perception 👁️</h2>
-      <GoerlitzerExample award={award}
-                         penalize={penalize} />
+        removeMessage={removeMessage} />
+
+      {modules.map((theme, i) =>
+        <div>
+          <h3>{theme.title}</h3>
+          {theme.modules.map((module, j) => {
+            const { activities, title } = module;
+            // @ts-ignore
+            const percent = mean(activities.map(a => a.percent || 0) || 0)
+
+            return (
+              <div>
+                <h5>{title}</h5>
+                <Progress percent={percent} />
+                {module.activities.map((activity, y) => {
+                  // how to navigate back to this activity in the tree of things?
+                  //    get the dotpath of how we cycled in to get here, so we
+                  //      can update ourselves in the state directly
+                  const dotPath = `modules.${i}.modules.${j}.activities.${y}`
+                  //@ts-ignore
+                  const { percent, title } = activity
+
+                  return (
+                    <div>
+                      <h6>{title}</h6>
+                      <activity.component
+                        award={award(dotPath)}
+                        penalize={penalize(dotPath)} />
+                    </div>
+                  )
+                })}
+              </div>
+            )
+          })}
+
+
+
+
+        </div>
+      )}
     </div>
   );
 }
 
+/*
+
+      <GoerlitzerExample award={award}
+                         penalize={penalize} />
+*/
 
 const thing = (
   <Wrapper>
