@@ -1,6 +1,15 @@
 
-.module {
+.activity {
+    display: flex;
+    flex-direction: row;
+}
 
+.panel1 {
+    flex: 1;
+    margin-righ: 1rem;
+}
+.panel2 {
+    flex: 1;
 }
 
 .title {
@@ -11,10 +20,22 @@
 
 }
 
-.count_found {
-
+.stats {
+    display: flex;
 }
 
-.count_failed {
+.stat_found {
+    text-align: left;
+    flex: 1;
+}
+.count_found {
+    color: green;
+}
 
+.stat_failed {
+    text-align: right;
+    flex: 1;
+}
+.count_failed {
+    color: red;
 }

@@ -53,3 +53,18 @@ position: fixed;
   transition: width .5s;
   transition-timing-function: ease-in;
 }
+
+
+.activity {
+
+}
+
+.module {
+  border: 1px solid grey;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.theme {
+
+}

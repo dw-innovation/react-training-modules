@@ -1,6 +1,6 @@
 import React from 'react';
-import { swap, Atom, deref, useAtom } from "@dbeining/react-atom";
-import { values, tail, delay, remove, isEqual, set, mean } from 'lodash/fp';
+import {  swap, Atom, deref, useAtom } from "@dbeining/react-atom";
+import { flatten, map, size, values, tail, delay, remove, isEqual, set, mean } from 'lodash/fp';
 // this has to be imported like this, for some ts issue
 // https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories
 import * as ReactDOM from 'react-dom';
@@ -87,50 +87,58 @@ const Modules = ({...props}) => {
                                  if (percent) swap(appState, set(dotPath + '.percent', percent))}
 
   console.log(deref(appState))
+  /*
+ <Messages messages={messages}
+        removeMessage={removeMessage} />
+  */
 
   return (
     <div className="diggerModules">
-      <Messages messages={messages}
-        removeMessage={removeMessage} />
-
-      {modules.map((theme, i) =>
-        <div>
-          <h3>{theme.title}</h3>
-          {theme.modules.map((module, j) => {
-            const { activities, title } = module;
-            // @ts-ignore
-            const percent = mean(activities.map(a => a.percent || 0) || 0)
-
-            return (
-              <div>
-                <h5>{title}</h5>
-                <Progress percent={percent} />
-                {module.activities.map((activity, y) => {
-                  // how to navigate back to this activity in the tree of things?
-                  //    get the dotpath of how we cycled in to get here, so we
-                  //      can update ourselves in the state directly
-                  const dotPath = `modules.${i}.modules.${j}.activities.${y}`
-                  //@ts-ignore
-                  const { percent, title } = activity
-
-                  return (
-                    <div>
-                      <h6>{title}</h6>
-                      <activity.component
-                        award={award(dotPath)}
-                        penalize={penalize(dotPath)} />
-                    </div>
-                  )
-                })}
-              </div>
-            )
-          })}
 
 
+      {modules.map((theme, i) => {
+        const { title, modules } = theme;
+        const activities = flatten(map("activities", modules));
 
+        // @ts-ignore
+        const percent = mean(activities.map(a => a.percent || 0) || 0)
 
-        </div>
-      )}
+        return (
+          <div className={styles.theme}>
+            <h3>{theme.title}</h3>
+            <Progress percent={percent} />
+            {theme.modules.map((module, j) => {
+              const { activities, title } = module;
+              // @ts-ignore
+              const percent = mean(activities.map(a => a.percent || 0) || 0)
+
+              return (
+                <div className={styles.module}>
+                  <h5>{title}</h5>
+                  <Progress percent={percent} />
+                  {module.activities.map((activity, y) => {
+                    // how to navigate back to this activity in the tree of things?
+                    //    get the dotpath of how we cycled in to get here, so we
+                    //      can update ourselves in the state directly
+                    const dotPath = `modules.${i}.modules.${j}.activities.${y}`
+                    //@ts-ignore
+                    const { percent, title } = activity
+
+                    return (
+                      <div className={styles.activity}>
+                        <h6>{title}</h6>
+                        <activity.component
+                          award={award(dotPath)}
+                          penalize={penalize(dotPath)} />
+                      </div>
+                    )
+                  })}
+                </div>
+              )
+            })}
+          </div>
+        )
+      })}
     </div>
   );
 }

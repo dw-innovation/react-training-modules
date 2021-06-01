@@ -65,33 +65,43 @@ const Component
              const msg = componentTypes.createMessage(`found an object: ` + s.description);
              award(10, msg, getPercent(newShapes)); }
 
-       const clickFailed =
-         (c: Coords) =>
-           { const msg = componentTypes.createMessage(`failed a click`);
-             penalize(10, msg, foundCount/totalCount*100);
-             setFailed(failedAttemts); }
+  const clickFailed =
+    (c: Coords) => {
+      const msg = componentTypes.createMessage(`failed a click`);
+      penalize(10, msg, foundCount / totalCount * 100);
+      setFailed(failedAttemts + 1);
+    }
 
-       return (
-         <div className={styles.module}>
-           <h3 className={styles.title}>
-             {data.meta?.title}
-           </h3>
-           <p className={styles.description}>
-             {data.meta?.description}
-           </p>
-           <div className={styles.count_found}>
-             found: {foundCount}/{totalCount}
-           </div>
-           <div className={styles.count_failed}>
-             wrong clicks: {failedAttemts}
-           </div>
-           <ClickImage
-             image={data.image}
-             shapes={shapes}
-             successClick={clickFound}
-             failedClick={clickFailed} />
-         </div>
-       );
-     }
+  return (
+    <div className={styles.activity}>
+      <div className={styles.panel1}>
+        <h3 className={styles.title}>
+          {data.meta?.title}
+        </h3>
+        <p className={styles.description}>
+          {data.meta?.description}
+        </p>
+      </div>
+      <div className={styles.panel2}>
+        <div className={styles.stats}>
+          <div className={styles.stat_found}>
+            <span className={styles.count_found}>
+              {foundCount}
+              </span>/{totalCount} found
+          </div>
+          <div className={styles.stat_failed}>
+            <span className={styles.count_failed}>{failedAttemts} </span>
+            misclicks
+          </div>
+        </div>
+        <ClickImage
+          image={data.image}
+          shapes={shapes}
+          successClick={clickFound}
+          failedClick={clickFailed} />
+      </div>
+    </div>
+  );
+}
 
 export default Component;
