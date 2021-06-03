@@ -33,14 +33,13 @@ html, body {
 
 .content {
     margin: 0 auto;
-    max-width: 40rem;
+    max-width: 66rem;
   }
 
 .progress {
   height: 1rem;
   width:100%;
   border: 1px solid var(--blue-lighter);
-  border-left: 8px solid var(--blue-lighter);
 }
 .progressInner {
   height: 1rem;
@@ -67,7 +66,6 @@ html, body {
 .activity.notActive { display: none; }
 
 .module { border: 1px solid var(--lightgrey);
-          padding: 1rem;
           margin-bottom: 1rem;
           overflow:hidden; }
 
@@ -88,5 +86,53 @@ html, body {
   border-radius: 0;
   border: 1px solid var(--blue);
   background-color: white;
-  color: var(--blue)
+  color: var(--blue);
+}
+
+.moduleHeader {
+  display:flex;
+  flex-direction: row;
+  border: 1px solid var(--blue-light);
+}
+.moduleHeaderItem {
+  border-right: 1px solid var(--blue-light);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem 2rem;
+  color: var(--blue-light);
+}
+.moduleHeaderItem:last-child {
+  border-right: 0px solid var(--blue-light);
+}
+
+.moduleHeaderItemCenter {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.activityHeaders {
+}
+.activityModuleTitle {
+  display: inline-block;
+  font-family: var(--heading-font);
+  color: var(--blue-light);
+}
+.activityHeader {
+  display: inline-block;
+  font-family: var(--heading-font);
+  color: var(--blue-light);
+  margin-right: .3rem;
+}
+.activityHeader.active { color: var(--orange); }
+.activityHeader:after { content: " / "; }
+.activityHeader:last-child:after { content: " "; }
+
+.moduleHeaderItem .buttonSecondary{
+  padding: 0;
+  border: 0;
+  margin: 0;
+  color: var(--blue-light);
 }

@@ -142,6 +142,17 @@ const Modules = ({...props}) => {
               // console.log(percents)
 
 
+              const ActivityHeaders = activities.map((activity, y) => {
+                const { title } = activity
+                const active = (y === selectedActivity)
+                return (
+                  <div className={c(styles.activityHeader, active ? styles.active: null)}>
+                    { title }
+                  </div>
+                )
+              })
+
+
               const Activities = activities.map((activity, y) => {
                 // how to navigate back to this activity in the tree of things?
                 //    get the dotpath of how we cycled in to get here, so we
@@ -166,7 +177,6 @@ const Modules = ({...props}) => {
 
                 return (
                   <div className={classes}>
-                    <h6>{title}</h6>
                     <activity.component
                       classes={{ button: styles.buttonPrimary }}
                       award={_award}
@@ -178,12 +188,26 @@ const Modules = ({...props}) => {
 
               return (
                 <div className={styles.module}>
-                  <h5>{ title }</h5>
+                  <div className={styles.moduleHeader}>
+                    {hasPrev &&
+                      <div className={styles.moduleHeaderItem}>
+                        <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>
+                      </div>
+                    }
+                    <div className={c(styles.moduleHeaderItem, styles.moduleHeaderItemCenter)}>
+                      <div className={styles.activityHeaders}>
+                        <div className={styles.activityModuleTitle}>{title}: </div> {ActivityHeaders}
+                      </div>
+                    </div>
+                    <div className={styles.moduleHeaderItem}>
+                      Home
+                      </div>
+                  </div>
                   <Progress percent={percent} />
-                  { Activities }
+                  { Activities}
                   <p>activity: {selectedActivity}</p>
-                  { hasNext && <button className={styles.buttonSecondary} onClick={_ => next()}>next</button> }
-                  { hasPrev && <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button> }
+                  { hasNext && <button className={styles.buttonSecondary} onClick={_ => next()}>next</button>}
+                  { hasPrev && <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>}
                 </div>
               )
             })}
