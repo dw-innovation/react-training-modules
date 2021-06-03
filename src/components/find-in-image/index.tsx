@@ -5,6 +5,7 @@ import { Data } from './types';
 import { Shape, Coords, onlyVisible } from '../svg-click-image/types';
 import * as componentTypes from '../../types';
 import { ClickImage } from '../svg-click-image';
+import c from 'classnames';
 
 // css transform handled by webpack, ts shouldnt know about it
 // @ts-ignore
@@ -16,7 +17,8 @@ import styles from './styles.css';
  */
 type Props =
   componentTypes.TrainingComponent
-  & { data: Data; }
+  & { data: Data; classes?: { button?: object;
+                             [key:string]: object; } }
 
 const Component
   // the function signature/types:
@@ -26,6 +28,7 @@ const Component
        penalize = () => { },
        finish = () => { },
        fail = () => { },
+       classes = { },
        data, }) => {
     //
     const { meta: { title, description },
@@ -113,11 +116,11 @@ const Component
                 You found all {totalCount} hints. You guessed wrong
             <span className={styles.count_failed}> {failedAttempts}</span> times
           </p>
-              <button className={styles.button}
+              <button className={c(styles.button, classes.button)}
                       onClick={_ => finish(10, null, 100)}>
                 Next
               </button>
-              <button className={styles.button}
+              <button className={c(styles.button, classes.button)}
                       onClick={_ => { reset();
                                       award(10, null, 1); }}>
                Try Again

@@ -168,6 +168,7 @@ const Modules = ({...props}) => {
                   <div className={classes}>
                     <h6>{title}</h6>
                     <activity.component
+                      classes={{ button: styles.buttonPrimary }}
                       award={_award}
                       penalize={_penalize}
                       finish={_finish} />
@@ -181,8 +182,8 @@ const Modules = ({...props}) => {
                   <Progress percent={percent} />
                   { Activities }
                   <p>activity: {selectedActivity}</p>
-                  { hasNext && <button onClick={_ => next()}>next</button> }
-                  { hasPrev && <button onClick={_ => prev()}>back</button> }
+                  { hasNext && <button className={styles.buttonSecondary} onClick={_ => next()}>next</button> }
+                  { hasPrev && <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button> }
                 </div>
               )
             })}
