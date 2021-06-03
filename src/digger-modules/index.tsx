@@ -1,9 +1,11 @@
 import React from 'react';
 import {  swap, Atom, deref, useAtom } from "@dbeining/react-atom";
-import { flatten, map, size, values, tail, delay, remove, isEqual, set, mean } from 'lodash/fp';
+import { flatten, map, size, values, tail, delay, remove, isEqual, set, mean, pipe, get, merge } from 'lodash/fp';
 // this has to be imported like this, for some ts issue
 // https://devblogs.microsoft.com/typescript/announcing-typescript-4-1-beta/#jsx-factories
 import * as ReactDOM from 'react-dom';
+import c from 'classnames';
+
 import * as types from '../types';
 
 import GoerlitzerExample from './activities/20-hints-1-goerli';
@@ -64,6 +66,13 @@ const defaultState = { modules: defaultModus }
 
 const appState = Atom.of(defaultState);
 
+const updateAt =
+  dotPath => obj =>
+    swap(appState, state =>
+                      pipe(() => get(dotPath, state),
+                            o => merge(o, obj),
+                            o => set(dotPath, o, state))())
+
 const Modules = ({...props}) => {
   //
   const { modules } = useAtom(appState);
@@ -79,12 +88,12 @@ const Modules = ({...props}) => {
   const award =
     (dotPath) =>
       (_, message, percent) => { addMessage(message);
-                                 if (percent) swap(appState, set(dotPath + '.percent', percent))}
+                                 if (percent) updateAt(dotPath)({ percent }) }
 
   const penalize =
     (dotPath) =>
       (_, message, percent) => { addMessage(message);
-                                 if (percent) swap(appState, set(dotPath + '.percent', percent))}
+                                 if (percent) updateAt(dotPath)({ percent }) }
 
   console.log(deref(appState))
   /*
@@ -108,31 +117,72 @@ const Modules = ({...props}) => {
             <h3>{theme.title}</h3>
             <Progress percent={percent} />
             {theme.modules.map((module, j) => {
-              const { activities, title } = module;
-              // @ts-ignore
-              const percent = mean(activities.map(a => a.percent || 0) || 0)
+              const { activities,
+                      title,
+                      // @ts-ignore, if it's not there choose 0
+                      selectedActivity = 0 } = module;
+
+              const [direction, setDirection] = React.useState("right"); // not the biggest fan of this
+
+              const moduleDotPath = `modules.${i}.modules.${j}`;
+
+              const hasNext = selectedActivity < size(activities) - 1;
+              const hasPrev = selectedActivity > 0;
+
+              const next = () => { updateAt(moduleDotPath)({ selectedActivity: selectedActivity + 1});
+                                   setDirection("right"); } // not super happy with this, but naja
+              const prev = () => { updateAt(moduleDotPath)({ selectedActivity: selectedActivity - 1});
+                                   setDirection("left"); }
+
+              // @ts-ignore, if percent isn't there choose 0
+              const percents = activities.map(a => a.percent || 0)
+              const percent = mean(percents) || 0;
+
+              // TODO activity local state gets lost when you only render one
+              // console.log(percents)
+
+
+              const Activities = activities.map((activity, y) => {
+                // how to navigate back to this activity in the tree of things?
+                //    get the dotpath of how we cycled in to get here, so we
+                //      can update ourselves in the state directly
+                const activityDotPath = `modules.${i}.modules.${j}.activities.${y}`
+
+                const _award = award(activityDotPath);
+                const _penalize = penalize(activityDotPath);
+                // @ts-ignore typescript looses types with ...spread apparently
+                const _finish = (...args) => { award(activityDotPath)(...args);
+                                               next(); }
+
+                //@ts-ignore
+                const { percent,
+                        title } = activity
+
+                const active = (y === selectedActivity)
+
+                const classes = c(styles.activity,
+                                  (active ? styles.active : styles.notActive),
+                                  (direction === "left" ? styles.fromLeft : styles.fromRight))
+
+                return (
+                  <div className={classes}>
+                    <h6>{title}</h6>
+                    <activity.component
+                      award={_award}
+                      penalize={_penalize}
+                      finish={_finish} />
+                  </div>
+                )
+              })
 
               return (
                 <div className={styles.module}>
-                  <h5>{title}</h5>
+                  <h5>{ title }</h5>
                   <Progress percent={percent} />
-                  {module.activities.map((activity, y) => {
-                    // how to navigate back to this activity in the tree of things?
-                    //    get the dotpath of how we cycled in to get here, so we
-                    //      can update ourselves in the state directly
-                    const dotPath = `modules.${i}.modules.${j}.activities.${y}`
-                    //@ts-ignore
-                    const { percent, title } = activity
-
-                    return (
-                      <div className={styles.activity}>
-                        <h6>{title}</h6>
-                        <activity.component
-                          award={award(dotPath)}
-                          penalize={penalize(dotPath)} />
-                      </div>
-                    )
-                  })}
+                  { Activities }
+                  <p>activity: {selectedActivity}</p>
+                  { hasNext && <button onClick={_ => next()}>next</button> }
+                  { hasPrev && <button onClick={_ => prev()}>back</button> }
                 </div>
               )
             })}

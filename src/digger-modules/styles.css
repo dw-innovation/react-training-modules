@@ -1,3 +1,7 @@
+:root{
+
+}
+
 .wrapper {}
 
 html, body {
@@ -6,12 +10,8 @@ html, body {
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .content {
@@ -34,9 +34,9 @@ html, body {
 }
 
 .messages {
-position: fixed;
-    bottom: 0;
-    width: 90vw;
+  position: fixed;
+  bottom: 0;
+  width: 90vw;
 }
 
 
@@ -45,26 +45,39 @@ position: fixed;
 .progress {
   height: 1rem;
   width:100%;
-  border: 1px solid teal;
+  border: 1px solid #57A9C0;
+  border-left: 8px solid #57A9C0 ;
 }
 .progressInner {
   height: 1rem;
-  background-color: teal;
+  background-color: #57A9C0;
   transition: width .5s;
-  transition-timing-function: ease-in;
+  transition-timing-function: ease-out;
 }
 
+@-webkit-keyframes slide-right {
+      0% { opacity: 0; transform: translateX(-100%); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+@-webkit-keyframes slide-left {
+      0% { opacity: 0; transform: translateX(+100%); }
+    100% { opacity: 1; transform: translateX(0); }
+}
 
 .activity {
 
 }
+.activity.fromLeft { animation: slide-right .3s ease-out; }
+.activity.fromRight { animation: slide-left .3s ease-out; }
+.activity.active { display: block; }
+.activity.notActive { display: none; }
 
-.module {
-  border: 1px solid grey;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
+.module { border: 1px solid grey;
+          padding: 1rem;
+          margin-bottom: 1rem;
+          overflow:hidden; }
 
 .theme {
 
 }
+

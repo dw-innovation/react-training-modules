@@ -35,6 +35,9 @@ const Component
        // note, _isEqual(shapes[0], shapes[0]) -> true
        //       _isEqual(shapes[0], shapes[1]) -> false
 
+       const { meta: { title, description},
+               image } = data;
+
        // given a shape, update that shape in our state
        // with visible: true
        // annoying that js doesn't have nicer ways to do this
@@ -75,11 +78,9 @@ const Component
   return (
     <div className={styles.activity}>
       <div className={styles.panel1}>
-        <h3 className={styles.title}>
-          {data.meta?.title}
-        </h3>
+        <h3 className={styles.title}>{ title }</h3>
         <p className={styles.description}>
-          {data.meta?.description}
+          {description}
         </p>
       </div>
       <div className={styles.panel2}>
@@ -95,7 +96,7 @@ const Component
           </div>
         </div>
         <ClickImage
-          image={data.image}
+          image={image}
           shapes={shapes}
           successClick={clickFound}
           failedClick={clickFailed} />
