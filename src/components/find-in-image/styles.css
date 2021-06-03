@@ -45,14 +45,26 @@
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+
 .success {
     position: absolute;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(2px) saturate(0.5);
-    background-color: rgba(255, 255, 255, .5);
     padding: 1rem;
+}
+/* slightly transparent fallback */
+.success {
+  background-color: rgba(255, 255, 255, .9);
+  transition: background-color .2s;
+}
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))) {
+  .success {
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(2px) saturate(0.5);
+    -webkit-backdrop-filter: blur(2em) saturate(0.5);
     transition: backdrop-filter .2s;
+  }
 }
 
 .successInner {
