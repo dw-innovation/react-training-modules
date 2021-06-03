@@ -1,0 +1,47 @@
+@import './shared.css';
+
+.wrapper {
+
+}
+
+.theme {
+    padding: 1rem;
+    border: 1px solid var(--blue-lighter);
+    margin-right: 1rem;
+    text-align: center;
+}
+.theme:last-child {
+    margin-right: 0rem;
+}
+
+.title {
+
+}
+
+.description {
+
+}
+.modules{
+    display: flex;
+    flex-direction: row;
+}
+
+.module {
+    color: var(--black);
+    background-color: var(--light-grey);
+    position: relative;
+    border: 1px solid var(--blue-lighter);
+    margin: .5rem 2rem;
+}
+
+.backProgress {
+    background-color: var(--blue-lighter);
+    position: absolute;
+    height: 100%;
+    transition: width .5s;
+    transition-timing-function: ease-out;
+}
+.moduleTitle {
+margin: .5rem auto;
+    text-align: center;
+}

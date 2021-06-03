@@ -1,0 +1,17 @@
+:root{
+  --blue: rgba(31, 122, 145, 1);  /*  #1f7a91; */
+  --blue-light: rgba(31, 122, 145, .7);
+  --blue-lighter: rgba(31, 122, 145, .45);
+  --white: #fefefe;
+  --black: #332;
+  --grey: #998;
+  --lightgrey: #ddc;
+  --red: #c62026;
+  --orange: #f58220;
+  --yellow: #f7d33e;
+  --green: #4cb748;
+  --light-green: #93cc7e;
+  --font: "Noto Sans";
+  --heading-font: "PT Serif";
+  --spacing: 1rem;
+}

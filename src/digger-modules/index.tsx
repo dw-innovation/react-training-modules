@@ -13,6 +13,8 @@ import BikesExample from './activities/20-hints-2-bikes';
 
 // @ts-ignore
 import styles from './styles.css';
+// @ts-ignore
+import tocStyles from './styles-toc.css';
 
 const Progress = ({ percent }) =>
   <div className={styles.progress}>
@@ -54,13 +56,29 @@ const Messages
   );
 
 const defaultModus = [ { title: "Art of Perception",
+                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
                          modules: [ { title: "Bubble Count",
                                       activities: []},
                                     { title: "20 Hints",
                                       activities: [ { title: "Easy",
                                                       component: GoerlitzerExample },
                                                     { title: "Medium",
-                                                      component: BikesExample }]}]}]
+                                                      component: BikesExample }]}]},
+                       { title: "Hone your Ears",
+                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
+                         modules: [ { title: "xxx",
+                                      activities: [], },
+                                    { title: "yyy",
+                                      activities: [], }, ], },
+                       { title: "Sharpen your Brain",
+                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
+                         modules: [ { title: "xxx",
+                                      activities: [ { title: "Easy",
+                                                      component: GoerlitzerExample }, { title: "Easy",
+                                                      component: GoerlitzerExample }, { title: "Easy",
+                                                      component: GoerlitzerExample },], },
+                                    { title: "yyy",
+                                      activities: [], }, ], }, ];
 
 const defaultState = { modules: defaultModus }
 
@@ -101,119 +119,174 @@ const Modules = ({...props}) => {
         removeMessage={removeMessage} />
   */
 
+  const activities = flatten(map("activities", flatten(map("modules", modules))));
+  // @ts-ignore
+  const percent = mean(activities.map(a => a.percent || 0) || 0)
+
   return (
     <div className="diggerModules">
+      <div id="toc" className={tocStyles.wrapper}>
+        <Progress percent={percent} />
+        <div className={tocStyles.modules}>
+        {modules.map((theme, i) => {
+          const { title, description, modules } = theme;
+          const activities = flatten(map("activities", modules));
+          // @ts-ignore
+          const percent = mean(activities.map(a => a.percent || 0) || 0)
 
+          return (
+            <div className={tocStyles.theme}>
+              <h3 className={tocStyles.title}>{title}</h3>
+              <p className={tocStyles.description}>
+                {description}
+              </p>
 
-      {modules.map((theme, i) => {
-        const { title, modules } = theme;
-        const activities = flatten(map("activities", modules));
+              {modules.map((module, j) => {
+                const { activities,
+                  title,
+                  } = module;
 
-        // @ts-ignore
-        const percent = mean(activities.map(a => a.percent || 0) || 0)
+                const moduleDotPath = `modules.${i}.modules.${j}`;
 
-        return (
-          <div className={styles.theme}>
-            <h3>{theme.title}</h3>
-            <Progress percent={percent} />
-            {theme.modules.map((module, j) => {
-              const { activities,
-                      title,
-                      // @ts-ignore, if it's not there choose 0
-                      selectedActivity = 0 } = module;
-
-              const [direction, setDirection] = React.useState("right"); // not the biggest fan of this
-
-              const moduleDotPath = `modules.${i}.modules.${j}`;
-
-              const hasNext = selectedActivity < size(activities) - 1;
-              const hasPrev = selectedActivity > 0;
-
-              const next = () => { updateAt(moduleDotPath)({ selectedActivity: selectedActivity + 1});
-                                   setDirection("right"); } // not super happy with this, but naja
-              const prev = () => { updateAt(moduleDotPath)({ selectedActivity: selectedActivity - 1});
-                                   setDirection("left"); }
-
-              // @ts-ignore, if percent isn't there choose 0
-              const percents = activities.map(a => a.percent || 0)
-              const percent = mean(percents) || 0;
-
-              // TODO activity local state gets lost when you only render one
-              // console.log(percents)
-
-
-              const ActivityHeaders = activities.map((activity, y) => {
-                const { title } = activity
-                const active = (y === selectedActivity)
-                return (
-                  <div className={c(styles.activityHeader, active ? styles.active: null)}>
-                    { title }
-                  </div>
-                )
-              })
-
-
-              const Activities = activities.map((activity, y) => {
-                // how to navigate back to this activity in the tree of things?
-                //    get the dotpath of how we cycled in to get here, so we
-                //      can update ourselves in the state directly
-                const activityDotPath = `modules.${i}.modules.${j}.activities.${y}`
-
-                const _award = award(activityDotPath);
-                const _penalize = penalize(activityDotPath);
-                // @ts-ignore typescript looses types with ...spread apparently
-                const _finish = (...args) => { award(activityDotPath)(...args);
-                                               next(); }
-
-                //@ts-ignore
-                const { percent,
-                        title } = activity
-
-                const active = (y === selectedActivity)
-
-                const classes = c(styles.activity,
-                                  (active ? styles.active : styles.notActive),
-                                  (direction === "left" ? styles.fromLeft : styles.fromRight))
+                // @ts-ignore, if percent isn't there choose 0
+                const percents = activities.map(a => a.percent || 0)
+                const percent = mean(percents) || 0;
 
                 return (
-                  <div className={classes}>
-                    <activity.component
-                      classes={{ button: styles.buttonPrimary }}
-                      award={_award}
-                      penalize={_penalize}
-                      finish={_finish} />
+                  <a href={`#module${j}`}>
+                  <div className={tocStyles.module}>
+                    <div className={tocStyles.backProgress} style={{width: `${percent}%`}} />
+                    <div className={tocStyles.moduleTitle}>{title}</div>
                   </div>
-                )
-              })
+                  </a>
+                );
+              })}
 
-              return (
-                <div className={styles.module}>
-                  <div className={styles.moduleHeader}>
-                    {hasPrev &&
-                      <div className={styles.moduleHeaderItem}>
-                        <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>
+
+            </div>
+          )
+
+
+        })}
+        </div>
+      </div>
+
+
+      <div className={styles.modules}>
+        {modules.map((theme, i) => {
+          const { title, modules } = theme;
+          const activities = flatten(map("activities", modules));
+
+          // @ts-ignore
+          const percent = mean(activities.map(a => a.percent || 0) || 0)
+
+          return (
+            <div className={styles.theme}>
+              {modules.map((module, j) => {
+                const { activities,
+                  title,
+                  // @ts-ignore, if it's not there choose 0
+                  selectedActivity = 0 } = module;
+
+                const [direction, setDirection] = React.useState("right"); // not the biggest fan of this
+
+                const moduleDotPath = `modules.${i}.modules.${j}`;
+
+                const hasNext = selectedActivity < size(activities) - 1;
+                const hasPrev = selectedActivity > 0;
+
+                const next = () => {
+                  updateAt(moduleDotPath)({ selectedActivity: selectedActivity + 1 });
+                  setDirection("right");
+                } // not super happy with this, but naja
+                const prev = () => {
+                  updateAt(moduleDotPath)({ selectedActivity: selectedActivity - 1 });
+                  setDirection("left");
+                }
+
+                // @ts-ignore, if percent isn't there choose 0
+                const percents = activities.map(a => a.percent || 0)
+                const percent = mean(percents) || 0;
+
+                // TODO activity local state gets lost when you only render one
+                // console.log(percents)
+
+
+                const ActivityHeaders = activities.map((activity, y) => {
+                  const { title } = activity
+                  const active = (y === selectedActivity)
+                  return (
+                    <div className={c(styles.activityHeader, active ? styles.active : null)}>
+                      { title}
+                    </div>
+                  )
+                })
+
+
+                const Activities = activities.map((activity, y) => {
+                  // how to navigate back to this activity in the tree of things?
+                  //    get the dotpath of how we cycled in to get here, so we
+                  //      can update ourselves in the state directly
+                  const activityDotPath = `modules.${i}.modules.${j}.activities.${y}`
+
+                  const _award = award(activityDotPath);
+                  const _penalize = penalize(activityDotPath);
+                  const _finish = (...args) => {
+                  // @ts-ignore typescript looses types with ...spread apparently
+                    award(activityDotPath)(...args);
+                    next();
+                  }
+
+                  //@ts-ignore
+                  const { percent,
+                    title } = activity
+
+                  const active = (y === selectedActivity)
+
+                  const classes = c(styles.activity,
+                    (active ? styles.active : styles.notActive),
+                    (direction === "left" ? styles.fromLeft : styles.fromRight))
+
+                  return (
+                    <div className={classes}>
+                      <activity.component
+                        classes={{ button: styles.buttonPrimary }}
+                        award={_award}
+                        penalize={_penalize}
+                        finish={_finish} />
+                    </div>
+                  )
+                })
+
+                return (
+                  <div id={`module${j}`} className={styles.module}>
+                    <div className={styles.moduleHeader}>
+                      {hasPrev &&
+                        <div className={styles.moduleHeaderItem}>
+                          <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>
+                        </div>
+                      }
+                      <div className={c(styles.moduleHeaderItem, styles.moduleHeaderItemCenter)}>
+                        <div className={styles.activityHeaders}>
+                          <div className={styles.activityModuleTitle}>{title}: </div> {ActivityHeaders}
+                        </div>
                       </div>
-                    }
-                    <div className={c(styles.moduleHeaderItem, styles.moduleHeaderItemCenter)}>
-                      <div className={styles.activityHeaders}>
-                        <div className={styles.activityModuleTitle}>{title}: </div> {ActivityHeaders}
+                      <div className={styles.moduleHeaderItem}>
+                        <a href="#toc">Home</a>
                       </div>
                     </div>
-                    <div className={styles.moduleHeaderItem}>
-                      Home
-                      </div>
+                    <Progress percent={percent} />
+                    { Activities}
+                    <p>activity: {selectedActivity}</p>
+                    { hasNext && <button className={styles.buttonSecondary} onClick={_ => next()}>next</button>}
+                    { hasPrev && <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>}
                   </div>
-                  <Progress percent={percent} />
-                  { Activities}
-                  <p>activity: {selectedActivity}</p>
-                  { hasNext && <button className={styles.buttonSecondary} onClick={_ => next()}>next</button>}
-                  { hasPrev && <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>}
-                </div>
-              )
-            })}
-          </div>
-        )
-      })}
+                )
+              })}
+            </div>
+          )
+        })}
+      </div>
     </div>
   );
 }
@@ -245,10 +318,10 @@ const mount = () => {
 mount();
 
 // @ts-ignore
- if (module.hot) {
-// @ts-ignore
-   module.hot.accept('./index.tsx', function() {
-     console.log('Accepting the updated printMe module!');
-     mount();
-   })
- }
+if (module.hot) {
+  // @ts-ignore
+  module.hot.accept('./index.tsx', function() {
+    console.log('Accepting the updated printMe module!');
+    mount();
+  })
+}
