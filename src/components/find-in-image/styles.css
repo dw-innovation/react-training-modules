@@ -2,6 +2,7 @@
 .activity {
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .panel1 {
@@ -39,4 +40,30 @@
 }
 .count_failed {
     color: red;
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.success {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px) saturate(0.5);
+    background-color: rgba(255, 255, 255, .5);
+    padding: 1rem;
+    transition: backdrop-filter .2s;
+}
+
+.successInner {
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-name: fadeIn;
+    animation-timing-function: linear;
+}
+
+
+.completedTitle {
+    font-size: 3rem;
+
 }
