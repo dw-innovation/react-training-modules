@@ -81,3 +81,16 @@
     font-size: 3rem;
 
 }
+
+.panelImage, .panelVideo {
+    width: 100%;
+}
+
+.buttonCorrect {
+    background-color: var(--green) !important;
+}
+
+.buttonWrong {
+    background-color: var(--red) !important;
+
+}

@@ -11,6 +11,10 @@ import * as types from '../types';
 import GoerlitzerExample from './activities/20-hints-1-goerli';
 import BikesExample from './activities/20-hints-2-bikes';
 
+import Bubble1 from './activities/bubble-mix-1';
+import Bubble2 from './activities/bubble-mix-2';
+import Bubble3 from './activities/bubble-mix-3';
+
 // @ts-ignore
 import styles from './styles.css';
 // @ts-ignore
@@ -58,7 +62,12 @@ const Messages
 const defaultModus = [ { title: "Art of Perception",
                          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
                          modules: [ { title: "Bubble Count",
-                                      activities: []},
+                                      activities: [{ title: "Easy",
+                                                     component: Bubble1,},
+                                                   { title: "Medium",
+                                                     component: Bubble2,},
+                                                   { title: "Advanced",
+                                                     component: Bubble3,}]},
                                     { title: "20 Hints",
                                       activities: [ { title: "Easy",
                                                       component: GoerlitzerExample },
