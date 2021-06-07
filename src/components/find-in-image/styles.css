@@ -4,6 +4,16 @@
     flex-direction: row;
     position: relative;
 }
+.activityDiffs {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.row2 {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
 
 .panel1 {
     flex: 1;

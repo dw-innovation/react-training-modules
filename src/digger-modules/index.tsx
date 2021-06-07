@@ -15,6 +15,10 @@ import Bubble1 from './activities/bubble-mix-1';
 import Bubble2 from './activities/bubble-mix-2';
 import Bubble3 from './activities/bubble-mix-3';
 
+import Differences71 from './activities/7-differences-1';
+import Differences72 from './activities/7-differences-2';
+import Differences73 from './activities/7-differences-3';
+
 // @ts-ignore
 import styles from './styles.css';
 // @ts-ignore
@@ -72,7 +76,14 @@ const defaultModus = [ { title: "Art of Perception",
                                       activities: [ { title: "Easy",
                                                       component: GoerlitzerExample },
                                                     { title: "Medium",
-                                                      component: BikesExample }]}]},
+                                                      component: BikesExample }]},
+                                    { title: "7 Differences",
+                                      activities: [ { title: "Easy",
+                                                      component: Differences71 },
+                                                    { title: "Medium",
+                                                      component: Differences72 },
+                                                    { title: "Advanced",
+                                                      component: Differences73 }]}]},
                        { title: "Hone your Ears",
                          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
                          modules: [ { title: "xxx",
