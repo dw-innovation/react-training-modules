@@ -34,10 +34,9 @@ const data: types.Data = {
     /* the house, on the corner */
     { description: "the house",
       shape:
-        <path d="M3 383V37.5L172.5 4L413 98.5V389.5L172.5 369L3 383Z"
-              transform="translate(1004, 692)" />
+        <path d="M3 422V29L73 3.5L230.5 17.5V58.5L413 137.5V428.5L172.5 408L3 422Z"
+              transform="translate(1004,652)"/>
     },
-
     /* the tree, in front of the house */
     { description: "the tree, in front of the house",
       shape:
@@ -87,12 +86,7 @@ const data: types.Data = {
         <path d="M3 49L20.5 17L127 3V42.5L81.5 58.5L20.5 67L3 49Z"
               transform="translate(1102, 562)"/>
     },
-    /* a very decorative house */
-    { description: "a very decorative house",
-      shape:
-        <path d="M13 48L2.5 27.5V12.5L75.5 3V38.5L13 48Z"
-              transform="translate(1050.5, 659)"/>
-    },
+
     /* look! a streetsign in front of the house */
     { description: "a streetsign in front of the house",
       shape:

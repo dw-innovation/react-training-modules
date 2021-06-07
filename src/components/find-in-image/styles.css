@@ -18,17 +18,19 @@
     position: relative;
 }
 .row2 .panel1 {
-    padding-top: 1.4rem;
+    padding-top: 2.4rem;
 }
 
 .panel1 {
     flex: 1;
+    padding-top: 1rem;
     padding-right: 1rem;
     padding-left: 1rem;
 }
 .panel2 {
     flex: 1;
     padding-right: 1rem;
+    padding-top: 1rem;
 }
 
 .title {
@@ -92,10 +94,8 @@
     animation-timing-function: linear;
 }
 
-
 .completedTitle {
     font-size: 3rem;
-
 }
 
 .panelImage, .panelVideo {
