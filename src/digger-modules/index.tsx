@@ -10,6 +10,7 @@ import * as types from '../types';
 
 import GoerlitzerExample from './activities/20-hints-1-goerli';
 import BikesExample from './activities/20-hints-2-bikes';
+import GasStation from './activities/20-hints-3-gas-station';
 
 import Bubble1 from './activities/bubble-mix-1';
 import Bubble2 from './activities/bubble-mix-2';
@@ -76,7 +77,9 @@ const defaultModus = [ { title: "Art of Perception",
                                       activities: [ { title: "Easy",
                                                       component: GoerlitzerExample },
                                                     { title: "Medium",
-                                                      component: BikesExample }]},
+                                                      component: BikesExample },
+                                                    { title: "Advanced",
+                                                      component: GasStation }]},
                                     { title: "7 Differences",
                                       activities: [ { title: "Easy",
                                                       component: Differences71 },
