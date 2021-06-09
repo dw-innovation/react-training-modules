@@ -8,6 +8,8 @@ import c from 'classnames';
 
 import * as types from '../types';
 
+import AudioPicker, { Example } from '../components/audio-picker';
+
 import GoerlitzerExample from './activities/20-hints-1-goerli';
 import BikesExample from './activities/20-hints-2-bikes';
 import GasStation from './activities/20-hints-3-gas-station';
@@ -89,8 +91,9 @@ const defaultModus = [ { title: "Art of Perception",
                                                       component: Differences73 }]}]},
                        { title: "Hone your Ears",
                          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
-                         modules: [ { title: "xxx",
-                                      activities: [], },
+                         modules: [ { title: "Voice cloning",
+                                      activities: [{ title: "Easy",
+                                                     component: Example }], },
                                     { title: "yyy",
                                       activities: [], }, ], },
                        { title: "Sharpen your Brain",
