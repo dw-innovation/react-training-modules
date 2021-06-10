@@ -35,7 +35,7 @@ const Component
     classes = {},
     data, }) => {
     //
-    const { meta: { title, description },
+    const { meta: { title, description, tips },
       image,
       shapes: originalShapes } = data;
 
@@ -94,6 +94,8 @@ const Component
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.description}>
             {description}
+          </p>
+          <p className={styles.tips} dangerouslySetInnerHTML={{__html: tips}}>
           </p>
         </div>
         <div className={styles.panel2}>

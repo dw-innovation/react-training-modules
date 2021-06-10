@@ -10,8 +10,8 @@ import * as types from '../../components/find-the-difference/types'
 //   - the figma right hand column
 const data: types.Data = {
   meta: {
-    title: "20 Hints",
-    description: "Extract 20 pieces of information hinting to the specific location"
+    title: "7 Differences",
+    description: "Find the 7 differences in the two images"
   },
   image: {
     original: {

@@ -3,6 +3,7 @@ export type Data = {
   meta: {
     description?: string;
     title?: string;
+    tips?: string;
     solution: number;
     options: number[];
   },

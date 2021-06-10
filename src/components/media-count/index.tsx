@@ -36,7 +36,7 @@ const Component
     classes = {},
     data, }) => {
     //
-    const { meta: { title, description, solution, options: dataOptions },
+    const { meta: { title, description, solution, options: dataOptions, tips },
       media: { type, src }, } = data;
 
     const initialOptions = dataOptions.map(o => ({
@@ -66,7 +66,10 @@ const Component
         (clicked && correct) ? styles.buttonCorrect : null,
         (clicked && !correct) ? styles.buttonWrong : null);
 
-      const click = _ => setOptions(updateAt(i, { clicked: true }, options));
+      const click = _ => { const os = updateAt(i, { clicked: true }, options);
+                           setOptions(os);
+                           const finished = some(identity, map(o => (o.clicked && o.correct), os));
+                           if (finished) { console.log("heyyyyyy"); console.log(award); award(10, null, 100) } };
 
       return <button className={cs} onClick={click}>{o.value}</button>
     })
@@ -79,14 +82,17 @@ const Component
           </h3>
           <p className={styles.description}>
             {description}
-            <div className={styles.options}>{Buttons}</div>
           </p>
+          <p className={styles.tips}>
+            {tips}
+          </p>
+            <div className={styles.options}>{Buttons}</div>
         </div>
         <div className={styles.panel2}>
           {Media}
           <a download={src} target="_blank" href={src}>Download media</a>
         </div>
-{ finished &&
+        { finished &&
           <div className={styles.success}>
             <div className={styles.successInner}>
               <div className={styles.completedTitle}>Completed</div>

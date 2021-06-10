@@ -1,6 +1,7 @@
 import React from 'react'
 import FindInImage from '../../components/find-in-image'
 import * as types from '../../components/find-in-image/types'
+import { tips } from './20-hints-1-goerli';
 
 // currently, the visual representation of this data lives at:
 // https://www.figma.com/file/4JO8CeRkvDWflXGdE5y6uh/KID%2FDIGGER-training-frameworks?node-id=117%3A4416
@@ -11,6 +12,7 @@ import * as types from '../../components/find-in-image/types'
 const data: types.Data = {
   meta: {
     title: "20 Hints",
+    tips,
     description: "Extract 20 pieces of information hinting to the specific location"
   },
   image: {

@@ -2,6 +2,20 @@ import React from 'react'
 import FindInImage from '../../components/find-in-image'
 import * as types from '../../components/find-in-image/types'
 
+
+export const tips = `
+<b>Tips</b>: There is a lot of information in a photo and video. By asking the right questions you can require 20 pieces of intelligence like:
+People - clothes, face and body structure
+Location - street names, signs & structure, restaurants, shop chain, cars, license plates, ads, logos, badges, typography, phone numbers on posters or busses, offroad, forest, lake, mountains
+Buildings - architecture, pylons, construction material, constructions, train tracks
+Sound - language, city noises like mosque or church, cars, train, running water, a bird call, building work, rain, children playing, aircraft taking off
+Flora & Fauna - animals, nature, farming
+Weather – which region fits the weather
+Hills and landscape - flat, urban, mountains, coastal
+
+Technical tip: Magnifier on InVid or on your computer, crop image with RIS tools
+`
+
 // currently, the visual representation of this data lives at:
 // https://www.figma.com/file/4JO8CeRkvDWflXGdE5y6uh/KID%2FDIGGER-training-frameworks?node-id=117%3A4416
 // see svg > example-goerli
@@ -11,6 +25,7 @@ import * as types from '../../components/find-in-image/types'
 const data: types.Data = {
   meta: {
     title: "20 Hints",
+    tips,
     description: "Extract 20 pieces of information hinting to the specific location"
   },
   image: {

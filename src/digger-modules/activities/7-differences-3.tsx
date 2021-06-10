@@ -11,7 +11,7 @@ import * as types from '../../components/find-the-difference/types'
 const data: types.Data = {
   meta: {
     title: "7 Differences",
-    description: "Find 7 differences"
+    description: "Find the 7 differences in the two images"
   },
   image: {
     original: {

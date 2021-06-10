@@ -56,7 +56,11 @@ const Component
 
     console.log(audios);
 
-    const clicked = (n) => setAudios(updateAt(n, { correct: (n === solution) }, audios))
+    const clicked = (n) => { const ass = updateAt(n, { correct: (n === solution) }, audios);
+                             setAudios(ass);
+                             const finished = some(identity, map("correct", ass));
+                             award(10, null, 100); }
+
 
     const finished = some(identity, map("correct", audios));
 

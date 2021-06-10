@@ -4,7 +4,8 @@ import MediaCount from '../../components/media-count';
 const data = {
   meta: {
     title: "Bubble Mix",
-    description: "some things here",
+    description: "How many bubbles can you count?",
+    tips: "Technical tip on video : Frame-by-Frame with VLC and slow down the speed!",
     solution: 99,
     options: [90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102]},
   media: {
