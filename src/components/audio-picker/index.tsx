@@ -1,5 +1,5 @@
 import React from 'react'
-import { merge } from 'lodash/fp';
+import { merge, some, map, identity } from 'lodash/fp';
 import * as types from './types'
 import ReactDOM from 'react-dom'
 import WaveSurfer from 'wavesurfer.js'
@@ -51,12 +51,14 @@ const Component
 
     const _audios = initialAudios.map((a, i) => ({ src: a }));
 
-    const [audios, setAudios] = React.useState(_audios);
+         const [audios, setAudios] = React.useState(_audios);
+         const reset = () => setAudios(_audios);
 
     console.log(audios);
 
-
     const clicked = (n) => setAudios(updateAt(n, { correct: (n === solution) }, audios))
+
+    const finished = some(identity, map("correct", audios));
 
     return (
       <div className={c(activityStyles.activity, activityStyles.activityDiffs)}>
@@ -96,6 +98,27 @@ const Component
             })}
           </div>
         </div>
+        { finished &&
+          <div className={activityStyles.success}>
+            <div className={activityStyles.successInner}>
+              <div className={activityStyles.completedTitle}>Completed</div>
+              <p className={activityStyles.completedText}>
+                You Guessed Correctly
+          </p>
+              <button className={c(activityStyles.button, classes.button)}
+                onClick={_ => finish(10, null, 100)}>
+                Next
+              </button>
+              <button className={c(activityStyles.button, classes.button)}
+                onClick={_ => {
+                  reset();
+                  award(10, null, 1);
+                }}>
+                Try Again
+              </button>
+            </div>
+          </div>
+        }
       </div>
     )
          }

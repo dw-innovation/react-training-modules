@@ -294,7 +294,7 @@ const Modules = ({...props}) => {
                     <div className={styles.moduleHeader}>
                       <div className={styles.moduleHeaderItem}>
                         {hasPrev &&
-                          <button className={styles.buttonPrimary} onClick={_ => prev()}>back</button>
+                          <a href="#" onClick={e => {e.preventDefault(); prev(); }}>back</a>
                         }
                       </div>
                       <div className={c(styles.moduleHeaderItem, styles.moduleHeaderItemCenter)}>

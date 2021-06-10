@@ -81,17 +81,16 @@ html, body {
 .moduleHeader {
   display:flex;
   flex-direction: row;
-  border: 1px solid var(--blue-light);
   background-color: var(--blue-light);
   color: var(--white)
 }
 .moduleFooter {
   display:flex;
   flex-direction: row;
-  border: 1px solid var(--blue-light);
+  border-top: 1px solid var(--blue-lighter);
+  margin-top: 1rem;
 }
 .moduleHeaderItem {
-  border-right: 1px solid var(--blue-light);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +101,6 @@ html, body {
   color: var(--white);
 }
 .moduleHeaderItem:last-child {
-  border-right: 0px solid var(--blue-light);
 }
 
 .moduleHeaderItemCenter {
