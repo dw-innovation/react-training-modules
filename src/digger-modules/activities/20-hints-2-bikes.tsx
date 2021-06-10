@@ -45,11 +45,6 @@ const data: types.Data = {
         <path d="M2.5 78V4L128 78L111.5 103.5L2.5 78Z"
               transform="translate(234,623)"/>
     },
-    { description: "antennas on left",
-      shape:
-        <path d="M2.5 20.5V2.5H48.5V20.5H2.5Z"
-              transform="translate(258,704)"/>
-    },
     { description: "a truck",
       shape:
         <path d="M2 61V2H91V61H2Z"
@@ -119,6 +114,21 @@ const data: types.Data = {
       shape:
         <path d="M258.5 53L61 22.5L0.5 7L117.5 9L129.5 2.5L246 7L258.5 53Z"
               transform="translate(763,807)"/>
+    },
+    { description: "antannea",
+      shape:
+        <path d="M2.5 20.5V2.5H48.5V20.5H2.5Z"
+              transform="translate(358,704)"/>
+    },
+    { description: "trash can",
+      shape:
+        <path d="M2 29.5V2.5H31.5V29.5H2Z"
+              transform="translate(684,788)"/>
+    },
+    { description: "restaurant sign",
+      shape:
+<path d="M2.5 26V5.5V2H19.5L28.5 26H2.5Z"
+      transform="translate(915,769)"/>
     },
   ]
 }

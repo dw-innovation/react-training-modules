@@ -17,30 +17,36 @@ import styles from './styles.css';
  */
 type Props =
   componentTypes.TrainingComponent
-  & { data: Data; classes?: { button?: object;
-                             [key:string]: object; } }
+  & {
+    data: Data; classes?: {
+      button?: object;
+      [key: string]: object;
+    }
+  }
 
 const Component
   // the function signature/types:
   : (p: Props) => React.ReactElement
   // the function itself
   = ({ award = () => { },
-       penalize = () => { },
-       finish = () => { },
-       fail = () => { },
-       classes = { },
-       data, }) => {
+    penalize = () => { },
+    finish = () => { },
+    fail = () => { },
+    classes = {},
+    data, }) => {
     //
     const { meta: { title, description },
-            image,
-            shapes: originalShapes } = data;
+      image,
+      shapes: originalShapes } = data;
 
     const [failedAttempts, setFailed] = React.useState(0)
 
     const [shapes, setShapes] = React.useState(originalShapes)
 
-    const reset = () => { setFailed(0);
-                          setShapes(originalShapes); }
+    const reset = () => {
+      setFailed(0);
+      setShapes(originalShapes);
+    }
 
     // given a shape, update that shape in our state
     // with visible: true
@@ -107,6 +113,7 @@ const Component
             shapes={shapes}
             successClick={clickFound}
             failedClick={clickFailed} />
+          <a download={image.src} target="_blank" href={image.src}>Download media</a>
         </div>
         { finished &&
           <div className={styles.success}>
@@ -117,13 +124,15 @@ const Component
             <span className={styles.count_failed}> {failedAttempts}</span> times
           </p>
               <button className={c(styles.button, classes.button)}
-                      onClick={_ => finish(10, null, 100)}>
+                onClick={_ => finish(10, null, 100)}>
                 Next
               </button>
               <button className={c(styles.button, classes.button)}
-                      onClick={_ => { reset();
-                                      award(10, null, 1); }}>
-               Try Again
+                onClick={_ => {
+                  reset();
+                  award(10, null, 1);
+                }}>
+                Try Again
               </button>
             </div>
           </div>

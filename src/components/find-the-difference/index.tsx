@@ -95,6 +95,8 @@ const Component
         <div className={styles.row2}>
           <div className={styles.panel1}>
           <img className={styles.panelImage} src={originalImage.src} />
+          <a download={originalImage.src} target="_blank" href={originalImage.src}>Download media</a>
+
           </div>
           <div className={styles.panel2}>
             <div className={styles.stats}>
@@ -113,6 +115,7 @@ const Component
               shapes={shapes}
               successClick={clickFound}
               failedClick={clickFailed} />
+            <a download={alteredImage.src} target="_blank" href={alteredImage.src}>Download media</a>
           </div>
           {finished &&
             <div className={styles.success}>
