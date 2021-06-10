@@ -28,7 +28,7 @@ const formWaveSurferOptions = ref => ({
   partialRender: true
 });
 
-export default function Waveform({ url }) {
+export default function Waveform({ url, redraw }) {
   const waveformRef = useRef(null);
   const wavesurfer = useRef(null);
   const [rerenderCount, setRerender] = useState(0);
@@ -67,7 +67,7 @@ export default function Waveform({ url }) {
     // Removes events, elements and disconnects Web Audio nodes.
     // when component unmount
     return () => wavesurfer.current.destroy();
-  }, [url]);
+  }, [url, redraw]);
 
   const handlePlayPause = () => {
     setPlay(!playing);

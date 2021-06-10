@@ -22,4 +22,5 @@ export type TrainingComponent = {
   penalize?: LifeFunction;
   finish?: LifeFunction;
   fail?: LifeFunction;
+  active?: boolean;
 }

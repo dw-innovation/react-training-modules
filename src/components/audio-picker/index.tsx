@@ -64,18 +64,17 @@ const Component
     penalize = () => { },
     finish = () => { },
     fail = () => { },
-    classes = {},
+       classes = {},
+       active = false,
     data, }) => {
     //
     const { meta: { title, description },
       audios } = data;
 
     return (
-
       <div className={c(activityStyles.activity, activityStyles.activityDiffs)}>
         <div className={activityStyles.row1}>
           <h3 className={activityStyles.title}>{title}</h3>
-
           <p className={activityStyles.description}>
             {description}
           </p>
@@ -85,7 +84,7 @@ const Component
             {audios.map(src =>
               <div className={styles.audioPicker}>
                 <div className={styles.panelLeft}>
-                  <Waveform url={src} />
+                  <Waveform url={src} redraw={active} />
                 </div>
                 <div className={styles.panelRight}>
                   <button className={c(styles.button, classes.button)}>Pick</button>
@@ -113,4 +112,34 @@ const data: types.Data = {
     ]
 }
 
-export const Example =({...props}) => <Component data={data} {...props} />;
+const data2: types.Data = {
+    meta: {
+        title: "Voice cloning",
+        description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+    },
+    audios: [
+        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/1.mp3",
+// "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3",
+        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/2.mp3",
+        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/3.mp3",
+    ]
+}
+
+const data3: types.Data = {
+    meta: {
+        title: "Voice cloning",
+        description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+    },
+    audios: [
+        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/1.mp3",
+// "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3",
+        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/2.mp3",
+        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/3.mp3",
+    ]
+}
+
+export const Example1 =({...props}) => <Component data={data} {...props} />;
+
+export const Example2 =({...props}) => <Component data={data2} {...props} />;
+
+export const Example3 =({...props}) => <Component data={data3} {...props} />;

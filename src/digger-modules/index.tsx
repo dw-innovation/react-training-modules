@@ -8,7 +8,7 @@ import c from 'classnames';
 
 import * as types from '../types';
 
-import AudioPicker, { Example } from '../components/audio-picker';
+import AudioPicker, { Example1, Example2, Example3 } from '../components/audio-picker';
 
 import GoerlitzerExample from './activities/20-hints-1-goerli';
 import BikesExample from './activities/20-hints-2-bikes';
@@ -93,7 +93,11 @@ const defaultModus = [ { title: "Art of Perception",
                          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
                          modules: [ { title: "Voice cloning",
                                       activities: [{ title: "Easy",
-                                                     component: Example }], },
+                                                     component: Example1 },
+                                                   { title: "Medium",
+                                                     component: Example2 },
+                                                   { title: "Advanced",
+                                                     component: Example3 }], },
                                     { title: "yyy",
                                       activities: [], }, ], },
                        { title: "Sharpen your Brain",
@@ -278,6 +282,7 @@ const Modules = ({...props}) => {
                       <activity.component
                         classes={{ button: styles.buttonPrimary }}
                         award={_award}
+                        active={active}
                         penalize={_penalize}
                         finish={_finish} />
                     </div>
