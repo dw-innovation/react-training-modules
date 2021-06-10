@@ -292,11 +292,11 @@ const Modules = ({...props}) => {
                 return (
                   <div id={`module${j}`} className={styles.module}>
                     <div className={styles.moduleHeader}>
-                      {hasPrev &&
-                        <div className={styles.moduleHeaderItem}>
-                          <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>
-                        </div>
-                      }
+                      <div className={styles.moduleHeaderItem}>
+                        {hasPrev &&
+                          <button className={styles.buttonPrimary} onClick={_ => prev()}>back</button>
+                        }
+                      </div>
                       <div className={c(styles.moduleHeaderItem, styles.moduleHeaderItemCenter)}>
                         <div className={styles.activityHeaders}>
                           <div className={styles.activityModuleTitle}>{title}: </div> {ActivityHeaders}
@@ -308,9 +308,16 @@ const Modules = ({...props}) => {
                     </div>
                     <Progress percent={percent} />
                     { Activities}
-                    <p>activity: {selectedActivity}</p>
-                    { hasNext && <button className={styles.buttonSecondary} onClick={_ => next()}>next</button>}
-                    { hasPrev && <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>}
+                    <div className={styles.moduleFooter}>
+                      <div className={styles.moduleHeaderItem}>
+                        {hasPrev && <button className={styles.buttonSecondary} onClick={_ => prev()}>back</button>}
+                      </div>
+                      <div className={c(styles.moduleHeaderItem, styles.moduleHeaderItemCenter)}>
+                      </div>
+                      <div className={styles.moduleHeaderItem}>
+                        {hasNext && <button className={styles.buttonSecondary} onClick={_ => next()}>next</button>}
+                      </div>
+                    </div>
                   </div>
                 )
               })}
