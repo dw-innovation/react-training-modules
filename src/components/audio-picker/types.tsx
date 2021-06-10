@@ -5,5 +5,6 @@ export type Data = {
     title?: string;
     description: string;
   },
+  solution: number;
   audios: string[];
 }

@@ -15,38 +15,7 @@ import * as componentTypes from '../../types';
 // @ts-ignore
 import styles from './styles.css'
 
-    /*
-     *   }
-     *   render() {
-     *     return (
-     *       <div className='waveform'>
-     *         <div className='wave'></div>
-     *       </div>
-     *     )
-     *   }
-     * }
-     * const Wave = ({ src }) => {
-     *   const waveformRef = React.useRef();
-     *
-     *   React.useEffect(() => {
-     *     if(waveformRef.current) {
-     *       const wavesurfer = WaveSurfer.create({
-     *         container: waveformRef.current,
-     *         barWidth: 3,
-     *         cursorWidth: 1,
-     *         // backend: 'WebAudio',
-     *         height: 80,
-     *         progressColor: '#2D5BFF',
-     *         responsive: true,
-     *         waveColor: '#EFEFEF',
-     *         cursorColor: 'transparent',
-     *         xhr: { cache: 'default',
-     *              mode: 'no-cors',
-     *              method: 'GET',
-     *              // credentials: 'same-origin',
-     *              redirect: 'follow',
-     *              referrer: 'client' }
-     *  */
+
 /*
  *   This component implements the api of the parent component, as
  *      well as requiring it's own data
@@ -61,15 +30,18 @@ const Component
   : (p: Props) => React.ReactElement
   // the function itself
   = ({ award = () => { },
-    penalize = () => { },
-    finish = () => { },
-    fail = () => { },
+       penalize = () => { },
+       finish = () => { },
+       fail = () => { },
        classes = {},
        active = false,
-    data, }) => {
+       data, }) => {
     //
     const { meta: { title, description },
-      audios } = data;
+            solution,
+            audios } = data;
+
+    const clicked = (n) => (n === solution) ? finish(10, null, 100) :
 
     return (
       <div className={c(activityStyles.activity, activityStyles.activityDiffs)}>
@@ -81,13 +53,16 @@ const Component
         </div>
         <div className={activityStyles.row2}>
           <div className={styles.audios}>
-            {audios.map(src =>
+            {audios.map((src, i) =>
               <div className={styles.audioPicker}>
                 <div className={styles.panelLeft}>
                   <Waveform url={src} redraw={active} />
                 </div>
                 <div className={styles.panelRight}>
-                  <button className={c(styles.button, classes.button)}>Pick</button>
+                  <button className={c(styles.button, classes.button)}
+                          onClick={_ => clicked(i)}>
+                    Pick
+                  </button>
                 </div>
               </div>
             )}
@@ -104,9 +79,11 @@ const data: types.Data = {
         title: "Voice cloning",
         description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
+    solution: 3,
     audios: [
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/1/1.mp3",
-// "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3",
+        // confirmed working audio for testing:
+        // "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3",
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/1/2.mp3",
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/1/3.mp3",
     ]
@@ -117,9 +94,9 @@ const data2: types.Data = {
         title: "Voice cloning",
         description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
+    solution: 1,
     audios: [
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/1.mp3",
-// "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3",
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/2.mp3",
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/3.mp3",
     ]
@@ -130,9 +107,9 @@ const data3: types.Data = {
         title: "Voice cloning",
         description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
+    solution: 1,
     audios: [
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/1.mp3",
-// "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3",
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/2.mp3",
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/3.mp3",
     ]
