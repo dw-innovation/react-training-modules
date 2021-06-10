@@ -1,4 +1,5 @@
 import React from 'react'
+import { merge } from 'lodash/fp';
 import * as types from './types'
 import ReactDOM from 'react-dom'
 import WaveSurfer from 'wavesurfer.js'
@@ -15,6 +16,13 @@ import * as componentTypes from '../../types';
 // @ts-ignore
 import styles from './styles.css'
 
+const updateAt = (i: number, o: object, a: Array<any>): Array<any> => {
+  const obj = a[i];
+  const updated = merge(obj, o);
+  const copy = [ ...a ];
+  copy.splice(i, 1, updated);
+  return copy;
+}
 
 /*
  *   This component implements the api of the parent component, as
@@ -39,9 +47,16 @@ const Component
     //
     const { meta: { title, description },
             solution,
-            audios } = data;
+            audios: initialAudios, } = data;
 
-    const clicked = (n) => (n === solution) ? finish(10, null, 100) :
+    const _audios = initialAudios.map((a, i) => ({ src: a }));
+
+    const [audios, setAudios] = React.useState(_audios);
+
+    console.log(audios);
+
+
+    const clicked = (n) => setAudios(updateAt(n, { correct: (n === solution) }, audios))
 
     return (
       <div className={c(activityStyles.activity, activityStyles.activityDiffs)}>
@@ -53,19 +68,32 @@ const Component
         </div>
         <div className={activityStyles.row2}>
           <div className={styles.audios}>
-            {audios.map((src, i) =>
-              <div className={styles.audioPicker}>
-                <div className={styles.panelLeft}>
-                  <Waveform url={src} redraw={active} />
-                </div>
-                <div className={styles.panelRight}>
-                  <button className={c(styles.button, classes.button)}
-                          onClick={_ => clicked(i)}>
-                    Pick
+            {audios.map((a, i) => {
+              const bb =
+                // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
+                (a?.correct === false) ? "wrong" :
+                    // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
+                    (a?.correct === true) ? "right" : "pick";
+              const cs = c(styles.button,
+                           classes.button,
+                           // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
+                           (a?.correct === false) ? activityStyles.buttonWrong : null,
+                           // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
+                           (a?.correct === true) ? activityStyles.buttonCorrect : null)
+              return (
+                <div className={styles.audioPicker}>
+                  <div className={styles.panelLeft}>
+                    <Waveform url={a.src} redraw={active} />
+                  </div>
+                  <div className={styles.panelRight}>
+                    <button className={cs}
+                      onClick={_ => clicked(i)}>
+                      {bb}
                   </button>
+                  </div>
                 </div>
-              </div>
-            )}
+              )
+            })}
           </div>
         </div>
       </div>
@@ -79,7 +107,7 @@ const data: types.Data = {
         title: "Voice cloning",
         description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
-    solution: 3,
+    solution: 2,
     audios: [
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/1/1.mp3",
         // confirmed working audio for testing:
@@ -94,7 +122,7 @@ const data2: types.Data = {
         title: "Voice cloning",
         description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
-    solution: 1,
+    solution: 0,
     audios: [
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/1.mp3",
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/2.mp3",
@@ -107,7 +135,7 @@ const data3: types.Data = {
         title: "Voice cloning",
         description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
-    solution: 1,
+    solution: 0,
     audios: [
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/1.mp3",
         "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/2.mp3",
