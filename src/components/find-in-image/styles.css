@@ -1,4 +1,4 @@
-
+@import '../../digger-modules/shared.css';
 .activity {
     display: flex;
     flex-direction: row;
@@ -34,12 +34,19 @@
 }
 
 .title {
-
+  font-size: 2rem;
+  font-family: var(--heading-font);
+  margin-top: 0;
 }
-
 .description {
-
+  font-size: 1.3rem;
+  font-family: var(--heading-font);
 }
+.tips {
+    font-size: .8rem;
+}
+
+
 
 .stats {
     display: flex;
@@ -51,7 +58,7 @@
     flex: 1;
 }
 .count_found {
-    color: green;
+    color: var(--green);
 }
 
 .stat_failed {
@@ -59,7 +66,7 @@
     flex: 1;
 }
 .count_failed {
-    color: red;
+    color: var(--red);
 }
 @keyframes fadeIn {
   0% { opacity: 0; }
@@ -110,4 +117,13 @@
 .buttonWrong {
     background-color: var(--red) !important;
 
+}
+
+.title {
+  font-size: 2rem;
+  font-family: var(--heading-font);
+}
+.description {
+  font-size: 1.3rem;
+  font-family: var(--heading-font);
 }
