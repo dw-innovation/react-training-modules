@@ -10,6 +10,7 @@ import * as types from '../types';
 
 import AudioPicker, { Example1, Example2, Example3 } from '../components/audio-picker';
 import AudioTagPicker, { Example1 as AudioTag1, Example2 as AudioTag2, Example3 as AudioTag3 } from '../components/audio-tag-picker';
+import AudioTagsPicker, { Example1 as AudioTags1, Example2 as AudioTags2, Example3 as AudioTags3 } from '../components/audio-tags-picker';
 
 import GoerlitzerExample from './activities/20-hints-1-goerli';
 import BikesExample from './activities/20-hints-2-bikes';
@@ -106,8 +107,13 @@ const defaultModus = [ { title: "Art of Perception",
                                                      component: AudioTag2 },
                                                    { title: "Advanced",
                                                      component: AudioTag3 }], },
-                                    { title: "yyy",
-                                      activities: [], }, ], },
+                                    { title: "Sound Collector",
+                                      activities: [{ title: "Easy",
+                                                     component: AudioTags1 },
+                                                   { title: "Medium",
+                                                     component: AudioTags2 },
+                                                   { title: "Advanced",
+                                                     component: AudioTags3 }], }, ], },
                        { title: "Sharpen your Brain",
                          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
                          modules: [ { title: "xxx",
