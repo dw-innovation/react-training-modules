@@ -15,3 +15,5 @@
   --heading-font: "PT Serif";
   --spacing: 1rem;
 }
+
+:global(button) { cursor:pointer; }

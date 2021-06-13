@@ -15,12 +15,12 @@ const data: types.Data = {
   },
   image: {
     original: {
-      src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-3-nuts-left.jpg",
+      src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-3-nuts-left_f.jpg",
       height: 1074,
       width: 1024,
     },
     altered: {
-      src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-3-nuts-right.jpg",
+      src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-3-nuts-right_f.jpg",
       height: 1074,
       width: 1024,
     },

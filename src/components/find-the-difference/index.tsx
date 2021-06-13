@@ -89,16 +89,12 @@ const Component
         <div className={styles.row1}>
           <h3 className={styles.title}>{title}</h3>
           <p className={styles.description}>
-              {description}
-            </p>
+            {description}
+          </p>
         </div>
         <div className={styles.row2}>
-          <div className={styles.panel1}>
-          <img className={styles.panelImage} src={originalImage.src} />
-          <a download={originalImage.src} target="_blank" href={originalImage.src}>Download media</a>
 
-          </div>
-          <div className={styles.panel2}>
+          <div className={styles.panel1}>
             <div className={styles.stats}>
               <div className={styles.stat_found}>
                 <span className={styles.count_found}>
@@ -117,29 +113,33 @@ const Component
               failedClick={clickFailed} />
             <a download={alteredImage.src} target="_blank" href={alteredImage.src}>Download media</a>
           </div>
-          {finished &&
-            <div className={styles.success}>
-              <div className={styles.successInner}>
-                <div className={styles.completedTitle}>Completed</div>
-                <p className={styles.completedText}>
-                  You found all {totalCount} hints. You guessed wrong
+          <div className={styles.panel2}>
+            <img className={styles.panelImage} src={originalImage.src} />
+            <a download={originalImage.src} target="_blank" href={originalImage.src}>Download media</a>
+          </div>
+        </div>
+        {finished &&
+          <div className={styles.success}>
+            <div className={styles.successInner}>
+              <div className={styles.completedTitle}>Completed</div>
+              <p className={styles.completedText}>
+                You found all {totalCount} hints. You guessed wrong
             <span className={styles.count_failed}> {failedAttempts}</span> times
           </p>
-                <button className={c(styles.button, classes.button)}
-                  onClick={_ => finish(10, null, 100)}>
-                  Next
+              <button className={c(styles.button, classes.button)}
+                onClick={_ => finish(10, null, 100)}>
+                Next
               </button>
-                <button className={c(styles.button, classes.button)}
-                  onClick={_ => {
-                    reset();
-                    award(10, null, 1);
-                  }}>
-                  Try Again
+              <button className={c(styles.button, classes.button)}
+                onClick={_ => {
+                  reset();
+                  award(10, null, 1);
+                }}>
+                Try Again
               </button>
-              </div>
             </div>
-          }
-        </div>
+          </div>
+        }
       </div>
     );
   }

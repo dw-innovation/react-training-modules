@@ -3,7 +3,7 @@ import { merge, some, map, identity } from 'lodash/fp';
 import * as types from './types'
 import ReactDOM from 'react-dom'
 import WaveSurfer from 'wavesurfer.js'
-import Waveform from "./WaveForm";
+import Waveform from "../audio-picker/WaveForm";
 import c from 'classnames';
 
 // css transform handled by webpack, ts shouldnt know about it
@@ -14,7 +14,7 @@ import activityStyles from '../find-in-image/styles.css';
 import * as componentTypes from '../../types';
 // css transform handled by webpack, ts shouldnt know about it
 // @ts-ignore
-import styles from './styles.css'
+import styles from '../audio-picker/styles.css'
 
 const updateAt = (i: number, o: object, a: Array<any>): Array<any> => {
   const obj = a[i];
@@ -46,23 +46,22 @@ const Component
        data, }) => {
     //
     const { meta: { title, description },
+            choices: initialChoices,
             solution,
-            audios: initialAudios, } = data;
+            audio, } = data;
 
-    const _audios = initialAudios.map((a, i) => ({ src: a }));
+    const _choices = initialChoices.map((a, i) => ({ text: a }));
 
-         const [audios, setAudios] = React.useState(_audios);
-         const reset = () => setAudios(_audios);
+    const [choices, setChoices] = React.useState(_choices);
+    const reset = () => setChoices(_choices);
 
-    console.log(audios);
-
-    const clicked = (n) => { const ass = updateAt(n, { correct: (n === solution) }, audios);
-                             setAudios(ass);
+    const clicked = (n, text) => { const ass = updateAt(n, { correct: (text === solution) }, choices);
+                             console.log(n, solution)
+                             setChoices(ass);
                              const finished = some(identity, map("correct", ass));
                              if (finished) award(10, null, 100); }
 
-
-    const finished = some(identity, map("correct", audios));
+    const finished = some(identity, map("correct", choices));
 
     return (
       <div className={c(activityStyles.activity, activityStyles.activityDiffs)}>
@@ -72,14 +71,10 @@ const Component
             {description}
           </p>
         </div>
-        <div className={activityStyles.row2}>
-          <div className={styles.audios}>
-            {audios.map((a, i) => {
-              const bb =
-                // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
-                (a?.correct === false) ? "wrong" :
-                    // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
-                    (a?.correct === true) ? "right" : "pick";
+        <div className={activityStyles.row1}>
+          <Waveform url={audio} redraw={active} />
+          <div className={styles.choices}>
+            {choices.map((a, i) => {
               const cs = c(styles.button,
                            classes.button,
                            // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
@@ -87,17 +82,10 @@ const Component
                            // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
                            (a?.correct === true) ? activityStyles.buttonCorrect : null)
               return (
-                <div className={styles.audioPicker}>
-                  <div className={styles.panelLeft}>
-                    <Waveform url={a.src} redraw={active} />
-                  </div>
-                  <div className={styles.panelRight}>
                     <button className={cs}
-                      onClick={_ => clicked(i)}>
-                      {bb}
+                      onClick={_ => clicked(i, a.text)}>
+                      {a.text}
                   </button>
-                  </div>
-                </div>
               )
             })}
           </div>
@@ -131,44 +119,36 @@ export default Component;
 
 const data: types.Data = {
     meta: {
-        title: "Voice cloning",
-        description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        title: "Critical Listening",
+        description: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
     },
-    solution: 2,
-    audios: [
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/1/1.mp3",
-        // confirmed working audio for testing:
-        // "https://www.mfiles.co.uk/mp3-downloads/franz-schubert-standchen-serenade.mp3",
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/1/2.mp3",
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/1/3.mp3",
-    ]
+    choices: ["Notification", "Birds", "Mouse Clicking", "Table Tennis",],
+    solution: "Mouse Clicking",
+    audio: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/critical-listening/1.mp3",
 }
+
 
 const data2: types.Data = {
     meta: {
-        title: "Voice cloning",
-        description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        title: "Critical Listening",
+        description: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
     },
-    solution: 0,
-    audios: [
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/1.mp3",
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/2.mp3",
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/3.mp3",
-    ]
+    choices: ["Raidrops", "Waves", "Fountain", "Water Running"],
+    solution: "Water Running",
+    audio: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/critical-listening/2.mp3",
 }
 
 const data3: types.Data = {
     meta: {
-        title: "Voice cloning",
-        description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        title: "Critical Listening",
+        description: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
     },
-    solution: 0,
-    audios: [
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/1.mp3",
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/2.mp3",
-        "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/voice-cloning/2/3.mp3",
-    ]
+    choices: ["Washing Mashine", "Escalator", "Ambulance", "Mixer"],
+    solution: "Escalator",
+    audio: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/critical-listening/3.mp3",
 }
+
+
 
 export const Example1 =({...props}) => <Component data={data} {...props} />;
 

@@ -9,6 +9,7 @@ import c from 'classnames';
 import * as types from '../types';
 
 import AudioPicker, { Example1, Example2, Example3 } from '../components/audio-picker';
+import AudioTagPicker, { Example1 as AudioTag1, Example2 as AudioTag2, Example3 as AudioTag3 } from '../components/audio-tag-picker';
 
 import GoerlitzerExample from './activities/20-hints-1-goerli';
 import BikesExample from './activities/20-hints-2-bikes';
@@ -98,6 +99,13 @@ const defaultModus = [ { title: "Art of Perception",
                                                      component: Example2 },
                                                    { title: "Advanced",
                                                      component: Example3 }], },
+                                    { title: "Critical Listening",
+                                      activities: [{ title: "Easy",
+                                                     component: AudioTag1 },
+                                                   { title: "Medium",
+                                                     component: AudioTag2 },
+                                                   { title: "Advanced",
+                                                     component: AudioTag3 }], },
                                     { title: "yyy",
                                       activities: [], }, ], },
                        { title: "Sharpen your Brain",

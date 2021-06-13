@@ -83,8 +83,7 @@ const Component
           <p className={styles.description}>
             {description}
           </p>
-          <p className={styles.tips}>
-            {tips}
+          <p className={styles.tips} dangerouslySetInnerHTML={{__html: tips}}>
           </p>
             <div className={styles.options}>{Buttons}</div>
         </div>

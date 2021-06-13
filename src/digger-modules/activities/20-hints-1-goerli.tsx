@@ -29,7 +29,7 @@ const data: types.Data = {
     description: "Extract 20 pieces of information hinting to the specific location"
   },
   image: {
-    src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/20-hints/20-hints-1.jpg",
+    src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/20-hints/20-hints-1_f.jpg",
     height: 1898,
     width: 1424,
   },

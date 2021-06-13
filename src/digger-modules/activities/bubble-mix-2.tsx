@@ -5,7 +5,8 @@ const data = {
   meta: {
     title: "Bubble Mix",
     description: "How many bubbles can you count?",
-    tips: "Tips : Take your time while observing a visual. Lean back and look around. The details in the background can guide you to a) location, b) manipulation by blurred or missing pieces.",
+    tips: `Tips : Take your time while observing a visual. Lean back and look around.
+          The details in the background can guide you to a) location, b) manipulation by blurred or missing pieces.`,
     solution: 20,
     options: [15, 16, 17, 18, 19, 20, 21, 22, 23]},
   media: {
