@@ -17,6 +17,7 @@ import BikesExample from './activities/20-hints-2-bikes';
 import GasStation from './activities/20-hints-3-gas-station';
 
 import Intelligence1 from './activities/intelligence-1';
+import {Example1 as Question1} from '../components/question-answer';
 
 import Bubble1 from './activities/bubble-mix-1';
 import Bubble2 from './activities/bubble-mix-2';
@@ -121,8 +122,9 @@ const defaultModus = [ { title: "Art of Perception",
                          modules: [ { title: "Intelligence",
                                       activities: [ { title: "Easy",
                                                       component: Intelligence1 }], },
-                                    { title: "yyy",
-                                      activities: [], }, ], }, ];
+                                    { title: "Find The Original",
+                                      activities: [ { title: "Easy",
+                                                      component: Question1, }], }, ], }, ];
 
 const defaultState = { modules: defaultModus }
 
