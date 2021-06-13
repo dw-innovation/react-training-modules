@@ -16,6 +16,8 @@ import GoerlitzerExample from './activities/20-hints-1-goerli';
 import BikesExample from './activities/20-hints-2-bikes';
 import GasStation from './activities/20-hints-3-gas-station';
 
+import Intelligence1 from './activities/intelligence-1';
+
 import Bubble1 from './activities/bubble-mix-1';
 import Bubble2 from './activities/bubble-mix-2';
 import Bubble3 from './activities/bubble-mix-3';
@@ -116,11 +118,9 @@ const defaultModus = [ { title: "Art of Perception",
                                                      component: AudioTags3 }], }, ], },
                        { title: "Sharpen your Brain",
                          description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
-                         modules: [ { title: "xxx",
+                         modules: [ { title: "Intelligence",
                                       activities: [ { title: "Easy",
-                                                      component: GoerlitzerExample }, { title: "Easy",
-                                                      component: GoerlitzerExample }, { title: "Easy",
-                                                      component: GoerlitzerExample },], },
+                                                      component: Intelligence1 }], },
                                     { title: "yyy",
                                       activities: [], }, ], }, ];
 

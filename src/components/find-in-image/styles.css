@@ -127,3 +127,9 @@
   font-size: 1.3rem;
   font-family: var(--heading-font);
 }
+
+.input {
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  padding: .5rem 1rem;
+}
