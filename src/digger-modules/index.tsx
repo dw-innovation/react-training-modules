@@ -199,7 +199,7 @@ const Modules = ({...props}) => {
                 const percent = mean(percents) || 0;
 
                 return (
-                  <a href={`#module${j}`}>
+                  <a href={`#theme${i}module${j}`}>
                   <div className={tocStyles.module}>
                     <div className={tocStyles.backProgress} style={{width: `${percent}%`}} />
                     <div className={tocStyles.moduleTitle}>{title}</div>
@@ -306,7 +306,7 @@ const Modules = ({...props}) => {
                 })
 
                 return (
-                  <div id={`module${j}`} className={styles.module}>
+                  <div id={`theme${i}module${j}`} className={styles.module}>
                     <div className={styles.moduleHeader}>
                       <div className={styles.moduleHeaderItem}>
                         {hasPrev &&
