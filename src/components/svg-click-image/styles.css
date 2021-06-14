@@ -3,6 +3,7 @@
     fill: transparent;
     stroke: yellow;
     stroke-width: 5;
+    transition: 1s opacity;
 }
 
 .link {
