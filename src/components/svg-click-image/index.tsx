@@ -91,7 +91,7 @@ export const ClickImage = ({ image,
       const eventLeft = event.clientX - left;
 
       svgElement.setAttribute("viewBox",
-      `${eventLeft / width * originalWidth - originalWidth / 8} ${eventTop / height * originalHeight - originalHeight / 8} ${originalWidth / 4} ${originalHeight / 4}`)
+      `${eventLeft / width * originalWidth - originalWidth / 4} ${eventTop / height * originalHeight - originalHeight / 4} ${originalWidth / 2} ${originalHeight / 2}`)
     });
     containerElement.addEventListener("mouseleave", debounce(() => {
       console.log('mouseoutttt');
