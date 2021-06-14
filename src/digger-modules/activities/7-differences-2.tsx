@@ -16,56 +16,49 @@ const data: types.Data = {
   image: {
     original: {
       src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-2-cat-left_f.jpg",
-      height: 1524,
+      height: 1024,
       width: 1024,
     },
     altered: {
       src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-2-cat-right_f.jpg",
-      height: 1406,
+      height: 1024,
       width: 1024,
     },
     shapes: [
       {
         description: "an intersection at the light",
         shape:
-          <path d="M2.04639 11.5283L23.0847 34.7918L46.5505 23.2612L39.4703 3.23438L7.91284 11.5283"
-                transform="translate(57,197)"/>
+<path d="M2 34V1.5H49V34H2Z" transform="translate(26,201)"/>
+      },
+       {
+        description: "an intersection at the light",
+        shape:
+<path d="M1.5 30V1.5H17.5V30H1.5Z" transform="translate(575,258)"/>
+      },
+  {
+        description: "an intersection at the light",
+        shape:
+<path d="M1.5 36.5V1.5H38V36.5H1.5Z" transform="translate(343,449)"/>
       },
       {
-        description: "a lightbulb",
+        description: "an intersection at the light",
         shape:
-          <path d="M20.6342 8.47119L26.5 28.2958L20.6342 37.5H8L4.24854 28.2958L2.5 12.5L8 2.5H19.5L20.6342 8.47119Z"
-                transform="translate(569,253)"/>
+<path d="M14.5 35L2.5 17L14.5 2.5L33 17L14.5 35Z" transform="translate(646,449)"/>
+      },
+  {
+        description: "an intersection at the light",
+        shape:
+<path d="M49 2L4 34.5L30.5 45L57 24.5L104 45H142.5L67 2H49Z" transform="translate(445,647)"/>
+      },
+  {
+        description: "an intersection at the light",
+        shape:
+<path d="M97.5 22.5L2 12V2H99.5L97.5 22.5Z" transform="translate(616,641)"/>
       },
       {
-        description: "a piece of eye",
+        description: "an intersection at the light",
         shape:
-          <path d="M2.5 16L18 3.5L41 11.5V27L25.5 32.5H2.5V16Z"
-                transform="translate(355,430)"/>
-      },
-      {
-        description: "another piece of eye",
-        shape:
-          <path d="M15.5356 28.6407L2.58887 16.9078L5.01638 11.2437L15.5356 2.94971L28.4823 16.9078L15.5356 28.6407Z"
-                transform="translate(634,436)"/>
-      },
-      {
-        description: "mousetache!!",
-        shape:
-          <path d="M38.3203 2.77539L4.5376 29.6802L25.5759 35.5466L58.3472 14.5083L95.5688 35.5466L126.115 29.6802L58.3472 2.77539H38.3203Z"
-                transform="translate(453,615)"/>
-      },
-      {
-        description: "whisker",
-        shape:
-          <path d="M98.4785 19.8557L2.59229 12.7755V2.25635H98.4785V19.8557Z"
-                transform="translate(599,605)"/>
-      },
-      {
-        description: "i missing an eye",
-        shape:
-          <path d="M4.5 38.5L12 11L29.5 3.5L58 21L46 38.5L29.5 51L4.5 38.5Z"
-                transform="translate(911,839)"/>
+<path d="M2 34V1.5H34.5L24 34H2Z" transform="translate(958,905)"/>
       },
     ]
   },

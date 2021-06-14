@@ -16,56 +16,51 @@ const data: types.Data = {
   image: {
     original: {
       src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-1-pen-left_f.jpg",
-      height: 1365,
+      height: 1024,
       width: 1024,
     },
     altered: {
       src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-1-pen-right_f.jpg",
-      height: 1365,
+      height: 1024,
       width: 1024,
     },
     shapes: [
       {
         description: "the blue pen on the right",
         shape:
-          <path d="M282.979 7.77246L17.6667 269.529L7 283.751L58.6402 342.503L347.148 77.3598L282.979 7.77246Z"
-                transform="translate(0,262)" />
+          <path d="M352 66L289 3L3 284.5L60.5 334.5L352 66Z" transform="translate(1,86)"/>
       },
       {
-        description: "a paperclip",
+        description: "the blue pen on the right",
         shape:
-          <path d="M6.77246 62.45L31.6613 5.56104H63.6613L31.6613 76.6722L6.77246 62.45Z"
-                transform="translate(293, 524)"/>
+          <path d="M74 16L35 2L2.5 85.5H35L74 16Z" transform="translate(298,352)"/>
       },
       {
-        description: "a paperclip under a pen",
+        description: "the blue pen on the right",
         shape:
-          <path d="M27.5241 111.18L6.02148 22.1216L27.5241 7.89941L77.3019 95.0952L27.5241 111.18Z"
-                transform="translate(300, 750)"/>
+          <path d="M37.5 103L2 20L25 2.5L62.5 85.5L37.5 103Z" transform="translate(312,598)"/>
       },
       {
-        description: "a purple pen",
+        description: "the blue pen on the right",
         shape:
-          <path d="M6 581.847L70 5H105.725L68.3069 293.423L30.8889 581.847H6Z"
-                transform="translate(555,439)"/>
+          <path d="M113 1.5H73L2.5 604H35L113 1.5Z" transform="translate(578,259)"/>
+
       },
       {
-        description: "another missing paperclip",
+        description: "the blue pen on the right",
         shape:
-          <path d="M6 70L15.673 7L54 19.4973L38.6692 70H6Z"
-                transform="translate(720,696)" />
+          <path d="M1.5 78.5V21L32 3.5V78.5H1.5Z" transform="translate(741,676)" />
       },
       {
-        description: "a red pen",
+        description: "the blue pen on the right",
         shape:
-          <path d="M96.6454 5.05811H73.4496L5.89404 484.042H41.4496L96.6454 5.05811Z"
-                transform="translate(739,473)"/>
+          <path d="M95 1.5H67.5L2.5 489L37.5 501.5L95 1.5Z" transform="translate(774,304)"/>
+
       },
       {
-        description: "an additional clip",
+        description: "the blue pen on the right",
         shape:
-          <path d="M5.75684 20.0372V53.8997L107.175 34.4287L96.5082 5.81494L16.4235 20.0372"
-                transform="translate(837,766)"/>
+          <path d="M1.5 58V22.5L96.5 2.5L109.5 37.5L1.5 58Z" transform="translate(877,603)"/>
       },
     ]
   },

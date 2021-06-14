@@ -4,16 +4,14 @@ import * as types from '../../components/find-in-image/types'
 
 
 export const tips = `
-<b>Tips</b>: There is a lot of information in a photo and video. By asking the right questions you can require 20 pieces of intelligence like:
-People - clothes, face and body structure
-Location - street names, signs & structure, restaurants, shop chain, cars, license plates, ads, logos, badges, typography, phone numbers on posters or busses, offroad, forest, lake, mountains
-Buildings - architecture, pylons, construction material, constructions, train tracks
-Sound - language, city noises like mosque or church, cars, train, running water, a bird call, building work, rain, children playing, aircraft taking off
-Flora & Fauna - animals, nature, farming
-Weather – which region fits the weather
-Hills and landscape - flat, urban, mountains, coastal
+<p>Try to require 20 pieces of information out of each visual. You won’t oversee important hints for pointing to the location and time anymore.</p>
 
-Technical tip: Magnifier on InVid or on your computer, crop image with RIS tools
+<p><b>Focus on visuals</b> like street names, signs&structure, restaurants, shops, cars, license plates, ads, logos, typography, phone numbers on posters or busses, architecture, pylons, constructions, train tracks, clothes of people, trees, lake, mountains, coastal, animals, weather</p>
+
+<p><b>Focus on sound anguage</b>, mosques or church, cars, trains, aircraft taking off, a bird call</p>
+
+
+<p><b>Tips:</b> You can download an image / video and zoom in or use the Magnifier of the InVid-plugin. You can crop specific remarks and do a reverse image search to find out where the image was taken.</p>
 `
 
 // currently, the visual representation of this data lives at:
