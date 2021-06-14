@@ -96,8 +96,8 @@ export default function Waveform({ url, redraw }) {
   };
 
   const icon = playing
-             ? "⏸"
-             : "⏵";
+             ? "\uE801"
+             : "\uE800";
 
   return (
     <div className={styles.waveback}>
