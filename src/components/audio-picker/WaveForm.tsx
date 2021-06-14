@@ -63,6 +63,17 @@ export default function Waveform({ url, redraw }) {
         delay(2000, setRerender(rerenderCount + 1));
       }
     });
+    wavesurfer.current.on("finish", function() {
+      // https://wavesurfer-js.org/docs/methods.html
+      // wavesurfer.current.play();
+      // setPlay(true);
+
+      // make sure object stillavailable when file loaded
+      if (wavesurfer.current) {
+        console.log("donneeee")
+        delay(2000, () => setRerender(rerenderCount + 1));
+      }
+    });
 
     // Removes events, elements and disconnects Web Audio nodes.
     // when component unmount
@@ -84,10 +95,14 @@ export default function Waveform({ url, redraw }) {
     }
   };
 
+  const icon = wavesurfer?.current?.backend.isPaused()
+             ? "⏵"
+             : "⏸";
+
   return (
     <div className={styles.waveback}>
       <div className={styles.controls}>
-        <button className={styles.playButton} onClick={handlePlayPause}>▶</button>
+        <button className={styles.playButton} onClick={handlePlayPause}>{icon}</button>
       </div>
       <div className={styles.waveformback}>
         <div id="waveform" ref={waveformRef} />

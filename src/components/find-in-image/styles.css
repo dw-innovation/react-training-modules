@@ -15,7 +15,7 @@
     position: relative;
 }
 .row1 {
-    padding: 1rem;
+    padding: var(--spacing)
 }
 .row2 {
     display: flex;
@@ -28,35 +28,34 @@
   }
 }
 .row2 .panel2 {
-    padding-top: 2.4rem;
+    padding-top: calc(var(--spacing) * 1.7);
 }
 
 .panel1 {
     flex: 1;
-    padding-top: 1rem;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-top: var(--spacing);
+    padding-right: var(--spacing);
+    padding-left: var(--spacing);
 }
 .panel2 {
     flex: 1;
-    padding-right: 1rem;
-    padding-top: 1rem;
+    padding-right: var(--spacing);
+    padding-top: var(--spacing);
 }
 
 .title {
-  font-size: 2rem;
+  font-size: 2.8rem;
   font-family: var(--heading-font);
   margin-top: 0;
+  font-weight: normal;
 }
 .description {
   font-size: 1.3rem;
   font-family: var(--heading-font);
 }
 .tips {
-    font-size: .8rem;
+    font-size: 1rem;
 }
-
-
 
 .stats {
     display: flex;
@@ -109,11 +108,12 @@
     animation-iteration-count: 1;
     animation-name: fadeIn;
     animation-timing-function: linear;
-    padding: 1rem;
+    padding: var(--spacing)
 }
 
 .completedTitle {
     font-size: 3rem;
+    font-family: var(--heading-font);
 }
 
 .panelImage, .panelVideo {
@@ -141,5 +141,5 @@
 .input {
   border: 1px solid var(--blue);
   color: var(--blue);
-  padding: .5rem 1rem;
+  padding: calc(var(--spacing) / 2) var(--spacing);
 }

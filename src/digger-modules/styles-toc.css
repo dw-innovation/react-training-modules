@@ -5,9 +5,9 @@
 }
 
 .theme {
-    padding: 1rem;
+    padding: var(--spacing);
     border: 1px solid var(--blue-lighter);
-    margin-right: 1rem;
+    margin-right: var(--spacing);
     text-align: center;
     font-family: var(--heading-font);
 }
@@ -38,7 +38,7 @@
     background-color: var(--light-grey);
     position: relative;
     border: 1px solid var(--blue-lighter);
-    margin: .5rem 2rem;
+    margin: calc(var(--spacing) / 2) calc(var(--spacing) * 2);
 }
 
 .backProgress {
@@ -49,7 +49,7 @@
     transition-timing-function: ease-out;
 }
 .moduleTitle {
-margin: .5rem auto;
+    margin: calc(var(--spacing) / 2) auto;
     text-align: center;
     font-family: var(--heading-font);
     text-decoration: none;
