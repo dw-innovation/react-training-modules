@@ -1,5 +1,6 @@
 import React from 'react'
 import * as types from './types'
+import { debounce } from 'lodash'
 
 // css transform handled by webpack, ts shouldnt know about it
 // @ts-ignore
@@ -27,6 +28,7 @@ export const ClickImage = ({ image,
                              failedClick }: Props ) => {
   //
   const svgRef = React.useRef(null);
+  const containerRef = React.useRef(null);
   const [markers, setMarkers] = React.useState([]);
 
   /* return the relative coordinates of where you clicked in the svg,
@@ -75,6 +77,28 @@ export const ClickImage = ({ image,
 
   const Shapes = shapes.map(Shape)
 
+  React.useEffect(() => {
+    if (!svgRef?.current) return;
+    if (!containerRef?.current) return;
+    const svgElement = svgRef.current;
+    const containerElement = containerRef.current;
+    const [,,originalWidth, originalHeight] = svgElement.getAttribute("viewBox").split(" ").map(Number);
+
+    svgElement.addEventListener("mousemove", (event) => {
+      const {top, left, width, height} = svgElement.getBoundingClientRect();
+
+      const eventTop = event.clientY - top;
+      const eventLeft = event.clientX - left;
+
+      svgElement.setAttribute("viewBox",
+      `${eventLeft / width * originalWidth - originalWidth / 8} ${eventTop / height * originalHeight - originalHeight / 8} ${originalWidth / 4} ${originalHeight / 4}`)
+    });
+    containerElement.addEventListener("mouseleave", debounce(() => {
+      console.log('mouseoutttt');
+      svgElement.setAttribute("viewBox", `0 0 ${originalWidth} ${originalHeight}`);
+    }, 300, {trailing: true}));
+  }, [])
+
   const Marker =
     m => <rect x={m.x}
                y={m.y}
@@ -83,6 +107,7 @@ export const ClickImage = ({ image,
                fill={m?.color} />
 
   return (
+    <div ref={containerRef}>
     <svg
       viewBox={`0 0 ${image.width} ${image.height}`}
       ref={svgRef}
@@ -99,5 +124,6 @@ export const ClickImage = ({ image,
       {Shapes}
       {markers.map(Marker)}
     </svg>
+    </div>
   )
 }
