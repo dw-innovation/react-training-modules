@@ -115,6 +115,7 @@ html, body {
 .activityModuleTitle {
   display: inline-block;
   font-family: var(--heading-font);
+  font-weight: normal;
 }
 .activityHeader {
   display: inline-block;

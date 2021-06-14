@@ -9,6 +9,7 @@
     border: 1px solid var(--blue-lighter);
     margin-right: 1rem;
     text-align: center;
+    font-family: var(--heading-font);
 }
 .theme:last-child {
     margin-right: 0rem;
@@ -45,4 +46,6 @@
 .moduleTitle {
 margin: .5rem auto;
     text-align: center;
+    font-family: var(--heading-font);
+    text-decoration: none;
 }

@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "DWAntiguaSemiBold";
+  src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/DWTheAntiquaBLatinBasicLetters-W6SemiBold.woff2') format('woff2');
+}
+
 :root{
   --blue: rgba(31, 122, 145, 1);  /*  #1f7a91; */
   --blue-light: rgba(31, 122, 145, .7);
@@ -12,8 +17,9 @@
   --green: #4cb748;
   --light-green: #93cc7e;
   --font: "Noto Sans";
-  --heading-font: "PT Serif";
+  --heading-font: "DWAntiguaSemiBold", "PT Serif", "Serif";
   --spacing: 1rem;
 }
+
 
 :global(button) { cursor:pointer; }
