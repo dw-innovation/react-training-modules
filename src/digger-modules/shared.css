@@ -3,6 +3,11 @@
   src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/DWTheAntiquaBLatinBasicLetters-W6SemiBold.woff2') format('woff2');
 }
 
+@font-face {
+  font-family: "Noto Sans";
+  src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/NotoSansLatinBasicLetters-Regular.woff2');
+}
+
 :root{
   --blue: rgba(31, 122, 145, 1);  /*  #1f7a91; */
   --blue-light: rgba(31, 122, 145, .7);
