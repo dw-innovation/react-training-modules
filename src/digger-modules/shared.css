@@ -8,6 +8,12 @@
   src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/noto-sans-v12-latin-regular.woff2') format('woff2');
 }
 
+
+@font-face {
+  font-family: "icons";
+  src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/fontello.woff2');
+}
+
 :root{
   --blue: rgba(31, 122, 145, 1);  /*  #1f7a91; */
   --blue-light: rgba(31, 122, 145, .7);
@@ -22,6 +28,7 @@
   --green: #4cb748;
   --light-green: #93cc7e;
   --font: "Noto Sans";
+  --icon-font: "icons";
   --heading-font: "DWAntiguaSemiBold", "PT Serif", "Serif";
   --spacing: 1.6rem;
 }
