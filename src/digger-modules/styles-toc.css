@@ -27,6 +27,11 @@
     display: flex;
     flex-direction: row;
 }
+@media screen and (max-width: 575px) {
+  .modules{
+    flex-direction: column;
+  }
+}
 
 .module {
     color: var(--black);
