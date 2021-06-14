@@ -5,7 +5,7 @@
 
 @font-face {
   font-family: "Noto Sans";
-  src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/NotoSansLatinBasicLetters-Regular.woff2');
+  src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/noto-sans-v12-latin-regular.woff2') format('woff2');
 }
 
 :root{
