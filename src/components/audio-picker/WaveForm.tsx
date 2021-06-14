@@ -38,7 +38,7 @@ export default function Waveform({ url, redraw }) {
   // create new WaveSurfer instance
   // On component mount and when url changes
   useEffect(() => {
-    setPlay(false);
+    // setPlay(false);
 
     const options = formWaveSurferOptions(waveformRef.current);
     wavesurfer.current = WaveSurfer.create(options);
@@ -71,7 +71,7 @@ export default function Waveform({ url, redraw }) {
       // make sure object stillavailable when file loaded
       if (wavesurfer.current) {
         console.log("donneeee")
-        delay(2000, () => setRerender(rerenderCount + 1));
+        setPlay(false)
       }
     });
 
@@ -95,7 +95,7 @@ export default function Waveform({ url, redraw }) {
     }
   };
 
-  const icon = wavesurfer?.current?.backend.isPaused()
+  const icon = playing
              ? "⏵"
              : "⏸";
 
