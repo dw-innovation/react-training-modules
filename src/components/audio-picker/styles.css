@@ -24,7 +24,7 @@
     font-size: 30px;
     padding-bottom: 0px;
     padding-left: 6px;
-
+    font-family: var(--font);
 }
 .playButton:focus{
     outline: none;
