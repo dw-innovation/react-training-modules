@@ -28,7 +28,7 @@
   }
 }
 .row2 .panel2 {
-    padding-top: calc(var(--spacing) + 1.3rem);
+    padding-top: calc(var(--spacing) + 2.05rem);
 }
 
 .panel1 {
@@ -69,6 +69,7 @@
 }
 .count_found {
     color: var(--green);
+    font-size: 1.5rem;
 }
 
 .stat_failed {
@@ -77,6 +78,7 @@
 }
 .count_failed {
     color: var(--red);
+    font-size: 1.5rem;
 }
 
 .panelImage, .panelVideo {

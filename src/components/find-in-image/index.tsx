@@ -103,13 +103,12 @@ const Component
         <div className={styles.panel2}>
           <div className={styles.stats}>
             <div className={styles.stat_found}>
-              <span className={styles.count_found}>
-                {foundCount}
-              </span>/{totalCount} found
+              Found
+              <span className={styles.count_found}> {foundCount}</span>/{totalCount}
           </div>
             <div className={styles.stat_failed}>
-              <span className={styles.count_failed}>{failedAttempts} </span>
-            misclicks
+              Incorrect
+              <span className={styles.count_failed}> {failedAttempts} </span>
           </div>
           </div>
           <ClickImage
