@@ -28,7 +28,7 @@
   }
 }
 .row2 .panel2 {
-    padding-top: calc(var(--spacing) * 1.7);
+    padding-top: calc(var(--spacing) + 1.3rem);
 }
 
 .panel1 {
