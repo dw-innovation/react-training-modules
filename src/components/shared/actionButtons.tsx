@@ -10,11 +10,11 @@ export const ActionButtons = ({ onNext, onCancel }) => (
 
     <button className={c(styles.button)}
       onClick={_ => onCancel()}>
-      Try Again
+      Again Please!
     </button>
     <button className={c(styles.button, styles.buttonCallTo)}
       onClick={_ => onNext()}>
-      Next
+      Next Activity
     </button>
   </div>
 )
@@ -22,7 +22,7 @@ export const ActionButtons = ({ onNext, onCancel }) => (
 export const SuccessPanel = ({ onNext, onCancel, children }) => (
   <div className={styles.success}>
     <div className={styles.successInner}>
-      <div className={styles.completedTitle}>Completed <Confetti /></div>
+      <div className={styles.completedTitle}>Well Done!! <Confetti /></div>
       <p className={styles.completedText}>
         {children}
       </p>

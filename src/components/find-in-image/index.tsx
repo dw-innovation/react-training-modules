@@ -122,8 +122,7 @@ const Component
         { finished &&
           <SuccessPanel onNext={() => finish(10, null, 100)}
                          onCancel={() => { reset(); award(10, null, 1) }}>
-You found all {totalCount} hints. You guessed wrong
-            <span className={styles.count_failed}> {failedAttempts}</span> times
+            You found all {totalCount} hints.
           </SuccessPanel>
         }
       </div>

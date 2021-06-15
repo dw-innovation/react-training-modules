@@ -94,7 +94,7 @@ const Component
         { finished &&
           <SuccessPanel onNext={() => finish(10, null, 100)}
                          onCancel={() => { reset(); award(10, null, 1) }}>
-                You Guessed Correctly
+                You're right, it was {solutions.join(" and ")}
           </SuccessPanel>
         }
       </div>
