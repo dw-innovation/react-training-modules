@@ -27,7 +27,6 @@ html, body {
 }
 .intro {
   font-family: var(--heading-font);
-  padding: var(--spacing);
 }
 
 .intro h1 {
