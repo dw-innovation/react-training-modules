@@ -107,7 +107,7 @@ const Component
         { finished &&
           <SuccessPanel onNext={() => finish(10, null, 100)}
                          onCancel={() => { reset(); award(10, null, 1) }}>
-                You're right, it was {solution}
+                You're right, it was number {solution + 1}
           </SuccessPanel>
         }
       </div>
