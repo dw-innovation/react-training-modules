@@ -10,7 +10,7 @@ const data = {
     options: [23, 24, 25, 26, 27, 28]},
   media: {
     type: "video" as const,
-    src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/bubbles/bubbles_advanced_new.mp4"
+    src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/bubbles/bubble-3-final.mp4"
   }
 }
 

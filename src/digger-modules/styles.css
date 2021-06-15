@@ -26,7 +26,7 @@ html, body {
   font-weight: normal;
 }
 .intro {
-  font-family: var(--heading-font);
+  font-family: var(--font);
 }
 
 .intro h1 {
