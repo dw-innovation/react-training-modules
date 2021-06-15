@@ -9,11 +9,11 @@ export const ActionButtons = ({ onNext, onCancel }) => (
     <button className={c(styles.button, styles.buttonCallTo)}
       onClick={_ => onNext()}>
       Next
-              </button>
+    </button>
     <button className={c(styles.button)}
       onClick={_ => onCancel()}>
       Try Again
-              </button>
+    </button>
   </div>
 )
 

@@ -199,7 +199,7 @@ const Modules = ({...props}) => {
                 const percent = mean(percents) || 0;
 
                 return (
-                  <a href={`#theme${i}module${j}`}>
+                  <a href={`#module${j + i}`}>
                   <div className={tocStyles.module}>
                     <div className={tocStyles.backProgress} style={{width: `${percent}%`}} />
                     <div className={tocStyles.moduleTitle}>{title}</div>
@@ -280,7 +280,11 @@ const Modules = ({...props}) => {
                   const _finish = (...args) => {
                   // @ts-ignore typescript looses types with ...spread apparently
                     award(activityDotPath)(...args);
-                    next();
+                    if (hasNext) { next(); }
+                    else { const id = `module${j+i+1}`;
+                           const el = document.getElementById(id);
+                           if (el) { window.location.href = `#${id}`; }
+                           else { window.location.href = `#toc` }}
                   }
 
                   //@ts-ignore
@@ -306,7 +310,7 @@ const Modules = ({...props}) => {
                 })
 
                 return (
-                  <div id={`theme${i}module${j}`} className={styles.module}>
+                  <div id={`module${j+i}`} className={styles.module}>
                     <div className={styles.moduleHeader}>
                       <div className={styles.moduleHeaderItem}>
                         {hasPrev &&
