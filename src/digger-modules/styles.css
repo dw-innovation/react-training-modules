@@ -189,6 +189,7 @@ html, body {
     position: absolute;
     width: 100%;
     height: 100%;
+    padding: var(--spacing);
 }
 /* slightly transparent fallback */
 .success {
@@ -220,4 +221,8 @@ html, body {
 .completedTitle {
     font-size: 3rem;
     font-family: var(--heading-font);
+}
+.finishButtons > * {
+  font-size: 1.6rem;
+  margin-right: var(--spacing);
 }
