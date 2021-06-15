@@ -4,6 +4,7 @@ import * as types from './types'
 import ReactDOM from 'react-dom'
 import c from 'classnames';
 import StringSimilarity from 'string-similarity';
+import { ActionButtons, SuccessPanel } from "../shared/actionButtons";
 
 // css transform handled by webpack, ts shouldnt know about it
 // @ts-ignore
@@ -103,25 +104,10 @@ const Component
           </div>
         </div>
         { finished &&
-          <div className={activityStyles.success}>
-            <div className={activityStyles.successInner}>
-              <div className={activityStyles.completedTitle}>Completed</div>
-              <p className={activityStyles.completedText}>
+          <SuccessPanel onNext={() => finish(10, null, 100)}
+                         onCancel={() => { reset(); award(10, null, 1) }}>
                 You Guessed Correctly
-          </p>
-              <button className={c(activityStyles.button, classes.button)}
-                onClick={_ => finish(10, null, 100)}>
-                Next
-              </button>
-              <button className={c(activityStyles.button, classes.button)}
-                onClick={_ => {
-                  reset();
-                  award(10, null, 1);
-                }}>
-                Try Again
-              </button>
-            </div>
-          </div>
+          </SuccessPanel>
         }
       </div>
     )

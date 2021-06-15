@@ -3,6 +3,8 @@ import { merge, some, map, identity } from 'lodash/fp';
 import * as types from './types';
 import * as componentTypes from '../../types';
 
+import { ActionButtons, SuccessPanel } from "../shared/actionButtons";
+
 // css transform handled by webpack, ts shouldnt know about it
 // @ts-ignore
 import styles from '../find-in-image/styles.css';
@@ -92,25 +94,10 @@ const Component
           <a download={src} target="_blank" href={src}>Download media</a>
         </div>
         { finished &&
-          <div className={styles.success}>
-            <div className={styles.successInner}>
-              <div className={styles.completedTitle}>Completed</div>
-              <p className={styles.completedText}>
+          <SuccessPanel onNext={() => finish(10, null, 100)}
+                         onCancel={() => { reset(); award(10, null, 1) }}>
                 You Guessed Correctly
-          </p>
-              <button className={c(styles.button, classes.button)}
-                onClick={_ => finish(10, null, 100)}>
-                Next
-              </button>
-              <button className={c(styles.button, classes.button)}
-                onClick={_ => {
-                  reset();
-                  award(10, null, 1);
-                }}>
-                Try Again
-              </button>
-            </div>
-          </div>
+          </SuccessPanel>
         }
       </div>
     );

@@ -310,7 +310,7 @@ const Modules = ({...props}) => {
                     <div className={styles.moduleHeader}>
                       <div className={styles.moduleHeaderItem}>
                         {hasPrev &&
-                          <a href="#" onClick={e => {e.preventDefault(); prev(); }}>back</a>
+                          <a href="#" onClick={e => {e.preventDefault(); prev(); }}>⮜ Back</a>
                         }
                       </div>
                       <div className={c(styles.moduleHeaderItem, styles.moduleHeaderItemCenter)}>
@@ -319,7 +319,7 @@ const Modules = ({...props}) => {
                         </div>
                       </div>
                       <div className={styles.moduleHeaderItem}>
-                        <a href="#toc">Home</a>
+                        <a href="#toc">Home ⮝</a>
                       </div>
                     </div>
                     <Progress percent={percent} />

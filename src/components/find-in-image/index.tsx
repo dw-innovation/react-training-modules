@@ -6,6 +6,8 @@ import { Shape, Coords, onlyVisible } from '../svg-click-image/types';
 import * as componentTypes from '../../types';
 import { ClickImage } from '../svg-click-image';
 import c from 'classnames';
+import { ActionButtons, SuccessPanel } from "../shared/actionButtons";
+
 
 // css transform handled by webpack, ts shouldnt know about it
 // @ts-ignore
@@ -118,26 +120,11 @@ const Component
           <a download={image.src} target="_blank" href={image.src}>Download media</a>
         </div>
         { finished &&
-          <div className={styles.success}>
-            <div className={styles.successInner}>
-              <div className={styles.completedTitle}>Completed</div>
-              <p className={styles.completedText}>
-                You found all {totalCount} hints. You guessed wrong
+          <SuccessPanel onNext={() => finish(10, null, 100)}
+                         onCancel={() => { reset(); award(10, null, 1) }}>
+You found all {totalCount} hints. You guessed wrong
             <span className={styles.count_failed}> {failedAttempts}</span> times
-          </p>
-              <button className={c(styles.button, classes.button)}
-                onClick={_ => finish(10, null, 100)}>
-                Next
-              </button>
-              <button className={c(styles.button, classes.button)}
-                onClick={_ => {
-                  reset();
-                  award(10, null, 1);
-                }}>
-                Try Again
-              </button>
-            </div>
-          </div>
+          </SuccessPanel>
         }
       </div>
     );

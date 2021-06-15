@@ -64,11 +64,26 @@ html, body {
 
 }
 
+.button {
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  border-radius: 0;
+  border: 1px solid var(--white);
+  background-color: var(--blue);
+  color: var(--white)
+}
+
 .buttonPrimary {
   padding: calc(var(--spacing) / 2) var(--spacing);
   border-radius: 0;
   border: 1px solid var(--white);
   background-color: var(--blue);
+  color: var(--white)
+}
+.buttonCallTo {
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  border-radius: 0;
+  border: 1px solid var(--white);
+  background-color: var(--orange);
   color: var(--white)
 }
 
@@ -96,7 +111,8 @@ html, body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: calc(var(--spacing) / 2) calc(var(--spacing) * 2);
+  padding: calc(var(--spacing) / 2) var(--spacing);
+  font-family: var(--heading-font);
 }
 .moduleHeaderItem a {
   text-decoration: none;
@@ -124,8 +140,8 @@ html, body {
   font-family: var(--heading-font);
   margin-right: .3rem;
 }
-.activityHeader.active { color: var(--orange); }
-.activityHeader:after { content: " / "; }
+.activityHeader.active { text-decoration: underline; }
+.activityHeader:after { content: " / "; color: var(--white); text-dexoration: none; }
 .activityHeader:last-child:after { content: " "; }
 
 .moduleHeaderItem .buttonSecondary{
@@ -143,4 +159,47 @@ html, body {
 .description {
   font-size: 1.8rem;
   font-family: var(--heading-font);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.success {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/* slightly transparent fallback */
+.success {
+  background-color: rgba(255, 255, 255, .9);
+
+  z-index:4;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-name: fadeIn;
+    animation-timing-function: ease;
+}
+/* if backdrop support: very transparent and blurred */
+@supports ((-webkit-backdrop-filter: blur(2em)) or (backdrop-filter: blur(2em))) {
+  .success {
+    background-color: rgba(255, 255, 255, .5);
+    backdrop-filter: blur(2px) saturate(0.5);
+    -webkit-backdrop-filter: blur(2em) saturate(0.5);
+
+  }
+}
+
+.successInner {
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-name: fadeIn;
+    animation-timing-function: linear;
+    padding: var(--spacing);
+}
+
+.completedTitle {
+    font-size: 3rem;
+    font-family: var(--heading-font);
 }
