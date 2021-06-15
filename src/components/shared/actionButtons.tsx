@@ -1,4 +1,5 @@
 import React from 'react'
+import { Confetti } from './icons';
 import c from 'classnames';
 // css transform handled by webpack, ts shouldnt know about it
 // @ts-ignore
@@ -21,7 +22,7 @@ export const ActionButtons = ({ onNext, onCancel }) => (
 export const SuccessPanel = ({ onNext, onCancel, children }) => (
   <div className={styles.success}>
     <div className={styles.successInner}>
-      <div className={styles.completedTitle}>Completed</div>
+      <div className={styles.completedTitle}>Completed <Confetti /></div>
       <p className={styles.completedText}>
         {children}
       </p>

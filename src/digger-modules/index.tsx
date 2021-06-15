@@ -6,6 +6,8 @@ import { flatten, map, size, values, tail, delay, remove, isEqual, set, mean, pi
 import * as ReactDOM from 'react-dom';
 import c from 'classnames';
 
+import { Eye, Ear, Confetti, Bulb } from '../components/shared/icons';
+
 import * as types from '../types';
 
 import AudioPicker, { Example1, Example2, Example3 } from '../components/audio-picker';
@@ -71,8 +73,9 @@ const Messages
     </div>
   );
 
-const defaultModus = [ { title: "Art of Perception",
-                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
+const defaultModus = [ { title: "Seeing vs observing",
+                         description: "Perception is how we interpret information that we gather during observation. Click on an excersize to train your eagle eyes.",
+                         icon: Eye,
                          modules: [ { title: "Bubble Count",
                                       activities: [{ title: "Easy",
                                                      component: Bubble1,},
@@ -94,8 +97,9 @@ const defaultModus = [ { title: "Art of Perception",
                                                       component: Differences72 },
                                                     { title: "Advanced",
                                                       component: Differences73 }]}]},
-                       { title: "Hone your Ears",
-                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
+                       { title: "Listen carefully, we will say this only once ...",
+                         description: "Tune in and listen to the different sound waves in a voice and the background noises. Click on an excersize to train your ears.",
+                         icon: Ear,
                          modules: [ { title: "Voice cloning",
                                       activities: [{ title: "Easy",
                                                      component: Example1 },
@@ -183,6 +187,9 @@ const Modules = ({...props}) => {
 
           return (
             <div className={tocStyles.theme}>
+              <div className={tocStyles.iconContainer}>
+                <theme.icon />
+              </div>
               <h3 className={tocStyles.title}>{title}</h3>
               <p className={tocStyles.description}>
                 {description}
