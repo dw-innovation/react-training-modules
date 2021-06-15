@@ -385,10 +385,11 @@ const thing = (
 
 
 const mount = () => {
+  const existingElement = document.getElementById("digger-training-modules");
   const element = document.createElement('div');
   element.id = "app";
   // attach the react app to the element
-  ReactDOM.render(thing, element);
+  ReactDOM.render(thing, existingElement || element);
   document.body.appendChild(element);
 }
 
