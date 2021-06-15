@@ -113,3 +113,8 @@
   margin-right: calc(var(--spacing) / 2);
   padding: .2rem .4rem !important;
 }
+
+.header {
+  margin-top: var(--spacing) !important;
+  margin-bottom: var(--spacing) !important;
+}

@@ -228,4 +228,5 @@ html, body {
 .finishButtons > * {
   font-size: 1.6rem;
   margin-right: var(--spacing);
+  margin-top: var(--spacing);
 }
