@@ -44,10 +44,11 @@
 }
 
 .title {
-  font-size: 2.8rem;
-  font-family: var(--heading-font);
-  margin-top: 0;
-  font-weight: normal;
+  font-size: 2.8rem !important;
+  font-family: var(--heading-font) !important;
+  margin-top: 0 !important;
+  font-weight: normal !important;
+  margin-bottom: var(--spacing) !important;
 }
 .description {
   font-size: 1.3rem;

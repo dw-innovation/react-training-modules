@@ -31,7 +31,8 @@ html, body {
 }
 
 .intro h1 {
-  font-size: 3rem;
+  font-size: 3rem !important;
+  font-family: var(--heading-font) !important;
 }
 
 .progress {
@@ -69,9 +70,12 @@ html, body {
     margin-bottom: 1rem;
     overflow: hidden;
     margin-top: calc(var(--spacing) * 2);
-    box-shadow: 3px 3px 3px 3px;
     box-shadow: 0px 7px 15px rgba(0,0,0,0.15);
         }
+
+img, svg {
+    box-shadow: 0px 7px 15px rgba(0,0,0,0.15);
+}
 
 .theme {
 
@@ -221,6 +225,7 @@ html, body {
 .completedTitle {
     font-size: 3rem;
     font-family: var(--heading-font);
+    margin-bottom: var(--spacing);
 }
 .finishButtons > * {
   font-size: 1.6rem;

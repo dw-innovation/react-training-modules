@@ -16,6 +16,8 @@
 }
 
 .title {
+    font-family: var(--heading-font) !important;
+    font-size: 2rem !important;
 
 }
 
