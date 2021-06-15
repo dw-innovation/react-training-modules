@@ -21,6 +21,19 @@ html, body {
     font-family: var(--font);
   }
 
+.content h1, .content h2, .content h3, .content h4 {
+  font-family: var(--heading-font);
+  font-weight: normal;
+}
+.intro {
+  font-family: var(--heading-font);
+  padding: var(--spacing);
+}
+
+.intro h1 {
+  font-size: 3rem;
+}
+
 .progress {
   height: var(--spacing);
   width:100%;
