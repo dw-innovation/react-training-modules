@@ -357,28 +357,31 @@ const Modules = ({...props}) => {
   );
 }
 
-/*
-
-      <GoerlitzerExample award={award}
-                         penalize={penalize} />
-*/
-
 const thing = (
   <Wrapper>
     <Content>
       <div id="intro" className={styles.intro}>
         <h1>Sharpen your senses</h1>
         <h2>and strengthen your verification skills</h2>
-        <p>Verification is not just about tools. Essential are our human senses. Whom we can trust if not our own senses.</p>
-        <blockquote>
-“The world is full of magic things, patiently waiting for our senses to grow sharper.”
+        <div className={styles.panels}>
+          <div className={styles.introPanel1}>
+            <p>Verification is not just about tools. Essential are our human senses. Whom we can trust if not our own senses.</p>
+            <blockquote>
+              “The world is full of magic things, patiently waiting for our senses to grow sharper.”
 <span className={styles.quoteauthor}>(W.B. Yeats)</span>
 
-        </blockquote>
-        <p>So, in order to be able to use your given instruments and overcome your inattentional blindness, you can hone your skills here with us. In our training content we create exercises to hone our senses “vision” and “hearing”.</p>
-        <p>Behind each scene you will find three exercises from easy, medium to advance. After fulfilling the tasks you will be more confident to to undercover the almost (in)visible traces in synthetic media like blurred spots, missing pieces or a change of voice emphasis or cut & paste elements in a speech. </p>
-      </div>
-      <Modules />
+            </blockquote>
+            <p>So, in order to be able to use your given instruments and overcome your inattentional blindness, you can hone your skills here with us.</p>
+            </div>
+              <div className={styles.introPanel2}>
+
+                <p>In our training content we create exercises to hone our senses “vision” and “hearing”.</p>
+
+                <p>Behind each scene you will find three exercises from easy, medium to advance. After fulfilling the tasks you will be more confident to to undercover the almost (in)visible traces in synthetic media like blurred spots, missing pieces or a change of voice emphasis or cut & paste elements in a speech. </p>
+              </div>
+            </div>
+          </div>
+          <Modules />
     </Content>
   </Wrapper>
 )

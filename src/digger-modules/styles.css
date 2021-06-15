@@ -29,6 +29,22 @@ html, body {
   font-family: var(--font);
 }
 
+.intro .panels {
+  display: flex;
+  flex-direction: row;
+}
+@media screen and (max-width: 700px) {
+  .intro .panels{
+    flex-direction: column;
+  }
+}
+.intro .panels > * {
+  flex: 1;
+}
+.intro .panels .introPanel1 {
+  padding-right: var(--spacing);
+}
+
 .intro blockquote {
   color: var(--blue-light);
   font-family: var(--heading-font);
