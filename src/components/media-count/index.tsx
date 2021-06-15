@@ -87,7 +87,8 @@ const Component
           </p>
           <p className={styles.tips} dangerouslySetInnerHTML={{__html: tips}}>
           </p>
-            <div className={styles.options}>{Buttons}</div>
+          <h4>Answer</h4>
+            <div className={styles.options}>I see {Buttons} Bubbles</div>
         </div>
         <div className={styles.panel2}>
           {Media}

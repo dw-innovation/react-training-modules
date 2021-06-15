@@ -7,7 +7,7 @@ const data = {
     description: "How many bubbles can you count?",
     tips: "Technical tip on video : Frame-by-Frame with VLC and slow down the speed!",
     solution: 99,
-    options: [90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102]},
+    options: [95, 96, 97, 98, 99, 100,]},
   media: {
     type: "video" as const,
     src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/bubbles/bubble-3.mp4"

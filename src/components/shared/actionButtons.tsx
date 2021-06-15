@@ -6,13 +6,14 @@ import styles from '../../digger-modules/styles.css';
 
 export const ActionButtons = ({ onNext, onCancel }) => (
   <div className={styles.finishButtons}>
-    <button className={c(styles.button, styles.buttonCallTo)}
-      onClick={_ => onNext()}>
-      Next
-    </button>
+
     <button className={c(styles.button)}
       onClick={_ => onCancel()}>
       Try Again
+    </button>
+    <button className={c(styles.button, styles.buttonCallTo)}
+      onClick={_ => onNext()}>
+      Next
     </button>
   </div>
 )

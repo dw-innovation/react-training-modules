@@ -117,14 +117,15 @@ const defaultModus = [ { title: "Art of Perception",
                                                      component: AudioTags2 },
                                                    { title: "Advanced",
                                                      component: AudioTags3 }], }, ], },
-                       { title: "Sharpen your Brain",
-                         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
-                         modules: [ { title: "Intelligence",
-                                      activities: [ { title: "Easy",
-                                                      component: Intelligence1 }], },
-                                    { title: "Find The Original",
-                                      activities: [ { title: "Easy",
-                                                      component: Question1, }], }, ], }, ];
+                       /* { title: "Sharpen your Brain",
+                        *   description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id pulvinar est. ",
+                        *   modules: [ { title: "Intelligence",
+                        *                activities: [ { title: "Easy",
+                        *                                component: Intelligence1 }], },
+                        *              { title: "Find The Original",
+                        *                activities: [ { title: "Easy",
+                        *                                component: Question1, }], }, ], }, */
+];
 
 const defaultState = { modules: defaultModus }
 

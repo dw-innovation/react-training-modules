@@ -63,3 +63,15 @@
     align-content: center;
     align-items: center;
 }
+
+.choices {
+    padding-top: var(--spacing);
+    display: flex;
+    flex-wrap: wrap;
+}
+.choices > * {
+    display: block;
+    width: 10rem;
+    margin-right: var(--spacing);
+    margin-bottom: var(--spacing);
+}
