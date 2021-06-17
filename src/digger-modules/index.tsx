@@ -26,6 +26,7 @@ import Bubble2 from './activities/bubble-mix-2';
 import Bubble3 from './activities/bubble-mix-3';
 
 import Differences71 from './activities/7-differences-1';
+import Differences70 from './activities/7-differences-0';
 import Differences72 from './activities/7-differences-2';
 import Differences73 from './activities/7-differences-3';
 
@@ -92,7 +93,7 @@ const defaultModus = [ { title: "Seeing vs observing",
                                                       component: GasStation }]},
                                     { title: "7 Differences",
                                       activities: [ { title: "Easy",
-                                                      component: Differences71 },
+                                                      component: Differences70 },
                                                     { title: "Medium",
                                                       component: Differences72 },
                                                     { title: "Advanced",

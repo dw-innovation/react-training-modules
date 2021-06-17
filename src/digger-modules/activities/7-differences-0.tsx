@@ -15,53 +15,59 @@ const data: types.Data = {
   },
   image: {
     original: {
-      src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-1-pen-left_f.jpg",
+      src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-0-left-pens.jpg",
       height: 1024,
       width: 1024,
     },
     altered: {
-      src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-1-pen-right_f.jpg",
+      src: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/7-differences/7-differences-0-right-pens.jpg",
       height: 1024,
       width: 1024,
     },
     shapes: [
       {
-        description: "the blue pen on the right",
+        description: "the black pen on the left",
         shape:
-          <path d="M352 66L289 3L3 284.5L60.5 334.5L352 66Z" transform="translate(1,86)"/>
+          <path d="M211.5 179.5L9 31.5L2.5 26.5L23.5 3L232 157.5L211.5 179.5Z"
+                transform="translate(121.5,522)"/>
       },
       {
-        description: "the blue pen on the right",
+        description: "a green dino",
         shape:
-          <path d="M74 16L35 2L2.5 85.5H35L74 16Z" transform="translate(298,352)"/>
+          <path d="M33 83.5L2.5 37.5L130 2.5V60L33 83.5Z"
+                transform="translate(255.5,464.5)"/>
       },
       {
-        description: "the blue pen on the right",
+        description: "a red pen, a nice one",
         shape:
-          <path d="M37.5 103L2 20L25 2.5L62.5 85.5L37.5 103Z" transform="translate(312,598)"/>
+          <path d="M85.5 387.5L2.5 13L34.5 2L108 387.5H85.5Z"
+                transform="translate(478.5,522)"/>
       },
       {
-        description: "the blue pen on the right",
+        description: "a paperclip at the top",
         shape:
-          <path d="M113 1.5H73L2.5 604H35L113 1.5Z" transform="translate(578,259)"/>
+          <path d="M1.5 78.5V2H28.5V78.5H1.5Z"
+                transform="translate(443.5,179)"/>
+      },
+      {
+        description: "a longer paperclip hidden under things",
+        shape:
+          <path d="M110.5 2.5L2 37.5V67.5L121.5 29.5L110.5 2.5Z"
+                transform="translate(571,590.5)" />
+      },
+      {
+        description: "an eraser",
+        shape:
+          <path d="M25.5 49L3 28.5L25.5 3L48 28.5L25.5 49Z"
+                transform="translate(724,286)"/>
+      },
+      {
+        description: "big red marker",
+        shape:
+          <path d="M276.5 2.5L2.5 291.5L39 329.5L321.5 50.5L276.5 2.5Z"
+                transform="translate(628.5,427.5)"/>
+      },
 
-      },
-      {
-        description: "the blue pen on the right",
-        shape:
-          <path d="M1.5 78.5V21L32 3.5V78.5H1.5Z" transform="translate(741,676)" />
-      },
-      {
-        description: "the blue pen on the right",
-        shape:
-          <path d="M95 1.5H67.5L2.5 489L37.5 501.5L95 1.5Z" transform="translate(774,304)"/>
-
-      },
-      {
-        description: "the blue pen on the right",
-        shape:
-          <path d="M1.5 58V22.5L96.5 2.5L109.5 37.5L1.5 58Z" transform="translate(877,603)"/>
-      },
     ]
   },
 }
