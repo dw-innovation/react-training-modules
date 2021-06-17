@@ -69,10 +69,10 @@ html, body {
 }
 
 .progress {
-  height: var(--spacing);
   width:100%;
   border-top: 1px solid var(--blue-lighter);
   border-bottom: 1px solid var(--blue-lighter);
+  height: .8rem;
 }
 .progressInner {
   height: .8rem;
