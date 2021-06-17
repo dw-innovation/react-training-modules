@@ -17,6 +17,7 @@ const svgProps = { version: "1.1",
  */
 type Props = { image: types.Image;
                shapes: types.Shape[];
+               zoom?: boolean;
                successClick?: (s: types.Shape, c: types.Coords) => void;
                failedClick?: (c: types.Coords) => void; }
 
@@ -24,6 +25,7 @@ type Props = { image: types.Image;
 // The component itself
 export const ClickImage = ({ image,
                              shapes,
+                             zoom,
                              successClick,
                              failedClick }: Props ) => {
   //
@@ -78,28 +80,30 @@ export const ClickImage = ({ image,
   const Shapes = shapes.map(Shape)
 
   React.useEffect(() => {
-    if (!svgRef?.current) return;
-    if (!containerRef?.current) return;
-    const svgElement = svgRef.current;
-    const containerElement = containerRef.current;
-    const [,,originalWidth, originalHeight] = svgElement.getAttribute("viewBox").split(" ").map(Number);
+    if (zoom) {
+      if (!svgRef?.current) return;
+      if (!containerRef?.current) return;
+      const svgElement = svgRef.current;
+      const containerElement = containerRef.current;
+      const [, , originalWidth, originalHeight] = svgElement.getAttribute("viewBox").split(" ").map(Number);
 
-    svgElement.addEventListener("mousemove", (event) => {
-      const {top, left, width, height} = svgElement.getBoundingClientRect();
+      svgElement.addEventListener("mousemove", (event) => {
+        const { top, left, width, height } = svgElement.getBoundingClientRect();
 
-      const eventTop = event.clientY - top;
-      const eventLeft = event.clientX - left;
+        const eventTop = event.clientY - top;
+        const eventLeft = event.clientX - left;
 
-      svgElement.setAttribute("viewBox",
-      `${(eventLeft / width * originalWidth) - (eventLeft / width * originalWidth / 2)}
+        svgElement.setAttribute("viewBox",
+          `${(eventLeft / width * originalWidth) - (eventLeft / width * originalWidth / 2)}
        ${(eventTop / height * originalHeight) - (eventTop / height * originalHeight / 2)}
        ${originalWidth / 2}
        ${originalHeight / 2}`)
-    });
-    containerElement.addEventListener("mouseleave", debounce(() => {
-      console.log('mouseoutttt');
-      svgElement.setAttribute("viewBox", `0 0 ${originalWidth} ${originalHeight}`);
-    }, 300, {trailing: true}));
+      });
+      containerElement.addEventListener("mouseleave", debounce(() => {
+        console.log('mouseoutttt');
+        svgElement.setAttribute("viewBox", `0 0 ${originalWidth} ${originalHeight}`);
+      }, 300, { trailing: true }));
+    }
   }, [])
 
   const Marker =

@@ -114,6 +114,7 @@ const Component
           <ClickImage
             image={image}
             shapes={shapes}
+            zoom={true}
             successClick={clickFound}
             failedClick={clickFailed} />
           <a download={image.src} target="_blank" href={image.src}>Download media</a>
