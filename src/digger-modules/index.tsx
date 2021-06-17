@@ -223,7 +223,7 @@ const Modules = ({...props}) => {
         })}
         </div>
         <div className={tocStyles.progressHeader}>
-        <Progress percent={percent} label={`Overall Progress: ${percent}%`} />
+        <Progress percent={percent} label={`Overall Progress: ${Math.floor(percent)}%`} />
         </div>
       </div>
 
