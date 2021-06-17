@@ -75,7 +75,7 @@ html, body {
   border-bottom: 1px solid var(--blue-lighter);
 }
 .progressInner {
-  height: var(--spacing);
+  height: .8rem;
   background-color: var(--blue-lighter);
   transition: width .5s;
   transition-timing-function: ease-out;
@@ -204,7 +204,6 @@ html, body {
 
 .activityHeaders {
   color: #000;
-  font-size: 1.3rem;
 }
 .activityModuleTitle {
   display: inline-block;
