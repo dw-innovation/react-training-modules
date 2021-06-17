@@ -72,6 +72,10 @@ a .moduleTitle {
 }
 
 .progressHeader {
-    margin-top: var(--spacing);
-    position: sticky;
+    position: fixed;
+    bottom: 0;
+    z-index: 9999;
+    width: 100%;
+    left: 0;
+    background-color: var(--lightgrey);
 }
