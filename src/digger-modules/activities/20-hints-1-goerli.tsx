@@ -39,11 +39,11 @@ const data: types.Data = {
               transform="translate(43, 88)" />
     },
     /* the tree, in the corner */
-    { description: "the tree, in the corner",
-      shape:
-        <path d="M33.5 404L3 2.5H191V482.5L33.5 404Z"
-              transform="translate(1220, 201.5)"/>
-    },
+    /* { description: "the tree, in the corner",
+     *   shape:
+     *     <path d="M33.5 404L3 2.5H191V482.5L33.5 404Z"
+     *           transform="translate(1220, 201.5)"/>
+     * }, */
     /* the house, on the corner */
     { description: "the house",
       shape:
@@ -53,8 +53,10 @@ const data: types.Data = {
     /* the tree, in front of the house */
     { description: "the tree, in front of the house",
       shape:
-        <path d="M14.5 246.5L3 12L70.5 2.5L175 167.5L70.5 298L14.5 246.5Z"
-              transform="translate(914, 818.5)"/>
+        <g transform="translate(914, 0)">
+          <path d="M341.096 572.465L308 2H512V684L341.096 572.465Z"/>
+          <path d="M13.5 1064.5L2 830L69.5 820.5L174 985.5L69.5 1116L13.5 1064.5Z" />
+        </g>
     },
 
     /* the very very large bike path */
@@ -72,8 +74,8 @@ const data: types.Data = {
     /* the train lines, coming on in! */
     { description: "the train lines, coming on in!",
       shape:
-        <path d="M3 205.5V5.5L498 260V348L3 205.5Z"
-              transform="translate(7, 635.5)"/>
+        <path d="M1.5 161.5V3L543.5 257.5V342L1.5 161.5Z"
+              transform="translate(4.5,664)"/>
     },
     /* a little sign on the train lines */
     { description: "a little sign on the train lines",
@@ -87,12 +89,7 @@ const data: types.Data = {
         <path d="M2 66.0001L18 8L27.7463 2.71094L35.5 8.00009V27.0001L41 55.0001V79.5001L2 66.0001Z"
               transform="translate(618, 739.71)"/>
     },
-    /* a traffic light for trains! */
-    { description: "a traffic light for trains!",
-      shape:
-        <path d="M140 34L18 3L2.5 168L112 192.5L140 34Z"
-              transform="translate(88.5, 522)"/>
-    },
+
     /* just a streetlight */
     { description: "just a streetlight",
       shape:
@@ -125,8 +122,10 @@ const data: types.Data = {
     /* a car to the right */
     { description: "a car to the right",
       shape:
-        <path d="M19 362.5L3 18.5L115.5 2.5V378.5L19 362.5Z"
-              transform="translate(1296, 1159.5)"/>
+        <g transform="translate(5,1129.5)">
+          <path d="M128.5 71L4.58594 79.5L9.49994 25L36.4999 12.5L91.9999 4.5L128.5 17.5V71Z" />
+          <path d="M1325 394.5L1309 50.5L1421.5 34.5V410.5L1325 394.5Z" />
+        </g>
     },
     /* Some people, crossing the street */
     { description: "these people are crossing the street!",
@@ -147,16 +146,32 @@ const data: types.Data = {
               transform="translate(305, 1127.5)" />
     },
     /* a car, all the way to the left */
-    { description: "a car, which is all the way to the left",
-      shape:
-        <path d="M128.5 71L4.58594 79.5L9.49994 25L36.4999 12.5L91.9999 4.5L128.5 17.5V71Z"
-              transform="translate(5, 1129.5)"/>
-    },
+    /* { description: "a car, which is all the way to the left",
+     *   shape:
+     *     <path d="M128.5 71L4.58594 79.5L9.49994 25L36.4999 12.5L91.9999 4.5L128.5 17.5V71Z"
+     *           transform="translate(5, 1129.5)"/>
+     * }, */
     /* Oez Adana Doener Kebap */
     { description: "Oez Adana Doener Kebap",
       shape:
         <path d="M2 30.5V2L89.5 7L133 11L135 37L2 30.5Z"
               transform="translate(73, 1070)"/>
+    },
+    { description: "Train track light anteannas",
+      shape:
+        <path d="M2 50V2.5L38 21.5V69L2 50Z"
+              transform="translate(802,997.5)" />
+    },
+    /* a traffic light for trains! */
+    { description: "a traffic light for trains!",
+      shape:
+        <path d="M17 239L2.5 1.5H53.5L36.5 239H17Z"
+              transform="translate(114,545.5)"/>
+    },
+    { description: "a sneaky little sattellite",
+      shape:
+        <path d="M2 43.5V1.5H41.5V43.5H2Z"
+              transform="translate(64,630)"/>
     },
   ]
 }
