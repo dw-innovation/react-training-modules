@@ -111,6 +111,7 @@ html, body {
     overflow: hidden;
     margin-top: calc(var(--spacing) * 2);
     /* box-shadow: 0px 7px 15px rgba(0,0,0,0.15); */
+    background-color: white;
         }
 
 .panel1 img, .panel1 svg, .panel2 img, .panel2 svg {
@@ -273,4 +274,8 @@ html, body {
   font-size: 1.6rem;
   margin-right: var(--spacing);
   margin-top: var(--spacing);
+}
+
+:global(html, body) {
+  background-color: #efefef;
 }
