@@ -99,11 +99,11 @@ const data: types.Data = {
      *     <path d="M8.5 46.5L2 12.5L29 3V56L8.5 46.5Z"
      *           transform="translate(598,669)" />
      * }, */
-    { description: "an trash can?",
-      shape:
-        <path d="M1.5 31.5V1.5H24.5V31.5H1.5Z"
-              transform="translate(692,752)"/>
-    },
+    /* { description: "an trash can?",
+     *   shape:
+     *     <path d="M1.5 31.5V1.5H24.5V31.5H1.5Z"
+     *           transform="translate(692,752)"/>
+     * }, */
     { description: "an taxi",
       shape:
         <path d="M2.5 38.5V2.5H93V38.5H2.5Z"
@@ -145,6 +145,11 @@ const data: types.Data = {
           <path d="M13.5 25L3 2H22.25H41.5V25H13.5Z" />
           <path d="M448.5 42L455 9.5H448.5L408.5 2L393 31.5L448.5 42Z" />
         </g>
+    },
+    { description: "the ground",
+      shape:
+        <path d="M3 373.5L251 1.5H310.5L682.5 373.5H3Z"
+              transform="translate(217,795)"/>
     },
   ]
 }
