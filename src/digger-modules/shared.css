@@ -16,8 +16,9 @@
 
 :root{
   --blue: rgba(31, 122, 145, 1);  /*  #1f7a91; */
-  --blue-light: rgba(31, 122, 145, .7);
+  --blue-light: #57A9C0;
   --blue-lighter: rgba(31, 122, 145, .45);
+  --blue-highlight: #1E77A9;
   --white: #fefefe;
   --black: #332;
   --grey: #998;
