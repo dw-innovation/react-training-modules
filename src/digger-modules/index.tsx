@@ -6,7 +6,7 @@ import { flatten, map, size, values, tail, delay, remove, isEqual, set, mean, pi
 import * as ReactDOM from 'react-dom';
 import c from 'classnames';
 
-import { Eye, Ear, Confetti, Bulb } from '../components/shared/icons';
+import { Eye, Ear, Confetti, Bulb, Twitter } from '../components/shared/icons';
 
 import * as types from '../types';
 
@@ -330,7 +330,7 @@ const Modules = ({...props}) => {
                     <div className={styles.moduleHeader}>
                       <div className={styles.moduleHeaderItem}>
                         {hasPrev &&
-                          <a href="#" onClick={e => {e.preventDefault(); prev(); }}>⮜ Back</a>
+                          <a href="#" onClick={e => {e.preventDefault(); prev(); }}>Back</a>
                         }
                       </div>
                       <div className={c(styles.moduleHeaderItem, styles.moduleHeaderItemCenter)}>
@@ -339,7 +339,7 @@ const Modules = ({...props}) => {
                         </div>
                       </div>
                       <div className={styles.moduleHeaderItem}>
-                        <a href="#toc">Home ⮝</a>
+                        <a href="#toc">Home</a>
                       </div>
                     </div>
                     <Progress percent={percent} />
@@ -369,6 +369,9 @@ const thing = (
   <Wrapper>
     <Content>
       <div id="intro" className={styles.intro}>
+        <div className={styles.upperShareBlock}>
+          Share: <a href={`https://twitter.com/share?text=Sharpen+your+senses+and+strengthen+your+verification+skills&url=${window.location.href}`} target="_blank"><Twitter /></a>
+        </div>
         <h1>Sharpen your senses</h1>
         <h2>and strengthen your verification skills</h2>
         <div className={styles.panels}>
@@ -386,10 +389,23 @@ const thing = (
                 <p>In our training content we create exercises to hone our senses “vision” and “hearing”.</p>
 
                 <p>Behind each scene you will find three exercises from easy, medium to advance. After fulfilling the tasks you will be more confident to to undercover the almost (in)visible traces in synthetic media like blurred spots, missing pieces or a change of voice emphasis or cut & paste elements in a speech. </p>
-              </div>
-            </div>
           </div>
-          <Modules />
+        </div>
+      </div>
+      <Modules />
+      <div className={styles.subText}>
+        <div className={styles.shareBlock}>
+          Share: <a href={`https://twitter.com/share?text=Sharpen+your+senses+and+strengthen+your+verification+skills&url=${window.location.href}`} target="_blank"><Twitter /></a>
+        </div>
+        <div className={styles.credits}>
+          <ul>
+            <li>Concept: Julia Bayer </li>
+            <li>Design: Ruben Bouwmeester</li>
+            <li>Development: Niko Para</li>
+            <li>Copyright images and videos: Julia Bayer</li>
+          </ul>
+        </div>
+      </div>
     </Content>
   </Wrapper>
 )
