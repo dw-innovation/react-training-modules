@@ -282,3 +282,9 @@ html, body {
 :global(.et_pb_section) {
   background-color: #efefef !important;
 }
+:global(.et_pb_section_0) {
+  background-color: #efefef !important;
+}
+:global(.et_section_regular) {
+  background-color: #efefef !important;
+}
