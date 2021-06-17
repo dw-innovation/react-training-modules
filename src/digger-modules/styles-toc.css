@@ -10,6 +10,8 @@
     margin-right: var(--spacing);
     text-align: center;
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 @media screen and (max-width: 575px) {
   .theme{
@@ -42,6 +44,14 @@
 
 .modLink {
     text-decoration: none;
+    width: 100%;
+}
+.activities {
+    flex: 1;
+    align-items: flex-end;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
 }
 
 .module {

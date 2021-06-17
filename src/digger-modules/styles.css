@@ -54,6 +54,7 @@ html, body {
 .intro blockquote .quoteauthor {
   display: block;
   float: right;
+  font-size: .8rem;
 }
 
 .intro h1 {

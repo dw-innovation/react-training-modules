@@ -195,6 +195,7 @@ const Modules = ({...props}) => {
                 {description}
               </p>
 
+              <div className={tocStyles.activities}>
               {modules.map((module, j) => {
                 const { activities,
                   title,
@@ -215,6 +216,7 @@ const Modules = ({...props}) => {
                   </a>
                 );
               })}
+                </div>
 
 
             </div>
