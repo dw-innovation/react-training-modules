@@ -137,7 +137,7 @@ const data3: types.Data = {
         description: "Is there anybody out there?",
         tips: "Listen carefully through the  audio. There are 2 different sounds. Pick 2 out of the 10.",
     },
-    choices: ["Music", "Drinking", "Construction", "Cutlery", "Church", "Waves", "Wind", "Market", "Bottle Opening", "Toothbrush"],
+    choices: ["Music", "Drinking", "Construction", "Cutlery", "Church", "Waves", "Train", "Market", "Bottle Opening", "Toothbrush"],
     solutions: ["Toothbrush", "Church", "Market", "Drinking"],
     audio: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/sound-collector/3.mp3",
 }

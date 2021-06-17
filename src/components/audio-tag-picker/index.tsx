@@ -126,7 +126,7 @@ const data2: types.Data = {
         description: "Sharpen your ears, put on the headphones",
         tips: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
     },
-    choices: ["Raidrops", "Waves", "Fountain", "Water Running"],
+    choices: ["Raindrops", "Waves", "Fountain", "Water Running"],
     solution: "Water Running",
     audio: "https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/critical-listening/2.mp3",
 }
