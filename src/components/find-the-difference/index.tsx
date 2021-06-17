@@ -33,7 +33,7 @@ const Component
        classes = { },
        data, }) => {
     //
-    const { meta: { title, description },
+    const { meta: { title, description, tips },
             image: {
               original: originalImage,
               altered: alteredImage,
@@ -95,6 +95,8 @@ const Component
           <p className={styles.description}>
             {description}
           </p>
+          <p className={styles.tips}
+              dangerouslySetInnerHTML={{__html: tips}} />
         </div>
         <div className={styles.row2}>
 

@@ -2,6 +2,7 @@ import React from 'react'
 import FindTheDifference from '../../components/find-the-difference'
 import * as types from '../../components/find-the-difference/types'
 
+import { tips } from "./7-differences-0";
 // currently, the visual representation of this data lives at:
 // https://www.figma.com/file/4JO8CeRkvDWflXGdE5y6uh/KID%2FDIGGER-training-frameworks?node-id=117%3A4416
 // see svg > example-goerli
@@ -11,6 +12,7 @@ import * as types from '../../components/find-the-difference/types'
 const data: types.Data = {
   meta: {
     title: "7 Differences",
+    tips,
     description: "Find the 7 differences in the two images"
   },
   image: {

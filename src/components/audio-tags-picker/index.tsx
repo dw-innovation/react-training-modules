@@ -108,11 +108,16 @@ const Component
 
 export default Component;
 
+const tips = `
+<p>Listen precisely to the audio. Out of the 10 options which sounds can you detect? Select two.</p>
+<p><strong>Tip</strong>: Put on your headphones and close your eyes.</p>
+`
+
 const data: types.Data = {
     meta: {
-        title: "Sound Collector",
-        description: "Is there anybody out there?",
-        tips: "Listen carefully through the  audio. There are 2 different sounds. Pick 2 out of the 10.",
+        title: "Mixtape",
+        description: "Sound collection - but which sounds?",
+        tips,
     },
     choices: ["Cars", "Birds", "Bells", "Mixer", "Washing Machine", "Paper", "Raindrops", "Elevator", "Wind", "Leaves"],
     solutions: ["Washing Machine", "Birds"],
@@ -122,9 +127,9 @@ const data: types.Data = {
 
 const data2: types.Data = {
     meta: {
-        title: "Sound Collector",
-        description: "Is there anybody out there?",
-        tips: "Listen carefully through the  audio. There are 2 different sounds. Pick 2 out of the 10.",
+        title: "Mixtape",
+        description: "Sound collection - but which sounds?",
+        tips,
     },
     choices: ["Skateboard", "Cars", "Hair Dryer", "Steps", "Toothbrush", "Mouse Clicking", "Clapping", "Coffee Machine", "Train", "Clock"],
     solutions: ["Steps", "Train", "Hair Dryer"],
@@ -133,9 +138,9 @@ const data2: types.Data = {
 
 const data3: types.Data = {
     meta: {
-        title: "Sound Collector",
-        description: "Is there anybody out there?",
-        tips: "Listen carefully through the  audio. There are 2 different sounds. Pick 2 out of the 10.",
+        title: "Mixtape",
+        description: "Sound collection - but which sounds?",
+        tips,
     },
     choices: ["Music", "Drinking", "Construction", "Cutlery", "Church", "Waves", "Train", "Market", "Bottle Opening", "Toothbrush"],
     solutions: ["Toothbrush", "Church", "Market", "Drinking"],

@@ -108,11 +108,16 @@ const Component
 
 export default Component;
 
+const tips = `
+<p>Listen precisely to the audio. Out of the 4 options which sound can you detect? Select one. </p>
+<p><strong>Tip</strong>: Listen several times and shift your focus between the foreground and the background.</p>
+`
+
 const data: types.Data = {
     meta: {
         title: "Critical Listening",
-        description: "Sharpen your ears, put on the headphones",
-        tips: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
+        tips,
+        description: "What do you 'hear' exactly?",
     },
     choices: ["Notification", "Birds", "Mouse Clicking", "Table Tennis",],
     solution: "Mouse Clicking",
@@ -123,8 +128,8 @@ const data: types.Data = {
 const data2: types.Data = {
     meta: {
         title: "Critical Listening",
-        description: "Sharpen your ears, put on the headphones",
-        tips: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
+        tips,
+        description: "What do you 'hear' exactly?",
     },
     choices: ["Raindrops", "Waves", "Fountain", "Water Running"],
     solution: "Water Running",
@@ -134,8 +139,8 @@ const data2: types.Data = {
 const data3: types.Data = {
     meta: {
         title: "Critical Listening",
-        description: "Sharpen your ears, put on the headphones",
-        tips: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
+        tips,
+        description: "What do you 'hear' exactly?",
     },
     choices: ["Washing Mashine", "Escalator", "Ambulance", "Mixer"],
     solution: "Escalator",

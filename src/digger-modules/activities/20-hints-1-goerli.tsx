@@ -4,14 +4,15 @@ import * as types from '../../components/find-in-image/types'
 
 
 export const tips = `
-<p>Try to require 20 pieces of information out of each visual. You won’t oversee important hints for pointing to the location and time anymore.</p>
+<p>Try to find 20 hints that can point you to the location you see. You can select them by clicking on the image. Hoover over the image to zoom. </p>
 
-<p><b>Focus on visuals</b> like street names, signs&structure, restaurants, shops, cars, license plates, ads, logos, typography, phone numbers on posters or busses, architecture, pylons, constructions, train tracks, clothes of people, trees, lake, mountains, coastal, animals, weather</p>
+<p>Take your time and you will find important clues for determining the <strong>location</strong> and <strong>time</strong>. </p>
 
-<p><b>Focus on sound anguage</b>, mosques or church, cars, trains, aircraft taking off, a bird call</p>
+<p><strong>Focus on visual elements</strong>: street names, restaurants & shops, cars & license plates, ads, logos, public transport, architecture, antennas, clothing, trees, landscape, lakes, vegetation, animals and weather. </p>
 
+<p><strong>Focus on sounds</strong>: language, church bells, a muezzin calling for prayer, vehicles, trains, an aircraft taking off or a bird’s call.</p>
 
-<p><b>Tips:</b> You can download an image / video and zoom in or use the Magnifier of the InVid-plugin. You can crop specific remarks and do a reverse image search to find out where the image was taken.</p>
+<p><strong>Tips</strong>: You could use the Magnifier on InVid or use frame-by-frame viewing in the VLC player on your computer.     </p>
 `
 
 // currently, the visual representation of this data lives at:

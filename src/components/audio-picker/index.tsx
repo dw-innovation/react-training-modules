@@ -120,11 +120,16 @@ const Component
 
 export default Component;
 
+const tips = `
+<p>Listen precisely to the audios. Two voices are synthetic and just one voice is real - which one?</p>
+<p><strong>Tip</strong>: Put on your headphones and concentrate on the pronounciation.</p>
+`
+
 const data: types.Data = {
     meta: {
-        title: "Voice cloning",
+        title: "Voice Clone",
         description: "Real or synthetic?",
-        tips: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        tips,
     },
     solution: 2,
     audios: [
@@ -138,9 +143,9 @@ const data: types.Data = {
 
 const data2: types.Data = {
     meta: {
-        title: "Voice cloning",
+        title: "Voice Clone",
         description: "Real or synthetic?",
-        tips: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        tips,
     },
     solution: 0,
     audios: [
@@ -152,9 +157,9 @@ const data2: types.Data = {
 
 const data3: types.Data = {
     meta: {
-        title: "Voice cloning",
+        title: "Voice Clone",
         description: "Real or synthetic?",
-        tips: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        tips,
     },
     solution: 0,
     audios: [

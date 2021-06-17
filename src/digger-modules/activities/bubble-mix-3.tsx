@@ -1,11 +1,13 @@
 import React from 'react'
 import MediaCount from '../../components/media-count';
 
+import {tips} from './bubble-mix-1';
+
 const data = {
   meta: {
     title: "Bubble Mix",
     description: "How many bubbles can you count?",
-    tips: "Technical tip on video : Frame-by-Frame with VLC and slow down the speed!",
+    tips: tips,
     solution: 26,
     options: [23, 24, 25, 26, 27, 28]},
   media: {

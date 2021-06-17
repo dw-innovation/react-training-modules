@@ -1,11 +1,18 @@
 import React from 'react'
 import MediaCount from '../../components/media-count';
 
+export const tips = `
+<p>Count all the bubbles you can see. Clustered bubbles count as one.</p>
+<p><strong>Focus on</strong> the details, take your time and ask a colleague to look at it as well. And do not just focus on the most visible one.</p>
+<p><strong>Tips:</strong> You can download visuals to be able to zoom in or watch a video frame-by-frame. </p>
+<p>You could use the Magnifier on InVid or use frame-by-frame viewing in the VLC player on your computer.</p>
+`
+
 const data = {
   meta: {
     title: "Bubble Mix",
     description: "How many bubbles can you count?",
-    tips: "Tips : Take your time while observing a visual. Lean back and look around. The details in the background can guide you to a) location, b) manipulation by blurred or missing pieces.",
+    tips: tips,
     solution: 5,
     options: [3, 4, 5, 6, 7, 8] },
   media: {

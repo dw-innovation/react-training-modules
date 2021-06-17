@@ -74,10 +74,10 @@ const Messages
     </div>
   );
 
-const defaultModus = [ { title: "Seeing vs observing",
-                         description: "Perception is how we interpret information that we gather during observation. Click on an excersize to train your eagle eyes.",
+const defaultModus = [ { title: "Active observing",
+                         description: "<p>Click on an exercise and train your eagle eyes.</p><p><strong>Tip:</strong> Take a close look and gather the facts.</p> ",
                          icon: Eye,
-                         modules: [ { title: "Bubble Count",
+                         modules: [ { title: "Bubble Mix",
                                       activities: [{ title: "Easy",
                                                      component: Bubble1,},
                                                    { title: "Medium",
@@ -98,10 +98,10 @@ const defaultModus = [ { title: "Seeing vs observing",
                                                       component: Differences72 },
                                                     { title: "Advanced",
                                                       component: Differences73 }]}]},
-                       { title: "Listen carefully, we will say this only once ...",
-                         description: "Tune in and listen to the different sound waves in a voice and the background noises. Click on an excersize to train your ears.",
+                       { title: "Precise Listening",
+                         description: "<p>Click on an exercise and train your lynx ears.</p><p><strong>Tip:</strong> Close your eyes.</p>",
                          icon: Ear,
-                         modules: [ { title: "Voice cloning",
+                         modules: [ { title: "Voice Clone",
                                       activities: [{ title: "Easy",
                                                      component: Example1 },
                                                    { title: "Medium",
@@ -115,7 +115,7 @@ const defaultModus = [ { title: "Seeing vs observing",
                                                      component: AudioTag2 },
                                                    { title: "Advanced",
                                                      component: AudioTag3 }], },
-                                    { title: "Sound Collector",
+                                    { title: "Mixtape",
                                       activities: [{ title: "Easy",
                                                      component: AudioTags1 },
                                                    { title: "Medium",
@@ -191,8 +191,7 @@ const Modules = ({...props}) => {
                 <theme.icon />
               </div>
               <h3 className={tocStyles.title}>{title}</h3>
-              <p className={tocStyles.description}>
-                {description}
+              <p className={tocStyles.description} dangerouslySetInnerHTML={{__html: description}}>
               </p>
 
               <div className={tocStyles.activities}>
@@ -376,19 +375,20 @@ const thing = (
         <h2>and strengthen your verification skills</h2>
         <div className={styles.panels}>
           <div className={styles.introPanel1}>
-            <p>Verification is not just about tools. Essential are our human senses. Whom we can trust if not our own senses.</p>
+            <p>Verification is not just about tools. Essential are our human senses. Whom can we trust, if not our own senses?</p>
             <blockquote>
               “The world is full of magic things, patiently waiting for our senses to grow sharper.”
 <span className={styles.quoteauthor}>(W.B. Yeats)</span>
 
             </blockquote>
-            <p>So, in order to be able to use your given instruments and overcome your inattentional blindness, you can hone your skills here with us.</p>
+            <p>We created a training for you, so that you are able to take full advantage of your senses. </p>
             </div>
               <div className={styles.introPanel2}>
 
-                <p>In our training content we create exercises to hone our senses “vision” and “hearing”.</p>
+                <p>In our training programme we created exercises to sharpen your "vision" and "hearing" skills. Each activity has three exercises at different levels: easy, medium and advanced. </p>
 
-                <p>Behind each scene you will find three exercises from easy, medium to advance. After fulfilling the tasks you will be more confident to to undercover the almost (in)visible traces in synthetic media like blurred spots, missing pieces or a change of voice emphasis or cut & paste elements in a speech. </p>
+                <p>Doing these exercises will make you more confident to detect the almost (in)visible traces in synthetic media like blurred spots, missing pieces or a change of voice emphasis and cut & paste manipulation within a speech. </p>
+                <p>Go fullo screen for the optimal experience</p>
           </div>
         </div>
       </div>
