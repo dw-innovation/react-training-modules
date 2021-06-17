@@ -279,6 +279,6 @@ html, body {
 :global(html, body) {
   background-color: #efefef;
 }
-:global(.et_builder_inner_content) {
+:global(.et_pb_section) {
   background-color: #efefef !important;
 }
