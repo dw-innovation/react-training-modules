@@ -279,6 +279,6 @@ html, body {
 :global(html, body) {
   background-color: #efefef;
 }
-:global(.et_builder_inner_content et_pb_gutters2) {
+:global(.et_builder_inner_content) {
   background-color: #efefef !important;
 }
