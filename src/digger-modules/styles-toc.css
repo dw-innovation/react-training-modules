@@ -26,7 +26,7 @@
 .title {
     font-family: var(--heading-font) !important;
     font-size: 2rem !important;
-
+    margin-bottom: 0px;
 }
 
 .description {

@@ -5,8 +5,17 @@
 
 @font-face {
   font-family: "Noto Sans";
-  src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/noto-sans-v12-latin-regular.woff2') format('woff2');
+  weight: 400;
+  src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/noto-sans-google.woff2') format('woff2');
 }
+
+
+@font-face {
+  font-family: "Noto Sans";
+  weight: 700;
+  src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/noto-sans-google-bold.woff2') format('woff2');
+}
+
 
 
 @font-face {

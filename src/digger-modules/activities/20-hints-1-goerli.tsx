@@ -12,7 +12,10 @@ export const tips = `
 
 <p><strong>Focus on sounds</strong>: language, church bells, a muezzin calling for prayer, vehicles, trains, an aircraft taking off or a bird’s call.</p>
 
-<p><strong>Tips</strong>: You could use the Magnifier on InVid or use frame-by-frame viewing in the VLC player on your computer.     </p>
+<p><strong>Tips</strong>: You can download visuals to be able to zoom in and watch a video frame-by-frame.</p>
+
+<p>You could use the Magnifier on InVid and use frame-by-frame viewing in the VLC player on your computer.</p>
+
 `
 
 // currently, the visual representation of this data lives at:

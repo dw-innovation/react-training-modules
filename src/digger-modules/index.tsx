@@ -388,7 +388,7 @@ const thing = (
                 <p>In our training programme we created exercises to sharpen your "vision" and "hearing" skills. Each activity has three exercises at different levels: easy, medium and advanced. </p>
 
                 <p>Doing these exercises will make you more confident to detect the almost (in)visible traces in synthetic media like blurred spots, missing pieces or a change of voice emphasis and cut & paste manipulation within a speech. </p>
-                <p>Go fullo screen for the optimal experience</p>
+                <p>Go full screen for the optimal experience</p>
           </div>
         </div>
       </div>

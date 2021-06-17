@@ -4,7 +4,7 @@ import * as types from '../../components/find-the-difference/types'
 
 
 export const tips = `
-<p>Compare the two images. Click in the left image on the missing piece you detect.</p>
+<p>Compare the two images. Click the differences in the left image.</p>
 <p><strong>Tip</strong>: Download both images and switch between the tabs.</p>
 `
 

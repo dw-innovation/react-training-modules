@@ -4,8 +4,8 @@ import MediaCount from '../../components/media-count';
 export const tips = `
 <p>Count all the bubbles you can see. Clustered bubbles count as one.</p>
 <p><strong>Focus on</strong> the details, take your time and ask a colleague to look at it as well. And do not just focus on the most visible one.</p>
-<p><strong>Tips:</strong> You can download visuals to be able to zoom in or watch a video frame-by-frame. </p>
-<p>You could use the Magnifier on InVid or use frame-by-frame viewing in the VLC player on your computer.</p>
+<p><strong>Tips:</strong> You can download visuals to be able to zoom in and watch a video frame-by-frame. </p>
+<p>You could use the Magnifier on InVid and use frame-by-frame viewing in the VLC player on your computer.</p>
 `
 
 const data = {
