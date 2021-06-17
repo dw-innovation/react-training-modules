@@ -114,10 +114,15 @@ const data: types.Data = {
         <path d="M13.8791 83L2 12.0588L39.1868 2L49 83H13.8791Z"
               transform="translate(949,706)" />
     },
-    { description: "bike>",
+    /* { description: "bike>",
+     *   shape:
+     *     <path d="M30 29V3L2 11.5V29H30Z"
+     *           transform="translate(980,774)"/>
+     * }, */
+    { description: "a cool lamp post",
       shape:
-        <path d="M30 29V3L2 11.5V29H30Z"
-              transform="translate(980,774)"/>
+        <path d="M5.5 24C4.83333 20.6667 3.2 11.8 2 3L24 9L39.5 134.5H27.5L20.5 29.5L5.5 24Z"
+              transform="translate(828,636)"/>
     },
     { description: "street",
       shape:

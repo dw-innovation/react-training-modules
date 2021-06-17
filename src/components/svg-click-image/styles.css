@@ -2,7 +2,7 @@
 .shape {
     fill: transparent;
     stroke: lime;
-    stroke-width: 5;
+    stroke-width: 3;
     transition: .2s opacity;
 }
 
