@@ -293,9 +293,11 @@ const Modules = ({...props}) => {
                     award(activityDotPath)(...args);
                     if (hasNext) { next(); }
                     else { const id = `module${i}-${j+1}`;
-                           const id2 = `module${i+1}-0`
+                           const id2 = `module${i+1}-0`;
+                          console.log(document.getElementById(id))
+                          console.log(document.getElementById(id2))
                            const el = document.getElementById(id) || document.getElementById(id2);
-                           if (el) { window.location.href = `#${id}`; }
+                           if (el) { window.location.href = `#${el.id}`; }
                            else { window.location.href = `#toc` }}
                   }
 
