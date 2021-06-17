@@ -75,7 +75,7 @@ export const ClickImage = ({ image,
            className={styles.link}
            onClick={succeeded(s)}>
           <g className={styles.shape}
-             opacity={s.visible ? "1" : ".3"}>
+             opacity={s.visible ? "1" : "0"}>
             {s.shape}
           </g>
         </a>
