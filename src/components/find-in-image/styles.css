@@ -44,15 +44,16 @@
 }
 
 .title {
-  font-size: 2.8rem !important;
+  font-size: 2.4rem !important;
   font-family: var(--heading-font) !important;
   margin-top: 0 !important;
   font-weight: normal !important;
-  margin-bottom: var(--spacing) !important;
+  margin-bottom: 0 !important;
 }
 .description {
   font-size: 1.3rem;
   font-family: var(--heading-font);
+  margin-top: calc(var(--spacing) / 2) !important;
 }
 .tips {
     font-size: 1rem;
@@ -97,7 +98,8 @@
 
 .title {
   font-size: 2rem;
-  font-family: var(--heading-font);
+  font-family: var(--font);
+  font-weight: bold;
 }
 .description {
   font-size: 1.3rem;
@@ -118,5 +120,7 @@
 
 .header {
   margin-top: var(--spacing) !important;
-  margin-bottom: var(--spacing) !important;
+  margin-bottom: calc(var(--spacing) / 2) !important;
+  font-family: var(--font) !important;
+  font-weight: bold !important;
 }

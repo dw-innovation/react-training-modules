@@ -47,7 +47,7 @@ const Component
        active = false,
        data, }) => {
     //
-    const { meta: { title, description },
+    const { meta: { title, description, tips },
             choices: initialChoices,
             solutions,
             audio, } = data;
@@ -71,9 +71,14 @@ const Component
           <p className={activityStyles.description}>
             {description}
           </p>
+          <p className={activityStyles.tips}
+              dangerouslySetInnerHTML={{__html: tips}} />
         </div>
         <div className={activityStyles.row1}>
           <Waveform url={audio} redraw={active} />
+          <h4 className={activityStyles.header}>
+            I can hear:
+          </h4>
           <div className={styles.choices}>
             {choices.map((a, i) => {
               const cs = c(styles.button,
@@ -106,7 +111,8 @@ export default Component;
 const data: types.Data = {
     meta: {
         title: "Sound Collector",
-        description: "Listen carefully through the  audio. There are 2 different sounds. Pick 2 out of the 10.",
+        description: "Is there anybody out there?",
+        tips: "Listen carefully through the  audio. There are 2 different sounds. Pick 2 out of the 10.",
     },
     choices: ["Cars", "Birds", "Bells", "Mixer", "Washing Machine", "Paper", "Raindrops", "Elevator", "Wind", "Leaves"],
     solutions: ["Washing Machine", "Birds"],
@@ -117,7 +123,8 @@ const data: types.Data = {
 const data2: types.Data = {
     meta: {
         title: "Sound Collector",
-        description: "Listen carefully through the  audio. There are 3 different sounds. Pick 3 out of the 10.",
+        description: "Is there anybody out there?",
+        tips: "Listen carefully through the  audio. There are 2 different sounds. Pick 2 out of the 10.",
     },
     choices: ["Skateboard", "Cars", "Hair Dryer", "Steps", "Toothbrush", "Mouse Clicking", "Clapping", "Coffee Machine", "Train", "Clock"],
     solutions: ["Steps", "Train", "Hair Dryer"],
@@ -127,7 +134,8 @@ const data2: types.Data = {
 const data3: types.Data = {
     meta: {
         title: "Sound Collector",
-        description: "Listen carefully through the  audio. There are 4 different sounds. Pick 4 out of the 10.",
+        description: "Is there anybody out there?",
+        tips: "Listen carefully through the  audio. There are 2 different sounds. Pick 2 out of the 10.",
     },
     choices: ["Music", "Drinking", "Construction", "Cutlery", "Church", "Waves", "Wind", "Market", "Bottle Opening", "Toothbrush"],
     solutions: ["Toothbrush", "Church", "Market", "Drinking"],

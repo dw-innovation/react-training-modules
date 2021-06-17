@@ -34,10 +34,10 @@ import styles from './styles.css';
 // @ts-ignore
 import tocStyles from './styles-toc.css';
 
-const Progress = ({ percent }) =>
+const Progress = ({ percent, label }: {percent: number; label?: string;}) =>
   <div className={styles.progress}>
-    <div className={styles.progressInner} style={{width: `${percent}%`}}>
-
+    <div className={styles.progressInner} style={{width: `${percent || 2}%`}}>
+      { label && <div className={styles.progressLabel}>{label}</div> }
     </div>
   </div>
 
@@ -177,7 +177,6 @@ const Modules = ({...props}) => {
   return (
     <div className="diggerModules">
       <div id="toc" className={tocStyles.wrapper}>
-        <Progress percent={percent} />
         <div className={tocStyles.modules}>
         {modules.map((theme, i) => {
           const { title, description, modules } = theme;
@@ -207,9 +206,9 @@ const Modules = ({...props}) => {
                 const percent = mean(percents) || 0;
 
                 return (
-                  <a href={`#module${i}-${j}`}>
+                  <a href={`#module${i}-${j}`} className={tocStyles.modLink}>
                   <div className={tocStyles.module}>
-                    <div className={tocStyles.backProgress} style={{width: `${percent}%`}} />
+                    <div className={tocStyles.backProgress} style={{width: `${percent || 2}%`}} />
                     <div className={tocStyles.moduleTitle}>{title}</div>
                   </div>
                   </a>
@@ -222,6 +221,9 @@ const Modules = ({...props}) => {
 
 
         })}
+        </div>
+        <div className={tocStyles.progressHeader}>
+        <Progress percent={percent} label={`Overall Progress: ${percent}%`} />
         </div>
       </div>
 

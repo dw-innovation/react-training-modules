@@ -46,7 +46,7 @@ const Component
        active = false,
        data, }) => {
     //
-    const { meta: { title, description },
+    const { meta: { title, description, tips },
             choices: initialChoices,
             solution,
             audio, } = data;
@@ -71,9 +71,14 @@ const Component
           <p className={activityStyles.description}>
             {description}
           </p>
+          <p className={activityStyles.tips}
+              dangerouslySetInnerHTML={{__html: tips}} />
         </div>
         <div className={activityStyles.row1}>
           <Waveform url={audio} redraw={active} />
+          <h4 className={activityStyles.header}>
+            I can hear:
+          </h4>
           <div className={styles.choices}>
             {choices.map((a, i) => {
               const cs = c(styles.button,
@@ -106,7 +111,8 @@ export default Component;
 const data: types.Data = {
     meta: {
         title: "Critical Listening",
-        description: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
+        description: "Sharpen your ears, put on the headphones",
+        tips: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
     },
     choices: ["Notification", "Birds", "Mouse Clicking", "Table Tennis",],
     solution: "Mouse Clicking",
@@ -117,7 +123,8 @@ const data: types.Data = {
 const data2: types.Data = {
     meta: {
         title: "Critical Listening",
-        description: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
+        description: "Sharpen your ears, put on the headphones",
+        tips: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
     },
     choices: ["Raidrops", "Waves", "Fountain", "Water Running"],
     solution: "Water Running",
@@ -127,7 +134,8 @@ const data2: types.Data = {
 const data3: types.Data = {
     meta: {
         title: "Critical Listening",
-        description: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
+        description: "Sharpen your ears, put on the headphones",
+        tips: "Listen carefully through the audio. Out of the 4 which sound can you detect? Select 1",
     },
     choices: ["Washing Mashine", "Escalator", "Ambulance", "Mixer"],
     solution: "Escalator",

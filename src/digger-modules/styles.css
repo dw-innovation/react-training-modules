@@ -59,6 +59,12 @@ html, body {
 .intro h1 {
   font-size: 3rem !important;
   font-family: var(--heading-font) !important;
+  margin-bottom: 0 !important;
+  font-weight: bold;
+}
+.intro h2 {
+  margin-top: 0 !important;
+  font-size: 2rem;
 }
 
 .progress {
@@ -72,6 +78,14 @@ html, body {
   background-color: var(--blue-lighter);
   transition: width .5s;
   transition-timing-function: ease-out;
+}
+.progressLabel {
+  font-size: .8rem;
+    margin: 0 auto;
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    margin-top: .2rem;
 }
 
 @-webkit-keyframes slide-right {
@@ -161,11 +175,11 @@ html, body {
   justify-content: center;
   align-items: center;
   padding: calc(var(--spacing) / 2) var(--spacing);
-  font-family: var(--heading-font);
+  font-family: var(--font);
+  color: var(--white);
 }
 .moduleHeaderItem a {
   text-decoration: none;
-  color: var(--white);
 }
 .moduleHeaderItem:last-child {
 }
@@ -178,19 +192,21 @@ html, body {
 }
 
 .activityHeaders {
+  color: #000;
+  font-size: 1.3rem;
 }
 .activityModuleTitle {
   display: inline-block;
-  font-family: var(--heading-font);
+  font-family: var(--font);
   font-weight: normal;
 }
 .activityHeader {
   display: inline-block;
-  font-family: var(--heading-font);
+  font-family: var(--font);
   margin-right: .3rem;
 }
-.activityHeader.active { text-decoration: underline; }
-.activityHeader:after { content: " / "; color: var(--white); text-dexoration: none; }
+.activityHeader.active { border-bottom: 2px solid white; font-weight: bold; }
+.activityHeader:after { content: " / "; border-bottom: 0px solid transparent !important; }
 .activityHeader:last-child:after { content: " "; }
 
 .moduleHeaderItem .buttonSecondary{

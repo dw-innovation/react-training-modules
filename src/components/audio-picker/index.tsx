@@ -47,7 +47,7 @@ const Component
        active = false,
        data, }) => {
     //
-    const { meta: { title, description },
+    const { meta: { title, description, tips },
             solution,
             audios: initialAudios, } = data;
 
@@ -73,16 +73,20 @@ const Component
           <p className={activityStyles.description}>
             {description}
           </p>
+          <p className={activityStyles.tips}
+              dangerouslySetInnerHTML={{__html: tips}} />
+
         </div>
         <div className={activityStyles.row2}>
           <div className={styles.audios}>
             {audios.map((a, i) => {
               const bb =
                 // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
-                (a?.correct === false) ? "wrong" :
+                (a?.correct === false) ? "Wrong" :
                     // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
-                    (a?.correct === true) ? "right" : "pick";
+                    (a?.correct === true) ? "Well done!" : "Real";
               const cs = c(styles.button,
+                           styles.fullButton,
                            classes.button,
                            // @ts-ignore - undefined is not clicked yet, false is clicked and wrong
                            (a?.correct === false) ? activityStyles.buttonWrong : null,
@@ -119,7 +123,8 @@ export default Component;
 const data: types.Data = {
     meta: {
         title: "Voice cloning",
-        description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        description: "Real or synthetic?",
+        tips: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
     solution: 2,
     audios: [
@@ -134,7 +139,8 @@ const data: types.Data = {
 const data2: types.Data = {
     meta: {
         title: "Voice cloning",
-        description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        description: "Real or synthetic?",
+        tips: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
     solution: 0,
     audios: [
@@ -147,7 +153,8 @@ const data2: types.Data = {
 const data3: types.Data = {
     meta: {
         title: "Voice cloning",
-        description: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
+        description: "Real or synthetic?",
+        tips: "Listen carefully through the 3 audios. Two voices are synthetic just one voice is real - which one? ",
     },
     solution: 0,
     audios: [
