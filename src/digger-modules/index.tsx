@@ -402,7 +402,7 @@ const thing = (
             <li>Concept: Julia Bayer </li>
             <li>Design: Ruben Bouwmeester</li>
             <li>Development: Niko Para</li>
-            <li>Copyright images and videos: Julia Bayer</li>
+            <li>Copyright images, videos and sounds: Julia Bayer</li>
           </ul>
         </div>
       </div>

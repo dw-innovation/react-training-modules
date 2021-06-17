@@ -5,13 +5,17 @@
 
 @font-face {
   font-family: "Noto Sans";
+  font-style: normal;
+  font-display: swap;
   weight: 400;
   src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/noto-sans-google.woff2') format('woff2');
 }
 
 
 @font-face {
-  font-family: "Noto Sans";
+  font-family: "Noto Sans Bold";
+  font-style: normal;
+  font-display: swap;
   weight: 700;
   src: url('https://digger-training-modules-resources.s3.eu-central-1.amazonaws.com/resources/noto-sans-google-bold.woff2') format('woff2');
 }
@@ -45,3 +49,11 @@
 
 
 :global(button) { cursor:pointer; }
+
+:global(p strong) {
+  font-family: "Noto Sans Bold";
+}
+
+:global(p b) {
+  font-family: "Noto Sans Bold";
+}
