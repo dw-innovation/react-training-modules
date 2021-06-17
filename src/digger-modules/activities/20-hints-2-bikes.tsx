@@ -49,8 +49,11 @@ const data: types.Data = {
     },
     { description: "a truck",
       shape:
-        <path d="M2 61V2H91V61H2Z"
-              transform="translate(190,758)"/>
+        <g transform="translate(190,748)">
+          <path d="M2 72V13H91V72H2Z" />
+          <path d="M531.5 47.5L550.5 23.5H597.5V58.5H541L531.5 47.5Z" />
+          <path d="M456.5 3H425.5H410V47.5H448.5L464 40.5L456.5 3Z" />
+        </g>
     },
     { description: "a guy on a bench",
       shape:
@@ -73,14 +76,18 @@ const data: types.Data = {
     { description: "Bike shelters",
       shape:
         <g transform="translate(38,794)">
-          <path d="M363 2.5L2 138.5V306.5L112.5 420.5L391 56.5L403.5 24.5L363 2.5Z" />
-          <path d="M558.5 67.5V33.5L585 14L665.5 24.5L979.5 110V392L558.5 67.5Z"/>
+          <path d="M363 2.5L2 138.5V306.5L112.5 420.5L391 56.5L403.5 24.5L363 2.5Z"/>
+          <path d="M558.5 67.5V33.5L585 14L665.5 24.5L979.5 110V392L558.5 67.5Z" />
         </g>
     },
     { description: "Some trees",
       shape:
-        <path d="M11 113L3 12.5L95 2.5L86.5 109L11 113Z"
-              transform="translate(488,676)"/>
+        <g transform="translate(494,648)">
+          <path d="M327 63V2.5L466.5 13L429 144.5L413.5 137V109.5L327 63Z" />
+          <path d="M12.6957 141L2 25.4932L125 14L113.636 136.403L12.6957 141Z" />
+          <path d="M195 40.5L154 61L146.5 91H175.5L195 109L230 61L195 40.5Z" />
+          <path d="M304.5 61L273 32H262L236 43L230 78L262 109L288.5 98.5L304.5 61Z" />
+        </g>
     },
     { description: "brandenburger tor",
       shape:
@@ -104,8 +111,8 @@ const data: types.Data = {
     },
     { description: "storefront",
       shape:
-        <path d="M14.5 79.5L3 12.5L39 3L48.5 79.5H14.5Z"
-              transform="translate(949,706)"/>
+        <path d="M13.8791 83L2 12.0588L39.1868 2L49 83H13.8791Z"
+              transform="translate(949,706)" />
     },
     { description: "bike>",
       shape:
@@ -131,6 +138,13 @@ const data: types.Data = {
       shape:
 <path d="M2.5 26V5.5V2H19.5L28.5 26H2.5Z"
       transform="translate(915,769)"/>
+    },
+    { description: "park benches",
+      shape:
+        <g transform="translate(301,805)">
+          <path d="M13.5 25L3 2H22.25H41.5V25H13.5Z" />
+          <path d="M448.5 42L455 9.5H448.5L408.5 2L393 31.5L448.5 42Z" />
+        </g>
     },
   ]
 }

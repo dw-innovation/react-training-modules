@@ -1,9 +1,9 @@
 
 .shape {
     fill: transparent;
-    stroke: yellow;
+    stroke: lime;
     stroke-width: 5;
-    transition: 1s opacity;
+    transition: .2s opacity;
 }
 
 .link {
