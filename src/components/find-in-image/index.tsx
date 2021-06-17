@@ -45,8 +45,11 @@ const Component
 
     const [shapes, setShapes] = React.useState(originalShapes)
 
+  const [markers, setMarkers] = React.useState([]);
+
     const reset = () => {
       setFailed(0);
+      setMarkers([]);
       setShapes(originalShapes);
     }
 
@@ -114,6 +117,8 @@ const Component
           <ClickImage
             image={image}
             shapes={shapes}
+            markers={markers}
+            setMarkers={setMarkers}
             zoom={true}
             successClick={clickFound}
             failedClick={clickFailed} />

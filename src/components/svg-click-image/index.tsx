@@ -18,6 +18,8 @@ const svgProps = { version: "1.1",
 type Props = { image: types.Image;
                shapes: types.Shape[];
                zoom?: boolean;
+               markers?: any[];
+               setMarkers?: (x: any) => void;
                successClick?: (s: types.Shape, c: types.Coords) => void;
                failedClick?: (c: types.Coords) => void; }
 
@@ -26,12 +28,13 @@ type Props = { image: types.Image;
 export const ClickImage = ({ image,
                              shapes,
                              zoom,
+                             markers = [],
+                             setMarkers = () => {},
                              successClick,
                              failedClick }: Props ) => {
   //
   const svgRef = React.useRef(null);
   const containerRef = React.useRef(null);
-  const [markers, setMarkers] = React.useState([]);
 
   /* return the relative coordinates of where you clicked in the svg,
             assuming it's size has been changed by the browser window

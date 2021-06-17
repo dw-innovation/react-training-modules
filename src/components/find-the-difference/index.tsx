@@ -42,8 +42,10 @@ const Component
     const [failedAttempts, setFailed] = React.useState(0)
 
     const [shapes, setShapes] = React.useState(originalShapes)
+    const [markers, setMarkers] = React.useState([]);
 
     const reset = () => { setFailed(0);
+                          setMarkers([]);
                           setShapes(originalShapes); }
 
     // given a shape, update that shape in our state
@@ -111,6 +113,8 @@ const Component
             <ClickImage
               image={alteredImage}
               shapes={shapes}
+            markers={markers}
+            setMarkers={setMarkers}
               successClick={clickFound}
               failedClick={clickFailed} />
             <a download={alteredImage.src} target="_blank" href={alteredImage.src}>Download media</a>
