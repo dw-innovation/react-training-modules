@@ -307,6 +307,7 @@ html, body {
     display: flex;
     justify-content: right;
     align-items: center;
+    float: right;
 }
 .upperShareBlock {
   float: right;

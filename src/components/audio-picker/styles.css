@@ -71,7 +71,7 @@
 }
 .choices > * {
     display: block;
-    width: 10rem;
+    width: 15rem;
     margin-right: var(--spacing);
     margin-bottom: var(--spacing);
 }

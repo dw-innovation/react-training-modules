@@ -92,9 +92,9 @@ a .moduleTitle {
     background-color: var(--lightgrey);
 }
 .progressHeader > * {
-    height: 1.2rem !important;
+    height: 1.8rem !important;
 }
 .progressHeader > * > * {
-    height: 1.2rem !important;
+    height: 1.8rem !important;
     background-color: var(--green);
 }
