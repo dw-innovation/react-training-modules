@@ -21,10 +21,19 @@ const data: types.Data = {
     width: 1024,
   },
   shapes: [
-    { description: "The whole thing",
+    /* { description: "The whole thing",
+     *   shape:
+     *     <path d="M2 1039.18V2H1022V1093L2 1039.18Z"
+     *           transform="translate(4,15)" />
+     * }, */
+    { description: "gas station bottoms",
       shape:
-        <path d="M2 1039.18V2H1022V1093L2 1039.18Z"
-              transform="translate(4,15)" />
+        <g transform="translate(36, 664)">
+          <path d="M780.5 189L413.5 115L471.5 70L803 137.5L780.5 189Z" stroke="#F70F39" stroke-width="3"/>
+          <path d="M203 58.5L117.5 70L5 47.5L63 12L203 58.5Z" stroke="#F70F39" stroke-width="3"/>
+          <path d="M527.5 36L379.5 21.5L404 2.5L571 21.5L527.5 36Z" stroke="#F70F39" stroke-width="3"/>
+          <path d="M981.5 70L753 47.5L780.5 36L989.5 54L981.5 70Z" stroke="#F70F39" stroke-width="3"/>
+        </g>
     },
     { description: "somegraffiti in the back",
       shape:
