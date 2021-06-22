@@ -375,19 +375,24 @@ const thing = (
         <h2>and strengthen your verification skills</h2>
         <div className={styles.panels}>
           <div className={styles.introPanel1}>
+
             <p>Verification is not just about tools. Essential are our human senses. Whom can we trust, if not our own senses?</p>
+
             <blockquote>
               “The world is full of magic things, patiently waiting for our senses to grow sharper.”
 <span className={styles.quoteauthor}>(W.B. Yeats)</span>
 
             </blockquote>
             <p>We created a training for you, so that you are able to take full advantage of your senses. </p>
+
+
             </div>
               <div className={styles.introPanel2}>
 
-                <p>In our training programme we created exercises to sharpen your "vision" and "hearing" skills. Each activity has three exercises at different levels: easy, medium and advanced. </p>
+                <p>In this training you will find exercises to sharpen your <strong>vision</strong> and <strong>hearing</strong> skills. Each activity has three exercises at three levels: easy, medium and advanced.</p>
 
-                <p>Doing these exercises will make you more confident to detect the almost (in)visible traces in synthetic media like blurred spots, missing pieces or a change of voice emphasis and cut & paste manipulation within a speech. </p>
+                <p>Doing these exercises will make you more confident to detect the almost (in)visible traces in synthetic and manipulated media like blurred spots, missing pieces or a change of voice emphasis and cut & paste manipulation within a speech. </p>
+
                 <p>Go full screen for the optimal experience</p>
           </div>
         </div>

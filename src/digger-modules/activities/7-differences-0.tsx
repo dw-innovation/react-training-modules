@@ -4,7 +4,7 @@ import * as types from '../../components/find-the-difference/types'
 
 
 export const tips = `
-<p>Compare the two images. Click the differences in the left image.</p>
+<p>Compare the two images. Click on the differences in the left image.</p>
 <p><strong>Tip</strong>: Download both images and switch between the tabs.</p>
 `
 
@@ -18,7 +18,7 @@ const data: types.Data = {
   meta: {
     title: "7 Differences",
     tips,
-    description: "Find the 7 differences in one image"
+    description: "Can you find them?"
   },
   image: {
     original: {

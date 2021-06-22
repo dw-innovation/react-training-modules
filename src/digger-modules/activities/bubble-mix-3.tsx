@@ -1,7 +1,12 @@
 import React from 'react'
 import MediaCount from '../../components/media-count';
 
-import {tips} from './bubble-mix-1';
+const tips = `
+<p>Count all the bubbles you can see. Clustered bubbles count as one.</p>
+<p><strong>Focus on</strong> the details, take your time and ask a colleague to look at it as well. And do not just focus on the most visible one.</p>
+<p><strong>Tips:</strong> Pause the video so that you can skim through the timeline by using < and >.</p>
+<p>You can also download the video to watch it frame-by-frame. For example with the VLC player on your computer.</p>
+`
 
 const data = {
   meta: {

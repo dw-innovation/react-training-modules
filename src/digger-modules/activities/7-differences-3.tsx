@@ -13,7 +13,7 @@ const data: types.Data = {
   meta: {
     title: "7 Differences",
     tips,
-    description: "Find the 7 differences in the two images"
+    description: "Can you find them?"
   },
   image: {
     original: {
