@@ -59,12 +59,12 @@
     color: var(--black);
     background-color: var(--light-grey);
     position: relative;
-    border: 1px solid var(--blue);
+    border: 1px solid var(--blue-light);
     margin: calc(var(--spacing) / 2) 0;
 }
 
 .backProgress {
-    background-color: var(--blue);
+    background-color: var(--blue-light);
     position: absolute;
     height: 100%;
     transition: width .5s;
